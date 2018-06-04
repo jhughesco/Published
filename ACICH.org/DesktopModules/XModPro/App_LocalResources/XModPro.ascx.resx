@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Error.Text" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ERR_AddError.Text" xml:space="preserve">
+    <value>An error occurred while trying to create the record. The error has been logged.</value>
+  </data>
+  <data name="ERR_InvalidControlDataType.Text" xml:space="preserve">
+    <value>Invalid data type in control '{0}'</value>
+  </data>
+  <data name="ERR_InvalidFieldName.Text" xml:space="preserve">
+    <value>The template specifies a field whose name cannot be found in the resultset. This is usually caused by a mispelled field name. Note that field names are case-sensitive.</value>
+  </data>
+  <data name="ERR_InvalidFormClass.Text" xml:space="preserve">
+    <value>Form: '{0}' must inherit from KnowBetter.XModPro.FormBase</value>
+  </data>
+  <data name="ERR_InvalidTemplateClass.Text" xml:space="preserve">
+    <value>Template: '{0}' must inherit from KnowBetter.XModPro.TemplateBase</value>
+  </data>
+  <data name="ERR_UnexpectedError.Text" xml:space="preserve">
+    <value>An Unexpected Error Has Occurred. Please See the Event Viewer for Details</value>
+  </data>
+  <data name="ERR_UnexpectedError_AllUsers.Text" xml:space="preserve">
+    <value>An Unexpected Error Has Occurred. The site administrators have been notified.</value>
+  </data>
+  <data name="ERR_UnknownControlDataType.Text" xml:space="preserve">
+    <value>Unable to bind control '{0}' - unknown data type '{1}'</value>
+  </data>
+  <data name="ERR_UpdateError.Text" xml:space="preserve">
+    <value>An error occurred while trying to update the record. The error has been logged.</value>
+  </data>
+  <data name="MNU_Activation.Text" xml:space="preserve">
+    <value>License and Activation</value>
+  </data>
+  <data name="MNU_AddItemDefaultText.Text" xml:space="preserve">
+    <value>Add New Item</value>
+  </data>
+  <data name="MNU_ManageForms.Text" xml:space="preserve">
+    <value>Manage Forms</value>
+  </data>
+  <data name="MNU_ManageTemplates.Text" xml:space="preserve">
+    <value>Manage Templates</value>
+  </data>
+  <data name="MNU_XModProSettings.Text" xml:space="preserve">
+    <value>Configure</value>
+  </data>
+  <data name="MSG_ConfigurationNeeded.Text" xml:space="preserve">
+    <value>This module needs to be configured via the XModPro Settings page.</value>
+  </data>
+  <data name="MSG_NoRecordFound.Text" xml:space="preserve">
+    <value>No Record Found</value>
+  </data>
+  <data name="ERR_TemplateCompilation.Text" xml:space="preserve">
+    <value>Template Compilation Error</value>
+  </data>
+  <data name="ControlId.Text" xml:space="preserve">
+    <value>Control ID:</value>
+  </data>
+  <data name="ControlType.Text" xml:space="preserve">
+    <value>Control Type:</value>
+  </data>
+  <data name="StackTrace.Text" xml:space="preserve">
+    <value>Stack Trace:</value>
+  </data>
+  <data name="ERR_FormCompilation.Text" xml:space="preserve">
+    <value>Form Compilation Error</value>
+  </data>
+  <data name="ERR_InvalidTokenUsage.Text" xml:space="preserve">
+    <value>An error has been thrown by the server. The most likely cause of this error is using a token in area where it is not allowed or the token may be incorrectly formed.</value>
+  </data>
+  <data name="ERR_FormDoesNotExist.Text" xml:space="preserve">
+    <value>An error has been thrown by the server. The most likely cause of this error is that a form assigned to this module instance has been deleted or renamed.</value>
+  </data>
+  <data name="ERR_TemplateDoesNotExist.Text" xml:space="preserve">
+    <value>An error has been thrown by the server. The most likely cause of this error is that a template assigned to this module instance has been deleted or renamed.</value>
+  </data>
+  <data name="ServerError.Text" xml:space="preserve">
+    <value>Server Error Message:</value>
+  </data>
+  <data name="MNU_ControlPanel.Text" xml:space="preserve">
+    <value>Control Panel</value>
+  </data>
+  <data name="EditLabel.Text" xml:space="preserve">
+    <value>Edit:</value>
+  </data>
+  <data name="FormLabel.Text" xml:space="preserve">
+    <value>Form:</value>
+  </data>
+  <data name="TemplateLabel.Text" xml:space="preserve">
+    <value>Template:</value>
+  </data>
+</root>

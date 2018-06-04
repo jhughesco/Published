@@ -1,0 +1,1 @@
+﻿<%@ WebHandler Language="VB" CodeBehind="FileTransferHandler.ashx.vb" Class="Reflect.Xile.AjaxUploaderCall.FileTransferHandler" %>

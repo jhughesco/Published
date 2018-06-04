@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="4" MadCap:lastHeight="1097" MadCap:lastWidth="602" class="">
+    <head><title></title>
+        <link rel="stylesheet" href="XModProHelp.css" type="text/css" />
+    </head>
+    <body>
+        <h1>&lt;HtmlInput&gt;</h1><a name="top"></a>
+        <p class="Nav"><a href="#syntax">Syntax</a>&#160;<a href="#remarks">Remarks</a>&#160;<a href="#example">Example</a></p>
+        <p>The HtmlInput tag renders as a rich text editor at run time. It uses the current HTML&#160;Editor provider for your DotNetNuke site.</p><a name="syntax"></a>
+        <h2>Syntax</h2>
+        <div><code>&lt;HtmlInput
+    </code>
+            <br style="mc-tag-and-class: code;" /><code><code>&#160;&#160;&#160; DataField="<i>string</i>"
+    </code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160; DataType="<b><i>string</i>"</b><br /></code>&#160;&#160;&#160;&#160;Height="<i>size</i>" <br />&#160;&#160;&#160;&#160;ID="<i>string</i>" <br />&#160;&#160;&#160;&#160;Nullable="True|<b>False</b>"<br />&#160;&#160;&#160;&#160;Visible="<b>True</b>|False" <br />&#160;&#160;&#160;&#160;Width="<i>size</i>"<br /></code><code> /&gt;&#160; </code>
+        </div>&#160;
+    
+<a name="remarks"></a><h2>Remarks</h2><p>The HtmlInput tag enables you to provide your users with an easy-to-use rich text editor. This allows them to enter and format text as they would in a word processor. Behind the scenes, the HtmlInput tag uses the default rich text editor setup for use with your site.   The "datatype" attribute is always <b>string</b>. </p><p><b>Validating the HtmlInput Control</b>: The nature of the HtmlInput control does not allow it to be validated on the client. If you use a validator with this control, set the "enableclientscript" attribute to "false".</p><p>The HtmlInput control has the following attributes:</p><ul><li><b>DataField</b>: Name of the parameter in the <code>&lt;submitcommand&gt;</code> which will be filled with this control's data on when the form is submitted and/or the parameter in the <code>&lt;selectcommand&gt;</code> which will supply this control's data when the form is loaded. This attribute is required if the control will participate in operations with your form's data commands.</li><li><b>DataType</b>: The type of data this control is supplying to the data commands. This is a <a href="datatypes.html">Database type</a>. The datatype for the HtmlInput is always string..<br /></li><li><b>Height</b>: Height of the control, specified in <a href="units.html">units</a>.</li><li><b>ID</b>: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.</li><li><b>Nullable</b>: If True (the default is False), the control will return a DBNull value if the control is blank or contains just whitespace. If a DBNull value is passed to the control, the control will be set to an empty string. NOTE: Different HTML editors may function differently. XMod Pro will set/read the "StringValue"&#160;property on the underlying editor provider. What the individual editor does with that is up to the editor.</li><li><b>Visible</b>: Determines if the control is visible (true) or hidden (false)</li><li><b>Width</b>: Width of the control in <a href="units.html">units</a>.</li></ul><a href="#top" class="link">Back to top</a> <![CDATA[ ]]><a name="example"></a><h2>Example</h2><div><code>&lt;addform&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;...</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&lt;table&gt;<br />&#160;&#160;&#160;&#160;...</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160; &lt;tr&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&#160; 
+ &lt;td&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+ &lt;label for="txtBio" text="Bio" /&gt; </code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;htmlinput id="txtBio" datafield="Bio" 
+ datatype="string" width="600" height="400"/&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&#160; 
+ &lt;/td&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&lt;/tr&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;...</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&lt;tr&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&#160; 
+ &lt;td colspan="2"&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+ &lt;addbutton text="Add"/&gt;&amp;nbsp;&lt;cancelbutton 
+ text="Cancel"/&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&#160; 
+ &lt;/td&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&lt;/tr&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&lt;/table&gt;</code><br style="mc-tag-and-class: code;" /><code>  &lt;/addform&gt;</code></div><a href="#top">Back to top</a></body>
+</html>

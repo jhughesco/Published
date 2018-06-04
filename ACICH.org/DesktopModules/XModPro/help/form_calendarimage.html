@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="1566" MadCap:lastWidth="1852" class="">
+    <head><title></title>
+        <link rel="stylesheet" href="XModProHelp.css" type="text/css" />
+    </head>
+    <body>
+        <h1>&lt;CalendarImage&gt;</h1><a name="top"></a>
+        <p class="Nav"><a href="#syntax">Syntax</a>&#160;<a href="#remarks">Remarks</a>&#160;<a href="#example">Example</a></p>
+        <p>The CalendarImage tag renders as a push-button at run-time. When clicked, a calendar date-picker pops up to enable the user to select a date. </p><a name="syntax"></a>
+        <h2>Syntax</h2><pre xml:space="preserve"><code xmlns="http://www.w3.org/1999/xhtml">&lt;CalendarImage</code><code xmlns="http://www.w3.org/1999/xhtml"><br /><code>&#160;&#160;&#160;&#160;AccessKey="<i>string</i>"
+&#160;&#160;&#160;&#160;AlternateText="<i>string</i>"</code></code><code xmlns="http://www.w3.org/1999/xhtml">    <![CDATA[
+ ]]></code><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;BackColor="<i>color name</i>|#dddddd"
+</code><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;BorderColor="<i>color name</i>|#dddddd"<br />&#160;&#160;&#160;&#160;BorderStyle="<b>NotSet</b>|None|Dotted|Dashed|Solid|Double|Groove|Ridge|Inset|Outset"<br />&#160;&#160;&#160;&#160;BorderWidth="<i>size</i>"<br />&#160;&#160;&#160;&#160;CssClass="<i>string</i>"<br />&#160;&#160;&#160;&#160;Font-Bold="True|<b>False</b>"<br />&#160;&#160;&#160;&#160;Font-Italic="True|<b>False</b>"<br />&#160;&#160;&#160;&#160;Font-Names="<i>string</i>"<br />&#160;&#160;&#160;&#160;Font-Overline="True|<b>False</b>"<br />&#160;&#160;&#160;&#160;Font-Size="<i>string</i>|Smaller|Larger|XX-Small|X-Small|Small|Medium|Large|X-Large|XX-Large"<br />&#160;&#160;&#160;&#160;Font-Strikeout="True|<b>False</b>"<br />&#160;&#160;&#160;&#160;Font-Underline="True|<b>False</b>"<br />&#160;&#160;&#160;&#160;ForeColor="<i>color name</i>|#dddddd"
+&#160;&#160;&#160;&#160;Format="<i>date-formatting expression</i>"<br />&#160;&#160;&#160;&#160;Height="<i>size</i>"
+&#160;&#160;&#160;&#160;ImageUrl="<i>url</i>"<br />&#160;&#160;&#160;&#160;Style="<i>string</i>"<br />&#160;&#160;&#160;&#160;TabIndex="<i>integer</i>"
+&#160;&#160;&#160;&#160;Target="<i>ID of control that will receive the selected date</i>"<br />&#160;&#160;&#160;&#160;ToolTip="<i>string</i>"<br />&#160;&#160;&#160;&#160;Visible="<b>True</b>|False"<br />&#160;&#160;&#160;&#160;Width="<i>size</i>"</code>
+&#160;&#160;/&gt; &#160;
+</pre><pre xml:space="preserve">&#160;</pre>
+        <h2>Remarks</h2><a name="remarks"></a>
+        <ul>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">AccessKey</b>: In browsers that support it, this property can be set to a character on the keyboard that can be used to set focus to the control. For instance, setting the value to F allows the user to access the control by pressing Alt+F on their keyboard (for Windows machines).<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">AlternateText</b>: Use this attribute's value will be used as the image's "alt" text. The "alt" text is generally used by screen reader software used by visually impaired users to identify the content of an image. It may also be used by search engines.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">BackColor</b>: Color of the background of the control.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">BorderColor</b>: Color of the border around the control.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">BorderStyle</b>: Style of the border around the control.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">BorderWidth</b>: Width of the border around the control, specified in <a href="units.html" xmlns="http://www.w3.org/1999/xhtml">units.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></a></li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">CssClass</b>: Name of the Cascading Style Sheets (CSS) class used to style this control.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">Font Properties</b>: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. <a href="fontproperties.html" xmlns="http://www.w3.org/1999/xhtml">More<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></a></li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">ForeColor</b>:&#160;Sets the foreground color (typically the color of the text) of the control.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">Format</b>:  If specified, this overrides the default date format used by the pop-up calendar. If left blank, the web server's default short date format will be used. An example format would be: format="yyyy-MM-dd" where "yyyy" returns the four digit year, "MM" returns a two-digit month, and "dd" returns a two-digit day. If you need the value to stay in that format, consider also using the &lt;validate type="regex"&gt; tag to validate the target control.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">Height</b>: Height of the control, specified in <a href="units.html" xmlns="http://www.w3.org/1999/xhtml">units</a>.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">Style</b>: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. "color: red; border: solid 1px black;").<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">TabIndex</b>: Sets the tab index for the control. <br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">Target</b>: This is the ID of the control where the calendar's selected date will be sent. This should be a text box.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">ToolTip</b>: In browsers that support it, sets the text to display when the mouse pointer hovers over the control.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">Visible</b>: Determines if the control is visible (true) or hidden (false).<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li><b>Width</b>: Width of the control in <a href="units.html">units</a>.</li>
+        </ul>
+        <p>&#160;</p><a href="#top" class="link">Back to top</a><a name="example"></a>
+        <h2>Example</h2>
+        <div><code xmlns="http://www.w3.org/1999/xhtml">&lt;AddForm&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&lt;SubmitCommand CommandText="INSERT INTO Users(FirstName, 
+ LastName) VALUES(@FirstName, @LastName)" /&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&lt;table&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&lt;tr&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160;&#160;&lt;td&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&lt;Label For="txtEventDate" Text="Event Date" /&gt; </code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;TextBox Id="txtEventDate" DataField="EvtDate" DataType="datetime" /&gt;<br /> <![CDATA[         ]]><span style="color: #ff0000;">&lt;CalendarImage Text="Select Date" Target="txtEventDate" Format="yyyy-MM-dd" /&gt;</span></code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160; &#160;&#160;&lt;/td&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&lt;/tr&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;...</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&lt;tr&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160;&#160;&lt;td colspan="2"&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;AddButton Text="Add" /&gt; &lt;CancelButton 
+ Text="Cancel" /&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160;&#160;&lt;/td&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&lt;/tr&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&lt;/table&gt;<br /></code><code xmlns="http://www.w3.org/1999/xhtml">&lt;/AddForm&gt;</code>
+        </div><a href="#top">Back to top</a>
+    </body>
+</html>

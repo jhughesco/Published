@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="10" MadCap:lastHeight="4149" MadCap:lastWidth="595" class="">
+    <head><title></title>
+        <link rel="stylesheet" href="XModProHelp.css" type="text/css" />
+    </head>
+    <body>
+        <h1>&lt;xmod:DataList&gt;</h1><a name="top"></a>
+        <p class="Nav"><a href="#syntax">Syntax</a>&#160;<a href="#remarks">Remarks</a>&#160;<a href="#example">Example</a></p>
+        <p xmlns="">The DataList tag, like the Template tag, is a View control that is used for displaying and interacting with records from your datasource. It is used in essentially the same manner as the Template tag and can be used together with the Template tag within your templates. Like the Template tag, it contains the data 
+ commands and layout instructions for your display and enables you 
+ to specify who is allowed to add, edit, and delete records as well as who is 
+ allowed to view the details of records. The primary difference between the DataList and Template is that the DataList allows you to layout your records in a grid pattern. </p><pre xml:space="preserve" xmlns="">Record1 Record2 Record3<br />Record4 Record5 Record6<br />Record7 Record8
+----- OR ----
+Record1 Record4 Record7
+Record2 Record5 Record8
+Record3 Record6</pre>
+        <P xmlns="">This type of layout is handy for scenarios like displaying a list of images or products where you want to control the specific number of columns and the order in which they're displayed.</P>
+        <p xmlns=""> You can use multiple DataList tags, 
+ enabling you to have side-by-side (or however you want to lay them out using 
+ HTML) displays within the same module instance, each being fed by different 
+ datasources.</p><a name="syntax"></a>
+        <h2>Syntax</h2>
+        <div xmlns="">
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&lt;xmod:DataList    </CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;AddRoles="DNNRoleName1,DNNRoleName2"
+    </CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160; Ajax="True|False" <br /><CODE>&#160;&#160;&#160; ConnectionString="<i>string</i>" <br />&#160;&#160;&#160;&#160;DeleteRoles="DNNRoleName1;DNNRoleName2"
+    </CODE><br style="mc-tag-and-class: CODE;" /><CODE>&#160;&#160;&#160; DetailRoles="DNNRoleName1;DNNRoleName2" <br /></CODE>&#160;&#160;&#160; EditRoles="DNNRoleName1;DNNRoleName2"
+    </CODE>
+            <CODE xmlns="http://www.w3.org/1999/xhtml">
+                <br />&#160;&#160;&#160;&#160;ID="<i>string</i>" <br />&#160;&#160;&#160;&#160;RepeatColumns="<i>integer</i>" <br />&#160;&#160;&#160;&#160;RepeatDirection="Horizontal|Vertical" <br />&#160;&#160;&#160;&#160;RepeatLayout="Table|Flow"<br />&#160;&#160;&#160;&#160;UsePaging="<b>True</b>|False"&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160; &lt;ListDataSource CommandText="string" <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ConnectionString="<i>string</i>"/&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160; &lt;DetailDataSource CommandText="string" <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ConnectionString="<i>string</i>"/&gt;<br /><br />&#160;&#160;&#160;&#160;&lt;DeleteCommand CommandText="string" /&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml"> <![CDATA[    ]]><a href="temp_pager.html">&lt;Pager&gt;</a> ... &lt;/Pager&gt;<br /> <![CDATA[    ]]><a href="temp_searchsort.html">&lt;SearchSort&gt;</a>...&lt;/SearchSort&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160; &lt;HeaderTemplate&gt;...&lt;/HeaderTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160; &lt;ItemTemplate&gt;...&lt;/ItemTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160; &lt;AlternatingItemTemplate&gt;...&lt;/AlternatingItemTemplate&gt;<br />&#160;&#160;&#160;&#160;&lt;SeparatorTemplate&gt;...&lt;/SeparatorTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160; &lt;FooterTemplate&gt;...&lt;/FooterTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160; &lt;DetailTemplate&gt;...&lt;/DetailTemplate&gt;<br /><br />&#160;&#160;&#160;&#160;&lt;NoItemsTemplate&gt;...&lt;/NoItemsTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">    &lt;/xmod:DataList&gt;</CODE>
+        </div><a name="remarks"></a>
+        <h2>Remarks</h2>
+        <ul>
+            <li xmlns=""><strong xmlns="">AddRoles/EditRoles/DeleteRoles/DetailRoles:</strong> Each of these 
+ properties are lists of DNN role names, separated by commas. 
+ Host/SuperUser and Admin accounts always have add/update/delete/detail 
+ permissions. By default, anyone who has access to view the module also has 
+ detail viewing permissions. Supply the DetailRoles attribute to limit who can 
+ view the details of records within the DataList. Users other than Host/Admin 
+ must be explicitly granted add/update/delete rights. Prior to version 4.0, role names were separated by semi-colons. To enhance consistency with other areas of XMod Pro, commas are now used. For backwards compatibility, you can still use semi-colons, but their usage is deprecated as of version 4.0. You should use commas going forward.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /><b xmlns="http://www.w3.org/1999/xhtml">NOTE</b>: These permissions apply ONLY&#160;to controls <i xmlns="http://www.w3.org/1999/xhtml">within</i> the &lt;xmod:DataList&gt; tag. If you have an &lt;xmod:AddButton&gt;, and &lt;xmod:AddLink&gt;, or &lt;xmod:AddImage&gt; tag placed <i xmlns="http://www.w3.org/1999/xhtml">outside</i> of the &lt;xmod:DataList&gt; tag, you will need to set permissions at the module level by going to the module's Configure page and choosing the Security tab. There you can choose the roles allowed to add records.</li>
+            <li xmlns="">
+                <p><b>Ajax</b>: New to version 2.6, when this attribute is true, actions within the template tag will be performed without a full page refresh. This value is false by default. NOTE: buttons that postback such as the DetailButton (or DetailImage or DetailLink) or AddButton or DeleteButton or CommandButton, etc. must have their ID property set to function correctly. If you have to click twice on a button, for instance, make sure it's ID has been set.</p>
+                <p><b>ConnectionString</b>: If you need to specify a SQL Server database other than the current DotNetNuke database, you can supply a connection string here. When specified, it serves as the default connection string for the ListDataSource and DetailDataSource. You can also use a connection string defined in the web.config file. To do so, use the ConnectionString token like so:</p><pre xml:space="preserve">&lt;xmod:DataList... ConnectionString='[[ConnectionString:<i>connectionName</i>]]' ...&gt;</pre>
+            </li>
+            <li xmlns=""><b>RepeatColumns</b>: Determines the maximum number of columns that will be used for displaying records. If there are more records than the number of columns, the DataList will create new rows. Keep in mind that, unlike standard tables where each column contains a field from the record, in a DataList each column contains a full record.<br />&#160;</li>
+            <li xmlns=""><b>RepeatLayout</b>: Determines the underlying HTML that is used to create the column layout. <b>Table</b> indicates the grid pattern will be created by an HTML table, <b>Flow</b> indicates the pattern will be created by SPAN and BR tags.<br />&#160;</li>
+            <li xmlns=""><b>RepeatDirection</b>: Determines in which order the columns and rows are filled. If set to <b>Horizontal</b>, the columns and rows are filled from left to right and then top to bottom. If set to <b>Vertical</b>, columns and rows are filled from top to bottom first and then left to right.<br />&#160;</li>
+            <li xmlns=""><b>UsePaging</b>: If set to true, the default, list views will display a pager if more than one page is available for display. The pager can be set using the <code>&lt;Pager&gt;</code> tag.<br /> <![CDATA[ ]]></li>
+            <li xmlns=""><b>Data Sources</b>: The data for each view is a SQL command. This could be a SQL <CODE>SELECT</CODE> command or a stored procedure. Supply the SQL command as the commandtext attribute. For stored procedures, use <CODE>EXEC <i>sprocName</i></CODE>. In the initial release, data sources can only point to the current DotNetNuke database. Also note that Bit columns are returned as True/False - not 1/0. The data source for list views is defined in the <CODE>&lt;ListDataSource&gt;</CODE> tag while the data source for the detail view is defined in the DetailDataSource tag.<br />&#160;</li>
+            <li>In addition to its attributes, the DataList tag also contains numerous child 
+ tags which define most of the tag's functionality:<ul xmlns=""><li><p><b>ListDataSource</b>: Provides the data for the DataList when it is displaying 
+ in list view. It accepts &lt;parameter&gt; tags to pass parameters as part of the command. The "alias" attribute is optional and is used to avoid conflicts or to accept a parameter with a specific name (the "name" attribute) but use a different parameter name in the command (the "alias" attribute). If no "alias" is specified, the "name" will be used.</p><p><b>Output Parameters</b>: New to version 1.3, you can retrieve and use the value of SQL Output parameters. To do so, add the Direction="Output" to the &lt;parameter&gt; tag and specify a DataType and Size (required for Strings). See Example #4 and the <a href="tokens_data.html">Data Parameter Tokens Topic</a>.</p><p>Examples:</p><pre xml:space="preserve">#1
+&lt;ListDataSource CommandText="SELECT FirstName, LastName FROM Users" /&gt;</pre><pre xml:space="preserve">#2
+&lt;ListDataSource CommandText="SELECT FirstName, LastName FROM Users 
+                             WHERE ZipCode = @zip"&gt;
+  &lt;parameter name="zip" alias="zip" value="12345" /&gt;
+&lt;/ListDataSource&gt;</pre><pre xml:space="preserve">#3
+&lt;ListDataSource CommandText="EXEC GetUsers @zip"&gt;
+  &lt;parameter name="zip" alias="zip" value="12345" /&gt;
+&lt;/ListDataSource&gt;</pre><pre xml:space="preserve">#4
+&lt;ListDataSource CommandText="GetEmploeesByDepartment" CommandType="StoredProcedure"&gt;
+&#160;&#160;&lt;parameter name="DepartmentId" value="32"/&gt;
+&#160;&#160;&lt;parameter name="DepartmentName" direction="Output" datatype="string" size="100" /&gt;
+&lt;/ListDataSource&gt;</pre><p>You can optionally specify a <b>ConnectionString</b> for this data source. If none is specified, the default connection will be used - either the connection specified by the ConnectionString property of the parent <code>&lt;xmod:DataList&gt;</code>&#160;tag or the current DotNetNuke database if the DataList tag doesn't define a connection. As with the DataList tag, you can use the <code>[[ConnectionString:connectionName]]</code> token to use a connection defined in the web.config file.<br />&#160;</p></li><li><b>DetailDataSource</b>: Provides the data for the DetailTemplate when it is 
+ displaying a single record. It accepts <code>&lt;parameter&gt;</code> tags like the <code>&lt;ListDataSource&gt;</code>. You can optionally specify a <b>ConnectionString</b> for this data source. If none is specified, the default connection will be used - either the connection specified by the ConnectionString property of the parent <code>&lt;xmod:DataList&gt;</code>&#160;tag or the current DotNetNuke database if the DataList doesn't define a connection.  As with the DataList tag, you can use the <code>[[ConnectionString:connectionName]]</code> token to use a connection defined in the web.config file.<br />&#160;<br />DetailDataSource tags can also take <b>Output Parameters</b>. See the ListDataSource topic above for details.<br />&#160;</li><li><b>DeleteCommand</b>: Provides the command to execute when a Delete Button/Image/Link is pressed within the DataList. It accepts <code>&lt;parameter&gt;</code> tags like the <code>&lt;ListDataSource</code>&gt;<br />&#160;</li><li><b>HeaderTemplate</b>: When displaying a list view, HTML, text, and controls 
+ that will be rendered once, at the beginning of the list. This template is 
+ optional. <br />&#160;</li></ul></li>
+            <ul>
+                <li><b xmlns="">ItemTemplate</b>: When displaying a list view, HTML, text, field tokens, and 
+ controls that will be rendered for each record in the result set. If the 
+ AlternatingItemTemplate is supplied, then the ItemTemplate will be used for all 
+ odd-numbered records.<br xmlns="" />&#160;</li>
+                <li xmlns=""><b xmlns="">AlternatingItemTemplate</b>: When displaying a list view, HTML, text, field 
+ tokens, and controls that will be rendered for the even-numbered records in the 
+ result set. This template is optional.<br xmlns="" />&#160;</li>
+                <li xmlns=""><b>SeparatorTemplate</b>: When displaying a list view, this will render any HTML or text that you specify between each record. One good example is if you're creating a list of comma-separated records (we'll use numbers for simplicity). If you put your comma in the ItemTemplate, you would get a trailing comma like this: 1,2,3, But if you put your comma in the SeparatorTemplate, you won't get that trailing comma: 1,2,3. (Added in version 1.4)<br />&#160; </li>
+                <li><b xmlns="">FooterTemplate</b>: When displaying a list view, HTML, text, and controls 
+ that will be rendered once, at the end of the list. This template is optional.<br xmlns="" />&#160;</li>
+                <li xmlns=""><b>DetailTemplate</b>: Defines the layout for viewing a single record. When the 
+ user clicks a detail button, this template will be used. This template can 
+ contain HTML, text, Field Tokens, and controls. It is required if you will be 
+ using XMod Pro's detail buttons in your list view.<br />&#160;</li>
+                <li xmlns=""><b>NoItemsTemplate</b>: Defines the layout and text to display when the data source returns no records. This tag is optional. If not specified, nothing will be shown.<br />&#160;</li>
+                <li xmlns=""><b>Pager</b>: This optional tag allows you to override the default configuration and look of the top and bottom pagers. Additionally, you can optionally override the default layout of the top and bottom pagers using your own HTML. See the <CODE><a href="temp_pager.html">&lt;Pager&gt;</a> <![CDATA[ ]]></CODE>topic for more details.<br />&#160;</li>
+                <li xmlns=""><b>SearchSort</b>: This allows you to define basic searching and sorting for your DataList. For more details see the <code><a href="temp_searchsort.html">&lt;SearchSort&gt;</a></code> topic.<br />&#160;</li>
+            </ul>
+            <li xmlns=""><b>Field Tokens</b>: In order to display data from your data source, XMod Pro uses "field tokens". These are essentially placeholders that contain the name of the column or field in your data source. At run-time, these tokens are replaced with the value from record. Field Tokens are written in this form: <CODE>[[FieldName]]</CODE> "FieldName" is the name of the field or column in your data source. This name is case sensitive and must match the field/column's name exactly. It must be surrounded by [[ and ]]. You can use the Field Token in many places. However, when you use it as the attribute value for an XMod Pro tag or other third party control, you must delimit the attribute value with single quotes, rather than double quotes. See the <CODE>&lt;xmod:detailbutton&gt;</CODE> code in the example. When used in the <CODE>&lt;parameter&gt;</CODE> tag, the attribute is written as: <CODE>value='[[UserID]'</CODE> rather than:&#160;<CODE>value="[[UserID]]"</CODE>. When using a Field Token with HTML&#160;tag attributes, this is not necessary.</li>
+        </ul><a href="#top" class="link">Back to top</a>
+        <br /><a name="example"></a>
+        <h2>Example</h2>
+        <div xmlns="">
+            <CODE>&lt;xmod:DataList AddRoles="SampleRole1;SampleRole2"&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160; &lt;ListDataSource commandtext="SELECT * FROM Users" /&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160; &lt;DetailDataSource commandtext="SELECT * FROM Users WHERE 
+ UserID=@UserID" /&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160; &lt;HeaderTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;h1&gt;Users List&lt;/h1&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160; &lt;/HeaderTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160; &lt;ItemTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; User's Name: [[FirstName]] 
+ [[LastName]] &lt;br /&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+ &lt;xmod:detaillink text="More..."&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+ &lt;parameter name="UserID" value='[[UserID]]' /&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+ &lt;/xmod:detaillink&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160; &lt;/ItemTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160; &lt;AlternatingItemTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; User's Name: 
+ [[FirstName]] [[LastName]] &lt;br /&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+ &lt;xmod:detaillink text="More..."&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+ &lt;parameter name="UserID" value='[[UserID]]' /&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+ &lt;/xmod:detaillink&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160; &lt;/AlternatingItemTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160; &lt;FooterTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160;&#160;&#160;&#160;&#160; </CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160; &lt;/FooterTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160; &lt;DetailTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;h1&gt;This is the detail view&lt;/h1&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160;&#160;&#160;&#160;&#160; User's Name: [[FirstName]] [[LastName]]</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160; &lt;/DetailTemplate&gt;<br />&#160;&#160;&#160;&#160;&lt;NoItemsTemplate&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;span class="NormalRed"&gt;Sorry. No Records Were Found&lt;/span&gt;<br />&#160;&#160;&#160;&#160;&lt;/NoItemsTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>    &lt;/xmod:DataList&gt;
+</CODE>
+        </div><a href="#top" class="link">Back to top</a>
+    </body>
+</html>

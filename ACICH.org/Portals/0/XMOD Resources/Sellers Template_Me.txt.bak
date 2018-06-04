@@ -1,0 +1,241 @@
+<xmod:ScriptBlock ScriptId="SellerCSS" BlockType="HeadScript" RegisterOnce="True">
+  <style type="text/css">
+    .pager-active {
+      color: #fff !important;
+      background-color: #337ab7 !important;
+      border-color: #337ab7 !important;
+    }  
+  </style>    
+</xmod:ScriptBlock>
+
+<xmod:Template UsePaging="True" Ajax="True" AddRoles="Administrators" EditRoles="Administrators" DeleteRoles="Administrators" DetailRoles="Administrators">
+  
+  <ListDataSource CommandText="SELECT [SellerID]
+          ,a.[UserID]
+          ,u.[Username]
+          ,a.[Date_Created]
+          ,a.[Date_Updated]
+          ,a.[UpdatedBy]
+          ,uu.[Username] AS UpdatedByUsername
+          ,a.[Seller_Name]
+          ,a.[Seller_Location]
+          ,c.[City] + ', '+c.[State] AS CityState
+          ,a.[Seller_Level]
+          ,b.[Level_Name]
+          ,a.[Banned]
+          ,a.[IsDeleted] AS SellerDeleted
+          ,up.[IsDeleted] AS UserDeleted
+          ,up.Authorised AS UserAuthorized
+
+      FROM XMP_Classified_Seller a
+      INNER JOIN XMP_Classified_Level b on a.Seller_Level = b.LevelID
+      LEFT JOIN XMP_Classified_Location c on a.Seller_Location =  c.LocationID
+      LEFT JOIN Users u on a.UserID = u.UserID
+      LEFT JOIN Users uu on a.UpdatedBy = uu.UserID
+      LEFT JOIN UserPortals up on a.UserID = up.UserId" />
+  <DetailDataSource CommandText="SELECT [SellerID], [UserID], [Date_Created], [Date_Updated], [UpdatedBy], [Seller_Name], [Seller_Address], [Seller_Location], [Seller_Phone], [Seller_Email], [Show_Address_By_Default], [Show_Phone_By_Default], [Seller_Image], [Seller_Level], [Approved_Ads], [Agree], [Banned], [IsDeleted] FROM XMP_Classified_Seller WHERE [SellerID] = @SellerID">
+    <Parameter Name="SellerID" />
+  </DetailDataSource>
+  <DeleteCommand CommandText="DELETE FROM XMP_Classified_Seller WHERE [SellerID] = @SellerID">
+    <Parameter Name="SellerID" />
+  </DeleteCommand>
+  
+  <Pager 
+    PageSize="4" 
+    ShowTopPager="False" 
+    ShowBottomPager="True" 
+    ShowFirstLast="True" 
+    FirstPageCaption="First" 
+    LastPageCaption="Last" 
+    ShowPrevNext="True" 
+    NextPageCaption="&raquo;" 
+    PrevPageCaption="&laquo;"
+    CurrentPageCssClass="pager-active">
+
+    <ul class="pagination">
+      <li>{pager}</li>
+    </ul>
+
+  </Pager>
+  
+  <SearchSort 
+    FilterExpression="Seller_Name LIKE '%{0}%'"
+    SearchLabelText="Search For:" SearchButtonText="GO" 
+    SortFieldNames="Seller_Name,Seller_Location,Seller_Level,Date_Created"
+    SortFieldLabels="Name,Location,Level,Created"
+    SearchBoxCssClass="form-control"
+    SearchButtonCssClass="btn btn-default"
+    SortButtonText="Go"
+    SortButtonCssClass="btn btn-default"
+    SortFieldListCssClass="form-control">
+
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="input-group">
+          {SearchBox}
+          <span class="input-group-btn">
+            {SearchButton}
+          </span>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-inline">
+          <div class="form-group">
+            <label class="control-label">Sort</label>
+            {SortFieldList}
+            {SortButton}
+          </div>
+          <div class="form-group">
+            <div class="checkbox">
+              <label>
+                {ReverseSort} Reverse
+              </label>
+            </div>
+          </div>
+        </div> 	
+      </div>
+    </div><br/>
+  </SearchSort>
+  
+  <HeaderTemplate>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>User</th>
+          <th>Created</th>
+          <th>Updated</th>
+          <th>Updated By</th>
+          <th>Name</th>
+          <th>Location</th>
+          <th>Level</th>
+          <th>Banned</th>
+          <th>Seller Deleted</th>
+          <th>User Deleted</th>
+          <th>User Authorized</th>
+          <th width="150">&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+  </HeaderTemplate>
+  <ItemTemplate>
+        <tr>
+          <td>[[SellerID]]</td>
+          <td><xmod:DetailLink CssClass="btn btn-success" Text='[[Username]]'>
+              <Parameter Name="SellerID" Value='[[SellerID]]' />
+            </xmod:DetailLink>
+            
+          </td>
+          <td>[[Date_Created]]</td>
+          <td>[[Date_Updated]]</td>
+          <td>[[UpdatedByUsername]]</td>
+          <td>[[Seller_Name]]</td>
+          <td>[[CityState]]</td>
+          <td>[[Level_Name]]</td>
+          <td>[[Banned]]</td>
+          <td>[[SellerDeleted]]</td>
+          <td>[[UserDeleted]]</td>
+          <td>[[UserAuthorized]]</td>
+          <td>
+            <xmod:EditLink CssClass="btn btn-primary" Text="Edit">
+              <Parameter Name="SellerID" Value='[[SellerID]]' />
+            </xmod:EditLink>
+            <xmod:DeleteLink CssClass="btn btn-danger" Text="Delete" OnClientClick="return confirm('Are you sure you want to delete this?');">
+              <Parameter Name="SellerID" Value='[[SellerID]]' />
+            </xmod:DeleteLink>
+          </td>
+        </tr>
+  </ItemTemplate>
+    <AlternatingItemTemplate>
+        <tr style="background-color: silver;">
+          <td>[[SellerID]]</td>
+          <td><xmod:DetailLink CssClass="btn btn-success" Text='[[Username]]'>
+              <Parameter Name="SellerID" Value='[[SellerID]]' />
+            </xmod:DetailLink>
+            
+          </td>
+          <td>[[Date_Created]]</td>
+          <td>[[Date_Updated]]</td>
+          <td>[[UpdatedByUsername]]</td>
+          <td>[[Seller_Name]]</td>
+          <td>[[CityState]]</td>
+          <td>[[Level_Name]]</td>
+          <td>[[Banned]]</td>
+          <td>[[SellerDeleted]]</td>
+          <td>[[UserDeleted]]</td>
+          <td>[[UserAuthorized]]</td>
+          <td>
+            <xmod:EditLink CssClass="btn btn-primary" Text="Edit">
+              <Parameter Name="SellerID" Value='[[SellerID]]' />
+            </xmod:EditLink>
+            <xmod:DeleteLink CssClass="btn btn-danger" Text="Delete" OnClientClick="return confirm('Are you sure you want to delete this?');">
+              <Parameter Name="SellerID" Value='[[SellerID]]' />
+            </xmod:DeleteLink>
+          </td>
+        </tr>
+  </AlternatingItemTemplate>
+  <FooterTemplate>
+      </tbody>
+    </table>
+  </FooterTemplate>
+
+  <DetailTemplate>
+    
+    <div class="media">
+      <a class="media-left" href="#">
+        <img class="img-thumbnail" src="/Portals/0/images/[[Seller_Image]]" style="max-width: 100px" alt="[[Seller_Name]]">
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading">[[Seller_Name]]</h4>
+        <h5>SellerID: [[SellerID]]</h5>
+        <h5>UserID: [[UserID]]</h5>
+        <h5>Level: [[Seller_Level]]</h5>
+        <h5>Approved Ads: [[Approved_Ads]]</h5>
+      </div>
+    </div>
+    
+    <h4>Seller Profile</h4>
+    
+    <table class="table table-bordered table-striped">
+      <thead>
+      	<tr>
+          <th>Address</th>
+          <th>Location</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Show Address</th>
+          <th>Show Phone</th>
+          <th>Created</th>
+          <th>Updated</th>
+          <th>Updated By</th>
+          <th>Banned</th>
+          <th>Deleted</th>
+        </tr>
+      </thead>
+      <tbody>
+      	<tr>
+          <td>[[Seller_Address]]</td>
+          <td>[[Seller_Location]]</td>
+          <td>[[Seller_Phone]]</td>
+          <td>[[Seller_Email]]</td>
+          <td>[[Show_Address_By_Default]]</td>
+          <td>[[Show_Phone_By_Default]]</td>
+          <td>[[Date_Created]]</td>
+          <td>[[Date_Updated]]</td>
+          <td>[[UpdatedBy]]</td>
+          <td>[[Banned]]</td>
+          <td>[[SellerDeleted]]</td>         
+        </tr>
+      </tbody>
+
+    </table>
+
+    <xmod:ReturnLink CssClass="btn btn-default" Text="&lt;&lt; Go Back" />
+    <xmod:AddLink CssClass="btn btn-primary" Text="New Seller" />
+    <hr />
+
+  </DetailTemplate>
+</xmod:Template>
+<div>
+  <xmod:AddLink CssClass="btn btn-primary" Text="New Seller" />
+</div>

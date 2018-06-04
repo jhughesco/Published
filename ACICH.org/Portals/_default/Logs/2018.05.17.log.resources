@@ -1,0 +1,100 @@
+2018-05-17 11:33:44.353-07:00 [APPS1][D:2][T:28][ERROR] DotNetNuke.Services.Exceptions.Exceptions - DotNetNuke.Services.Exceptions.ModuleLoadException: System error. ---> KnowBetter.XModPro.Web.Controls.Exceptions.InvalidFieldName: System error.
+   --- End of inner exception stack trace ---
+2018-05-17 11:33:44.447-07:00 [APPS1][D:2][T:28][ERROR] DotNetNuke.Services.Exceptions.Exceptions - DotNetNuke.Services.Exceptions.ModuleLoadException: The given key was not present in the dictionary. ---> System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at Microsoft.VisualBasic.CompilerServices.Symbols.Container.InvokeMethod(Method TargetProcedure, Object[] Arguments, Boolean[] CopyBack, BindingFlags Flags)
+   at Microsoft.VisualBasic.CompilerServices.NewLateBinding.CallMethod(Container BaseReference, String MethodName, Object[] Arguments, String[] ArgumentNames, Type[] TypeArguments, Boolean[] CopyBack, BindingFlags InvocationFlags, Boolean ReportErrors, ResolutionFailure& Failure)
+   at Microsoft.VisualBasic.CompilerServices.NewLateBinding.InternalLateIndexGet(Object Instance, Object[] Arguments, String[] ArgumentNames, Boolean ReportErrors, ResolutionFailure& Failure, Boolean[] CopyBack)
+   at Microsoft.VisualBasic.CompilerServices.NewLateBinding.ObjectLateInvokeDefault(Object Instance, Object[] Arguments, String[] ArgumentNames, Boolean ReportErrors, Boolean[] CopyBack)
+   at Microsoft.VisualBasic.CompilerServices.NewLateBinding.InternalLateInvokeDefault(Object Instance, Object[] Arguments, String[] ArgumentNames, Boolean ReportErrors, Boolean[] CopyBack)
+   at ASP.portals__default_xmodpro_templates_0_admin_classified_ads_ascx.__DataBinding__control9(Object sender, EventArgs e)
+   at System.Web.UI.Control.OnDataBinding(EventArgs e)
+   at System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   at System.Web.UI.Control.DataBindChildren()
+   at System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   at System.Web.UI.Control.DataBindChildren()
+   at System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   at System.Web.UI.WebControls.Repeater.CreateItem(Int32 itemIndex, ListItemType itemType, Boolean dataBind, Object dataItem)
+   at System.Web.UI.WebControls.Repeater.AddDataItemsIntoItemsArray(IEnumerable dataSource, Boolean useDataSource)
+   at System.Web.UI.WebControls.Repeater.PostGetDataAction(IEnumerable dataSource)
+   at System.Web.UI.WebControls.Repeater.OnDataBinding(EventArgs e)
+   at System.Web.UI.Control.DataBindChildren()
+   at System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   at System.Web.UI.Control.DataBindChildren()
+   at System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   at System.Web.UI.Control.DataBindChildren()
+   at System.Web.UI.Control.DataBindChildren()
+   at System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   at System.Web.UI.Control.DataBindChildren()
+   at System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   at System.Web.UI.Control.DataBindChildren()
+   at System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   at KnowBetter.XModPro.XModPro.Page_Load(Object sender, EventArgs e)
+   --- End of inner exception stack trace ---
+2018-05-17 11:34:42.576-07:00 [APPS1][D:2][T:28][ERROR] DotNetNuke.Services.Exceptions.Exceptions - DotNetNuke.Services.Exceptions.ModuleLoadException: System error. ---> KnowBetter.XModPro.Web.Controls.Exceptions.InvalidFieldName: System error.
+   --- End of inner exception stack trace ---
+2018-05-17 11:34:42.592-07:00 [APPS1][D:2][T:28][ERROR] DotNetNuke.Services.Exceptions.Exceptions - DotNetNuke.Services.Exceptions.ModuleLoadException: The given key was not present in the dictionary. ---> System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at Microsoft.VisualBasic.CompilerServices.Symbols.Container.InvokeMethod(Method TargetProcedure, Object[] Arguments, Boolean[] CopyBack, BindingFlags Flags)
+   at Microsoft.VisualBasic.CompilerServices.NewLateBinding.CallMethod(Container BaseReference, String MethodName, Object[] Arguments, String[] ArgumentNames, Type[] TypeArguments, Boolean[] CopyBack, BindingFlags InvocationFlags, Boolean ReportErrors, ResolutionFailure& Failure)
+   at Microsoft.VisualBasic.CompilerServices.NewLateBinding.InternalLateIndexGet(Object Instance, Object[] Arguments, String[] ArgumentNames, Boolean ReportErrors, ResolutionFailure& Failure, Boolean[] CopyBack)
+   at Microsoft.VisualBasic.CompilerServices.NewLateBinding.ObjectLateInvokeDefault(Object Instance, Object[] Arguments, String[] ArgumentNames, Boolean ReportErrors, Boolean[] CopyBack)
+   at Microsoft.VisualBasic.CompilerServices.NewLateBinding.InternalLateInvokeDefault(Object Instance, Object[] Arguments, String[] ArgumentNames, Boolean ReportErrors, Boolean[] CopyBack)
+   at ASP.portals__default_xmodpro_templates_0_admin_classified_ads_ascx.__DataBinding__control9(Object sender, EventArgs e)
+   at System.Web.UI.Control.OnDataBinding(EventArgs e)
+   at System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   at System.Web.UI.Control.DataBindChildren()
+   at System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   at System.Web.UI.Control.DataBindChildren()
+   at System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   at System.Web.UI.WebControls.Repeater.CreateItem(Int32 itemIndex, ListItemType itemType, Boolean dataBind, Object dataItem)
+   at System.Web.UI.WebControls.Repeater.AddDataItemsIntoItemsArray(IEnumerable dataSource, Boolean useDataSource)
+   at System.Web.UI.WebControls.Repeater.PostGetDataAction(IEnumerable dataSource)
+   at System.Web.UI.WebControls.Repeater.OnDataBinding(EventArgs e)
+   at System.Web.UI.Control.DataBindChildren()
+   at System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   at System.Web.UI.Control.DataBindChildren()
+   at System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   at System.Web.UI.Control.DataBindChildren()
+   at System.Web.UI.Control.DataBindChildren()
+   at System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   at System.Web.UI.Control.DataBindChildren()
+   at System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   at System.Web.UI.Control.DataBindChildren()
+   at System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   at KnowBetter.XModPro.XModPro.Page_Load(Object sender, EventArgs e)
+   --- End of inner exception stack trace ---
+2018-05-17 14:13:55.736-07:00 [APPS1][D:2][T:12][FATAL] DotNetNuke.Framework.PageBase - An error has occurred while loading page.
+System.Web.HttpException (0x80004005): Validation of viewstate MAC failed. If this application is hosted by a Web Farm or cluster, ensure that <machineKey> configuration specifies the same validationKey and validation algorithm. AutoGenerate cannot be used in a cluster.
+
+See http://go.microsoft.com/fwlink/?LinkID=314055 for more information. ---> System.Web.UI.ViewStateException: Invalid viewstate. 
+	Client IP: 10.1.1.2
+	Port: 62440
+	Referer: http://acich.org/Classifieds-Admin/Ads
+	Path: /Default.aspx
+	User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36
+	ViewState: +pnZPzgDMRHDjQ9YwZjB19rDqBmQnU5WpjLnn/mJNQlzvvWmpovhn2SJF1HQm6ofubusYhcgZZWr/UOJwpYU0s8HEpTzST+Fpgss5QwBqa/X4oXiH2nO9hjG8huuQc82a+iGnIx96j0gsxkiAQFBBk2oQLSbxajsFO9EMtTk5jxSX/yOtJE1XOkng88nHIwnH0BGXU+zBcJW0FrIsQxROWzU6R3OzfoaBi+FH14cIdCtp0ij7OB6gSU0Ns5Vfl+EplTP7PM4ZwmvlJoeXLMX47MEphhmUQ6nYxOKZ4WTVVyWqQNJlvhTOy14TXgNwz2vz8goeGb3e5KdU6UML+p+szWHhBsxJMtKD9TVJXKR0K3y3nEjcyu6oXX/XZksX3l4L2fMRx4lfOymeEL5me7GpjHmqgK9yrZ8/891mo/BbH2MBrFjL7wO5hjMpj+SI6NluIpzkywaz2dk1Qo6dhIo0sYlzlIw0PJuj1sleopbNw+ug2ztYNjYF+g2yWeejMDlNXk9zuX6lacZh2hDheOyOllCI34gMY1gRAuPZ9Zezr4/z6eiuiZ/LesxhnOsIcl4RFNAnsxvRNDucOaCGUmHh2squkkaDGRI22YfzNvlZ4iwVzyWo6+9tZ0RmQeYq1MNPPok2tGNN/aiUgjOhtEpzhnqzV7+j7kpkazXBcGqYpXOphgS9BgfXq6D0Fuj8eF0uel12rYCk6dlfceRA2IJ1l4k7DOKtjwHh7LBGemX4Mxgx7zcEJ/4hRaTPrpF1TOtd...
+   at System.Web.UI.ViewStateException.ThrowError(Exception inner, String persistedState, String errorPageMessage, Boolean macValidationError)
+   at System.Web.UI.ObjectStateFormatter.Deserialize(String inputString, Purpose purpose)
+   at System.Web.UI.Util.DeserializeWithAssert(IStateFormatter2 formatter, String serializedState, Purpose purpose)
+   at System.Web.UI.HiddenFieldPageStatePersister.Load()
+   at System.Web.UI.Page.LoadPageStateFromPersistenceMedium()
+   at System.Web.UI.Page.LoadAllState()
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+2018-05-17 14:13:55.783-07:00 [APPS1][D:2][T:12][ERROR] DotNetNuke.Services.Exceptions.Exceptions - ~/Default.aspx?tabid=40&error=An unexpected error has occurred&content=0
+System.Web.HttpException (0x80004005): Validation of viewstate MAC failed. If this application is hosted by a Web Farm or cluster, ensure that <machineKey> configuration specifies the same validationKey and validation algorithm. AutoGenerate cannot be used in a cluster.
+
+See http://go.microsoft.com/fwlink/?LinkID=314055 for more information. ---> System.Web.UI.ViewStateException: Invalid viewstate. 
+	Client IP: 10.1.1.2
+	Port: 62440
+	Referer: http://acich.org/Classifieds-Admin/Ads
+	Path: /Default.aspx
+	User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36
+	ViewState: +pnZPzgDMRHDjQ9YwZjB19rDqBmQnU5WpjLnn/mJNQlzvvWmpovhn2SJF1HQm6ofubusYhcgZZWr/UOJwpYU0s8HEpTzST+Fpgss5QwBqa/X4oXiH2nO9hjG8huuQc82a+iGnIx96j0gsxkiAQFBBk2oQLSbxajsFO9EMtTk5jxSX/yOtJE1XOkng88nHIwnH0BGXU+zBcJW0FrIsQxROWzU6R3OzfoaBi+FH14cIdCtp0ij7OB6gSU0Ns5Vfl+EplTP7PM4ZwmvlJoeXLMX47MEphhmUQ6nYxOKZ4WTVVyWqQNJlvhTOy14TXgNwz2vz8goeGb3e5KdU6UML+p+szWHhBsxJMtKD9TVJXKR0K3y3nEjcyu6oXX/XZksX3l4L2fMRx4lfOymeEL5me7GpjHmqgK9yrZ8/891mo/BbH2MBrFjL7wO5hjMpj+SI6NluIpzkywaz2dk1Qo6dhIo0sYlzlIw0PJuj1sleopbNw+ug2ztYNjYF+g2yWeejMDlNXk9zuX6lacZh2hDheOyOllCI34gMY1gRAuPZ9Zezr4/z6eiuiZ/LesxhnOsIcl4RFNAnsxvRNDucOaCGUmHh2squkkaDGRI22YfzNvlZ4iwVzyWo6+9tZ0RmQeYq1MNPPok2tGNN/aiUgjOhtEpzhnqzV7+j7kpkazXBcGqYpXOphgS9BgfXq6D0Fuj8eF0uel12rYCk6dlfceRA2IJ1l4k7DOKtjwHh7LBGemX4Mxgx7zcEJ/4hRaTPrpF1TOtd...
+   at System.Web.UI.ViewStateException.ThrowError(Exception inner, String persistedState, String errorPageMessage, Boolean macValidationError)
+   at System.Web.UI.ObjectStateFormatter.Deserialize(String inputString, Purpose purpose)
+   at System.Web.UI.Util.DeserializeWithAssert(IStateFormatter2 formatter, String serializedState, Purpose purpose)
+   at System.Web.UI.HiddenFieldPageStatePersister.Load()
+   at System.Web.UI.Page.LoadPageStateFromPersistenceMedium()
+   at System.Web.UI.Page.LoadAllState()
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+2018-05-17 15:52:16.877-07:00 [APPS1][D:4][T:12][ERROR] DotNetNuke.Services.Exceptions.Exceptions - DotNetNuke.Services.Exceptions.ModuleLoadException: System error. ---> KnowBetter.XModPro.Web.Controls.Exceptions.InvalidFieldName: System error.
+   --- End of inner exception stack trace ---

@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="4" MadCap:lastHeight="2599" MadCap:lastWidth="1279" class="">
+    <head><title></title>
+        <link rel="stylesheet" href="XModProHelp.css" type="text/css" />
+    </head>
+    <body xmlns="">
+        <h1>Localization</h1>
+        <p>XMod Pro provides a number of unique ways to localize not only the static text in your forms and views, but also your content.</p>
+        <h2>Getting the Current Locale ID</h2>
+        <p>(New to version 2.1) To render the locale ID of the currently selected culture out to your form or view (template), use the [[Request:Locale]] token. If the user has selected Spanish from Mexico, the token will render "es-MX"; For English in Great Britain, it will be "en-GB"; for French spoken in France, it will be "fr-FR". </p>
+        <p>&#160;</p>
+        <h2>Formatting Dates and Values in Templates</h2>
+        <p>Use the <a href="temp_format.html">&lt;xmod:format&gt;</a> tag's InputCulture and OutputCulture attributes for handling currency and dates. See the linked topic for more details.</p>
+        <p>&#160;</p>
+        <h2>Localized Date Input in Forms</h2>
+        <p>Use the <a href="form_dateinput.html">&lt;DateInput&gt;</a> control's Culture attribute. See the linked topic for more details.</p>
+        <p>&#160;</p>
+        <h2>Localizing Static Text</h2>
+        <p>(New to version 2.1) If you just need to change the text that is displayed on your forms and views such as form labels or other text, you can use the [[Localize:keyName]] token in combination with resource files (.resx). The Localize token function like the other XMod Pro tokens. At run-time, it will be replaced with the translated text for the currently selected culture. </p>
+        <h3><b>How it Works</b>:</h3>
+        <p>First, you need to create a Resource File for each culture for which you have translations. Resource files follow the standard format for localization resource files in DotNetNuke. Files should be named using the following form:</p>
+        <ul style="list-style-type: disc;">
+            <li>FormName.ascx.localeID.resx for forms or</li>
+            <li>TemplateName.ascx.localeID.resx for templates</li>
+        </ul>
+        <p>Some examples:</p>
+        <ul>
+            <li><b>ContactUs</b>.ascx.<b>es-MX</b>.resx (Spanish-Mexico resource file)</li>
+            <li><b>EmployeeList</b>.ascx.<b>fr-FR</b>.resx (French-France resource file)</li>
+        </ul>
+        <p>The resource file's base name must match the name of the form/templat to with which it is associated followed by ".ascx". This is then followed by "." plus the locale ID and ".resx". </p>
+        <h3><b>Resource File Example</b>:</h3>
+        <p>The format of the resource file should follow that outlined for standard localization resource files in DotNetNuke. A sample file is provided below. The first section and the closing &lt;/root&gt; tag at the end, in gray, are boilerplate code and can be copied and pasted directly into your file. The section in red is the area you customize with your own text.</p><pre xml:space="preserve"><span style="color: #808080;">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;root&gt;
+  &lt;xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"&gt;
+    &lt;xsd:import namespace="http://www.w3.org/XML/1998/namespace" /&gt;
+    &lt;xsd:element name="root" msdata:IsDataSet="true"&gt;
+      &lt;xsd:complexType&gt;
+        &lt;xsd:choice maxOccurs="unbounded"&gt;
+          &lt;xsd:element name="metadata"&gt;
+            &lt;xsd:complexType&gt;
+              &lt;xsd:sequence&gt;
+                &lt;xsd:element name="value" type="xsd:string" minOccurs="0" /&gt;
+              &lt;/xsd:sequence&gt;
+              &lt;xsd:attribute name="name" use="required" type="xsd:string" /&gt;
+              &lt;xsd:attribute name="type" type="xsd:string" /&gt;
+              &lt;xsd:attribute name="mimetype" type="xsd:string" /&gt;
+              &lt;xsd:attribute ref="xml:space" /&gt;
+            &lt;/xsd:complexType&gt;
+          &lt;/xsd:element&gt;
+          &lt;xsd:element name="assembly"&gt;
+            &lt;xsd:complexType&gt;
+              &lt;xsd:attribute name="alias" type="xsd:string" /&gt;
+              &lt;xsd:attribute name="name" type="xsd:string" /&gt;
+            &lt;/xsd:complexType&gt;
+          &lt;/xsd:element&gt;
+          &lt;xsd:element name="data"&gt;
+            &lt;xsd:complexType&gt;
+              &lt;xsd:sequence&gt;
+                &lt;xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" /&gt;
+                &lt;xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" /&gt;
+              &lt;/xsd:sequence&gt;
+              &lt;xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" /&gt;
+              &lt;xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" /&gt;
+              &lt;xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" /&gt;
+              &lt;xsd:attribute ref="xml:space" /&gt;
+            &lt;/xsd:complexType&gt;
+          &lt;/xsd:element&gt;
+          &lt;xsd:element name="resheader"&gt;
+            &lt;xsd:complexType&gt;
+              &lt;xsd:sequence&gt;
+                &lt;xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" /&gt;
+              &lt;/xsd:sequence&gt;
+              &lt;xsd:attribute name="name" type="xsd:string" use="required" /&gt;
+            &lt;/xsd:complexType&gt;
+          &lt;/xsd:element&gt;
+        &lt;/xsd:choice&gt;
+      &lt;/xsd:complexType&gt;
+    &lt;/xsd:element&gt;
+  &lt;/xsd:schema&gt;
+  &lt;resheader name="resmimetype"&gt;
+    &lt;value&gt;text/microsoft-resx&lt;/value&gt;
+  &lt;/resheader&gt;
+  &lt;resheader name="version"&gt;
+    &lt;value&gt;2.0&lt;/value&gt;
+  &lt;/resheader&gt;
+  &lt;resheader name="reader"&gt;
+    &lt;value&gt;System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&lt;/value&gt;
+  &lt;/resheader&gt;
+  &lt;resheader name="writer"&gt;
+    &lt;value&gt;System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&lt;/value&gt;
+  &lt;/resheader&gt;
+  </span><span style="color: #ff0000;">&lt;data name="Name.Text" xml:space="preserve"&gt;
+    &lt;value&gt;Nombre&lt;/value&gt;
+  &lt;/data&gt;
+  &lt;data name="Address.Text" xml:space="preserve"&gt;
+    &lt;value&gt;Dirección&lt;/value&gt;
+  &lt;/data&gt;
+  &lt;data name="City.Text" xml:space="preserve"&gt;
+    &lt;value&gt;Ciudad&lt;/value&gt;
+  &lt;/data&gt;</span>
+<span style="color: #808080;">&lt;/root&gt;</span></pre>
+        <p>In the example above, we've created a small translation file for Spanish/Mexico. You can create one or more resource files for each language you need to provide translations for. Note that you should also provide a default resource file for your fallback language. Additionally, for the default/fallback language to be loaded properly, you should define a fallback language for each language you install in your DNN website.</p>
+        <p>Within each file, for each block of text you want to translate, you must specify a &lt;data&gt; tag. This tag has a name property which contains the key name that XMod Pro will use to look up the translation. This name should be in the form "keyName.Text". The .Text portion is required for each of your names. The &lt;data&gt; tag also contains a &lt;value&gt; tag that contains the text you want to inject into the form or template. </p>
+        <h3>Where to Place the Resource File</h3>
+        <p style="font-weight: normal;">Once you've created your resource file, save it in the same directory in which your form/template is stored. For forms, this is: /Portals/_default/XModPro/Forms/XX where "XX" is the Portal ID. For templates, the folder is: /Portals/_default/XModPro/Templates/XX where "XX" is the portal's ID.</p>
+        <h3><b>Linking Your Form/Template to the Resource File</b>
+        </h3>
+        <p>In your form/template, you would simply add a localization token wherever it was needed - like so:</p><pre xml:space="preserve">&lt;AddForm&gt;
+...
+   &lt;Label for="NameTextBox" text='<span style="color: #ff0000;">[[Localize:Name]]</span>'/&gt;
+   &lt;TextBox id="NameTextBox" DataField="Name" DataType="String" /&gt;&lt;br /&gt;
+   &lt;Label for="AddressTextBox" text='<span style="color: #ff0000;">[[Localize:Address]]</span>'/&gt;
+   &lt;TextBox id="AddressTextBox" DataField="Address" DataType="String" /&gt;&lt;br /&gt;
+   &lt;Label for="CityTextBox" text='<span style="color: #ff0000;">[[Localize:City]]</span>'/&gt;
+   &lt;TextBox id="CityTextBox" DataField="City" DataType="String" /&gt;&lt;br /&gt;
+...
+&lt;/AddForm&gt;
+   </pre>
+        <p> At run-time, if the user has selected es-MX as his/her culture, then those tokens will be replaced by: Nombre, Dirección, Ciudad.</p>
+        <p>&#160;</p>
+        <h2>Content Localization Using Multiple Forms/Templates</h2>
+        <p>Content localization is a tricky issue. It is potentially more complicated when an application like XMod Pro, does not have control over the data. To keep things as simple and flexible as possible, we have implemented the ability to use multiple forms and/or templates for this purpose. At run-time, XMod Pro will look to see if a form/template has been defined for the currently selected culture. If found, that file will be loaded. If not, XMod Pro will load the 'default' file. </p>
+        <p>This method has many benefits:</p>
+        <ol>
+            <li>You can avoid having to create Resource Files and use [[Localize:keyName]] tokens. </li>
+            <li>You can create the forms/templates just as you do standard forms and templates</li>
+            <li>You have the opportunity to define distinct data commands for each culture. You could even write/read from distinct culture-specific database tables.</li>
+            <li>You can have a completely different layout and even completely different controls for each culture.</li>
+            <li>You can send notification emails to different addresses based on the culture.</li>
+        </ol>
+        <h3>How It Works</h3>
+        <p>First, define the form/template that will be your 'default' or 'fallback' file using the tools within XMod Pro.</p>
+        <p>Second, either create another form/template from scratch or simply copy your form/template to act as a starting point. This second file must follow the following naming convention:</p>
+        <p>BaseName.localeID</p>
+        <p>Where "BaseName" is the name of your 'default' form/template and "localeID" is the ID of the culture (es-MX, fr-FR, en-GB, etc.)</p>
+        <p>So, for a form called "ContactUs", you might create the following forms:</p>
+        <ul>
+            <li>ContactUs &#160;&#160;(the default form)</li>
+            <li>ContactUs.es-MX &#160;&#160;(Spanish in Mexico)</li>
+            <li>ContactUs.fr-FR&#160;&#160;&#160;&#160;&#160;(French in France)</li>
+            <li>ContactUs.en-GB&#160;&#160;&#160;(English in Great Britain)</li>
+        </ul>
+        <p>The default file is always required. You can create as many or as few localized files as you need. Simply define your localized forms/templates as you would any other form/template, making changes as needed to accommodate the language</p>
+        <h3>Configuring Your Module to Use Localized Forms/Templates</h3>
+        <p>There is nothing special that you need to do when configuring your XMod Pro modules to use the localized forms and templates. Simply select the BASE form/template. If a localized version of the form/template exists and it matches the user's currently selected culture, that form/template will be loaded automatically. You can also force a certain localized file to be loaded by selecting it specifically on the configuration page.</p>
+        <p>That's all there is to it.</p>
+        <p>&#160;</p>
+        <p>&#160;</p>
+        <p>&#160;</p>
+        <p>&#160;</p>
+    </body>
+</html>

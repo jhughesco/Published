@@ -1,0 +1,38 @@
+2018-04-05 09:11:14.184-07:00 [APPS1][D:4][T:108][FATAL] DotNetNuke.Web.Common.Internal.DotNetNukeHttpApplication - System.Web.HttpException (0x80004005): This is an invalid webresource request.
+   at System.Web.Handlers.AssemblyResourceLoader.System.Web.IHttpHandler.ProcessRequest(HttpContext context)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-04-05 11:30:15.434-07:00 [APPS1][D:4][T:40][ERROR] DotNetNuke.Services.Exceptions.Exceptions - System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'XMP_Classifieds_Locations'.
+   at KnowBetter.XModPro.DataSources.SqlDataSource.SqlDataSource.GetPagedDataSource(Int32 nCurrentPage, Int32 nPageSize, Int32& nRecordCount, List`1& Params, String CommandText)
+   at KnowBetter.XModPro.Web.Controls.Template.BindData(String CommandName, List`1 lstParams, CommandTypeEnum ViewType)
+ClientConnectionId:9ccde8c3-cf13-4920-91a7-b6cd8b7cd838
+Error Number:208,State:1,Class:16
+2018-04-05 11:30:15.450-07:00 [APPS1][D:4][T:40][ERROR] DotNetNuke.Services.Exceptions.Exceptions - DotNetNuke.Services.Exceptions.ModuleLoadException: Invalid object name 'XMP_Classifieds_Locations'. ---> System.Data.SqlClient.SqlException: Invalid object name 'XMP_Classifieds_Locations'.
+   at KnowBetter.XModPro.DataSources.SqlDataSource.SqlDataSource.GetPagedDataSource(Int32 nCurrentPage, Int32 nPageSize, Int32& nRecordCount, List`1& Params, String CommandText)
+   at KnowBetter.XModPro.Web.Controls.Template.BindData(String CommandName, List`1 lstParams, CommandTypeEnum ViewType)
+   --- End of inner exception stack trace ---
+2018-04-05 11:30:22.132-07:00 [APPS1][D:4][T:82][ERROR] DotNetNuke.Services.Exceptions.Exceptions - System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'XMP_Classifieds_Locations'.
+   at KnowBetter.XModPro.DataSources.SqlDataSource.SqlDataSource.GetPagedDataSource(Int32 nCurrentPage, Int32 nPageSize, Int32& nRecordCount, List`1& Params, String CommandText)
+   at KnowBetter.XModPro.Web.Controls.Template.BindData(String CommandName, List`1 lstParams, CommandTypeEnum ViewType)
+ClientConnectionId:9ccde8c3-cf13-4920-91a7-b6cd8b7cd838
+Error Number:208,State:1,Class:16
+2018-04-05 11:30:22.132-07:00 [APPS1][D:4][T:82][ERROR] DotNetNuke.Services.Exceptions.Exceptions - DotNetNuke.Services.Exceptions.ModuleLoadException: Invalid object name 'XMP_Classifieds_Locations'. ---> System.Data.SqlClient.SqlException: Invalid object name 'XMP_Classifieds_Locations'.
+   at KnowBetter.XModPro.DataSources.SqlDataSource.SqlDataSource.GetPagedDataSource(Int32 nCurrentPage, Int32 nPageSize, Int32& nRecordCount, List`1& Params, String CommandText)
+   at KnowBetter.XModPro.Web.Controls.Template.BindData(String CommandName, List`1 lstParams, CommandTypeEnum ViewType)
+   --- End of inner exception stack trace ---
+2018-04-05 11:30:34.191-07:00 [APPS1][D:4][T:53][ERROR] DotNetNuke.Services.Exceptions.Exceptions - System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'XMP_Classifieds_Locations'.
+   at KnowBetter.XModPro.DataSources.SqlDataSource.SqlDataSource.GetPagedDataSource(Int32 nCurrentPage, Int32 nPageSize, Int32& nRecordCount, List`1& Params, String CommandText)
+   at KnowBetter.XModPro.Web.Controls.Template.BindData(String CommandName, List`1 lstParams, CommandTypeEnum ViewType)
+ClientConnectionId:9ccde8c3-cf13-4920-91a7-b6cd8b7cd838
+Error Number:208,State:1,Class:16
+2018-04-05 11:30:34.228-07:00 [APPS1][D:4][T:53][ERROR] DotNetNuke.Services.Exceptions.Exceptions - DotNetNuke.Services.Exceptions.ModuleLoadException: Invalid object name 'XMP_Classifieds_Locations'. ---> System.Data.SqlClient.SqlException: Invalid object name 'XMP_Classifieds_Locations'.
+   at KnowBetter.XModPro.DataSources.SqlDataSource.SqlDataSource.GetPagedDataSource(Int32 nCurrentPage, Int32 nPageSize, Int32& nRecordCount, List`1& Params, String CommandText)
+   at KnowBetter.XModPro.Web.Controls.Template.BindData(String CommandName, List`1 lstParams, CommandTypeEnum ViewType)
+   --- End of inner exception stack trace ---
+2018-04-05 12:22:19.688-07:00 [APPS1][D:4][T:105][FATAL] DotNetNuke.Web.Common.Internal.DotNetNukeHttpApplication - System.Web.HttpException (0x80004005): A potentially dangerous Request.Path value was detected from the client (?).
+   at System.Web.HttpRequest.ValidateInputIfRequiredByConfig()
+   at System.Web.HttpApplication.PipelineStepManager.ValidateHelper(HttpContext context)
+2018-04-05 12:36:25.200-07:00 [APPS1][D:4][T:96][FATAL] DotNetNuke.Web.Common.Internal.DotNetNukeHttpApplication - System.Web.HttpException (0x80004005): A potentially dangerous Request.Path value was detected from the client (?).
+   at System.Web.HttpRequest.ValidateInputIfRequiredByConfig()
+   at System.Web.HttpApplication.PipelineStepManager.ValidateHelper(HttpContext context)

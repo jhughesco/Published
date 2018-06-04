@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="1111" MadCap:lastWidth="830" class="">
+    <head><title></title>
+        <link rel="stylesheet" href="XModProHelp.css" type="text/css" />
+    </head>
+    <body>
+        <h1>&lt;xmod:ScriptBlock&gt;</h1><a name="top"></a>
+        <p class="Nav"><a href="#syntax">Syntax</a>&#160;<a href="#remarks">Remarks</a>&#160;<a href="#example">Example</a></p>
+        <p xmlns="">The xmod:ScriptBlock tag is used to inject HTML&lt;script&gt; tags into one of several different locations in the page. Typically this is used to insert Javascript functions and/or libraries into the page. You can also insert &lt;style&gt; tags into the page using this tag.</p><a name="syntax"></a>
+        <h2>Syntax</h2>
+        <div xmlns="">
+            <CODE>&lt;xmod:ScriptBlock<br />&#160;&#160;&#160;&#160;ScriptId="s<i>tring</i>"<br />&#160;&#160;&#160;&#160;BlockType="HeadScript|<b>ClientScript</b>|StartupScript|ClientScriptInclude"<br />&#160;&#160;&#160;&#160;RegisterOnce="True|<b>False</b>"<br />&#160;&#160;&#160;&#160;Url="<i>url</i>" &gt;<br /></CODE>
+            <CODE><![CDATA[    ]]><br />&#160;&#160;&#160;&#160;&lt;script type="text/javascript" ...&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;...<i>Javascript</i>...<br />&#160;&#160;&#160;&#160;&lt;/script&gt;<br /> <![CDATA[    ]]><br />&lt;/xmod:ScriptBlock&gt;</CODE>
+        </div><a name="remarks"></a>
+        <h2>Remarks</h2>
+        <ul>
+            <li xmlns=""><b xmlns="http://www.w3.org/1999/xhtml">ScriptId</b>: This is an identifier for your block that uniquely identifies it within the hosting page - across modules. It is used when registering your script block and is required in order to prevent the block from being inserted more than once in the page. <br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li xmlns=""><b>BlockType</b>: This attribute allows you to specify which where in the page the scrip should be rendered. The default value is ClientScript<ul xmlns="http://www.w3.org/1999/xhtml"><li xmlns=""><b>HeadScript</b>: The script block will be inserted between the <CODE>&lt;head&gt;</CODE>&#160;and <CODE>&lt;/head&gt;</CODE>&#160;section of the page. </li><li xmlns=""><b xmlns="http://www.w3.org/1999/xhtml">ClientScript</b>: The script block will be inserted near the top of the page. This is the default.</li><li xmlns=""><b>ClientScriptInclude</b>: Use this block type to insert a <CODE>&lt;script&gt;</CODE> tag that links to an external file. This is useful for including Javascript libraries.</li><li xmlns=""><b xmlns="http://www.w3.org/1999/xhtml">StartupScript</b>: The script block will be inserted near the bottom of the page.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li></ul></li>
+            <li xmlns=""><b xmlns="http://www.w3.org/1999/xhtml">RegisterOnce</b>: If this value is set to True, the tag will first check to see if a code block with ScriptId has been registered in the page. If not, it will register your block. If it has been registered already, then no action is taken. If this value is False, the default value, then your script block will be inserted, regardless of any previously registered block. The RegisterOnce is only available for ClientScript, ClientScriptInclude, and StartupScript block types.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li xmlns=""><b>Url</b>: If the BlockType is set to ClientScriptInclude, this is the path to the Javascript file you wish to include. It is ignored if BlockType is set to a different value. You may optionally use the tilde (~) character in the URL to represent the path to the root of the web application.</li>
+        </ul><a href="#top" class="link">Back to top</a>
+        <br /><a name="example"></a>
+        <h2>Example</h2>
+        <div xmlns="">
+            <CODE xmlns="http://www.w3.org/1999/xhtml">
+                <CODE>
+                    <CODE>
+                        <CODE>
+                            <CODE>
+                                <CODE>
+                                    <CODE>
+                                        <CODE>
+                                            <CODE>
+                                                <CODE>&lt;div&gt;<br />&lt;xmod:ScriptBlock ScriptId="AlertScripts" RegisterOnce="true"&gt;<br />&#160;&#160;&lt;script language="javascript"&gt;<br />&#160;&#160;&#160;&#160;function helloWorld(){<br />&#160;&#160;&#160;&#160;&#160;&#160;alert('Hello World');<br />&#160;&#160;&#160;&#160;}<br />&#160;&#160;&#160;&#160;function goodbyeWorld(){<br />&#160;&#160;&#160;&#160;&#160;&#160;alert('Goodbye Cruel World');<br />&#160;&#160;&#160;&#160;}<br />&#160;&#160;&#160;&#160;function showMessage(sMessage){<br />&#160;&#160;&#160;&#160;&#160;&#160;alert(sMessage);<br />&#160;&#160;&#160;&#160;}<br />&#160;&#160;&lt;/script&gt;<br />&lt;/xmod:ScriptBlock&gt;<br />&#160;&#160;&lt;table width="100%"&gt;<br />&#160;&#160;&#160;&#160;&lt;tr&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;td width="250" valign="top"&gt;<br /> <![CDATA[        ]]><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;!-- SCRIPT BLOCK EXAMPLE --&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;a href="#" onclick="helloWorld();"&gt;Hello World&lt;/a&gt;&lt;br /&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;a href="#" onclick="goodbyeWorld();"&gt;Goodbye&lt;/a&gt;&lt;br /&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;a href="#" onclick="showMessage('Hello and Goodbye')"&gt;Show Message&lt;/a&gt;<br /> <![CDATA[      ]]></CODE>
+                                                <CODE>
+                                                    <br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;/td&gt;<br />&#160;&#160;&#160;&#160;&lt;/tr&gt;<br />&#160;&#160;&lt;/table&gt;<br />&lt;/div&gt;</CODE>
+                                            </CODE>
+                                        </CODE>
+                                    </CODE>
+                                </CODE>
+                                <CODE>&#160;</CODE>
+                            </CODE>
+                        </CODE>
+                    </CODE>
+                </CODE>
+                <CODE>&#160;</CODE>
+            </CODE>
+        </div><a href="#top" class="link">Back to top</a>
+    </body>
+</html>

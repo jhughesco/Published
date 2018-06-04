@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="4" MadCap:lastHeight="704" MadCap:lastWidth="1478" class="">
+    <head><title></title>
+        <link rel="stylesheet" href="XModProHelp.css" type="text/css" />
+    </head>
+    <body>
+        <h1>&lt;Text&gt;</h1><a name="top"></a>
+        <p class="Nav"><a href="#syntax">Syntax</a>&#160;<a href="#remarks">Remarks</a>&#160;<a href="#example">Example</a></p>
+        <p>The Text tag renders as un-decorated text at run-time. </p><a name="syntax"></a>
+        <h2>Syntax</h2>
+        <div><code>&lt;Text    </code>
+            <br style="mc-tag-and-class: code;" /><code><code>&#160;&#160;&#160; DataField="<i>string</i>"
+    </code><br style="mc-tag-and-class: code;" />&#160;&#160;&#160;&#160;Nullable="True|<b>False</b>"<br /></code><code> /&gt;&#160; </code>
+        </div>&#160;
+    
+<a name="remarks"></a><h2>Remarks</h2><p>The main purpose of the Text tag is to render the value of a column from the form's SelectCommand in the form. For instance, you may be retrieving the user's last login date and want display that to the user on the form. So, you use the Text tag along with some HTML and text to your form like:</p><p><![CDATA[ ]]><code>&lt;strong&gt;Last Login Date: &lt;Text datafield="LastLogin" /&gt;&lt;/strong&gt;</code>. </p><p>You may also find the Text tag useful when combined with Javascript. The Text tag utilizes one-way binding. It can receive data from a SelectCommand, but it does not participate in the SubmitCommand. In other words, data in a Text tag is not saved to the database.</p><h2>Attributes<br /></h2><ul><li><b>DataField</b>: Name of the parameter in the <code>&lt;submitcommand&gt;</code> which will be filled with this control's data on when the form is submitted and/or the parameter in the <code>&lt;selectcommand&gt;</code> which will supply this control's data when the form is loaded. This attribute is required if the control will participate in operations with your form's data commands.</li><li><b>Nullable</b>: If True (the default is False), the control will return a DBNull value if the control is blank or contains just whitespace. If a DBNull value is passed to the control, the control will be set to an empty string.</li></ul><a href="#top" class="link">Back to top</a><a name="example"></a><h2>Example</h2><div><code>&lt;addform&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&lt;a href="#" onclick="alert('&lt;Text datafield="LastLogin"/&gt;')"&gt;Click for Last Login Date&lt;/a&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&lt;table&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160; &lt;tr&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&#160; 
+ &lt;td&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+ &lt;label for="txtFirstName" text="First Name" /&gt; </code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;Textbox id="txtFirstName" datafield="FirstName" 
+ datatype="string" /&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&#160; 
+ &lt;/td&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&lt;/tr&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;...</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&lt;tr&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&#160; 
+ &lt;td colspan="2"&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+ &lt;addbutton text="Add"/&gt;&amp;nbsp;&lt;cancelbutton 
+ text="Cancel"/&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&#160; 
+ &lt;/td&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&lt;/tr&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&lt;/table&gt;</code><br style="mc-tag-and-class: code;" /><code>  &lt;/addform&gt;</code></div><a href="#top">Back to top</a></body>
+</html>

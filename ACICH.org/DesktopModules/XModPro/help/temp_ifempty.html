@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="913" MadCap:lastWidth="576" class="">
+    <head><title></title>
+        <link rel="stylesheet" href="XModProHelp.css" type="text/css" />
+    </head>
+    <body>
+        <h1>&lt;xmod:IfEmpty&gt;</h1><a name="top"></a>
+        <p class="Nav"><a href="#syntax">Syntax</a>&#160;<a href="#remarks">Remarks</a>&#160;<a href="#example">Example</a></p>
+        <p xmlns="">(New to version 4.2) The IfEmpty tag is a quick way to display content only if there is no value in a column. In other words if the value is an empty string ("") or a Null value, then the content of the IfEmpty tag will be rendered out to the page.    <![CDATA[ ]]></p><a name="syntax"></a>
+        <h2>Syntax</h2>
+        <div xmlns="">
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&lt;xmod:IfEmpty</CODE>
+            <CODE xmlns="http://www.w3.org/1999/xhtml">
+                <br xmlns="http://www.w3.org/1999/xhtml" />&#160;&#160;&#160;&#160;Value="<i>string</i>"&gt;<br xmlns="http://www.w3.org/1999/xhtml" /> <![CDATA[    ]]><br xmlns="http://www.w3.org/1999/xhtml" /> <![CDATA[    ]]><i>...Content Goes Here...</i><br /></CODE>
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&lt;/xmod:IfEmpty&gt;</CODE>
+        </div><a name="remarks"></a>
+        <h2>Remarks</h2>
+        <ul>
+            <li xmlns=""><b>Value</b>: This can be a hard-coded string value theoretically, however, the main purpose is to accept a Field Token. NOTE, when using a Field Token, you must use single quotes rather than double quotes to delimit it: <br xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&lt;xmod:IfEmpty Value='[[MyField]]'&gt;...&lt;/xmod:IfEmpty&gt;</code></li>
+        </ul><a href="#top" class="link">Back to top</a>
+        <br /><a name="example"></a>
+        <h2>Example</h2>
+        <div xmlns="">
+            <CODE>&lt;div&gt;<br />&#160;&#160;&lt;table width="100%"&gt;<br />&#160;&#160;&#160;&#160;&lt;tr&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;td width="250" valign="top"&gt;<br /> <![CDATA[        ]]><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;!-- EMPLOYEES TEMPLATE --&gt;<br /> <![CDATA[        ]]><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;xmod:Template Id="Employees"&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;DetailDataSource CommandText="SELECT * FROM&#160;XMPDemo_Employees WHERE EmployeeId = @EmpID"&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;Parameter Name="EmployeeId" Alias="EmpID" /&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/DetailDataSource&gt;<br /></CODE>
+            <CODE>
+                <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;DetailTemplate&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;h1&gt;Employee Profile&lt;/h1&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;h3&gt;[[FirstName]] [[LastName]]&lt;/h3&gt;<br xmlns="http://www.w3.org/1999/xhtml" /><span class="CodeHighlight" xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;xmod:IfEmpty Value='[[imageUrl]]'&gt;</span><br xmlns="http://www.w3.org/1999/xhtml" style="mc-tag-and-class: ;" /><span class="CodeHighlight" xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;img src="/images/NoImage.png" /&gt;</span><br xmlns="http://www.w3.org/1999/xhtml" style="mc-tag-and-class: ;" /><span class="CodeHighlight" xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/xmod:IfEmpty&gt;</span><br xmlns="http://www.w3.org/1999/xhtml" style="mc-tag-and-class: ;" />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;xmod:IfNotEmpty Value='[[imageUrl]]'&gt;<br xmlns="http://www.w3.org/1999/xhtml" />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;img src="[[imageUrl]] /&gt;<br xmlns="http://www.w3.org/1999/xhtml" />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/xmod:IfNotEmpty&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;h4&gt;Biography:&lt;/h4&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;div&gt;[[Bio]]&lt;/div&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;xmod:MetaTags&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;Title&gt;Employee Profile for [[FirstName]] [[LastName]]&lt;/Title&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;Keywords append="true"&gt;[[FirstName]],[[LastName]]&lt;/Keywords&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/xmod:MetaTags&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/DetailTemplate&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/xmod:Template&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;/td&gt;<br />&#160;&#160;&#160;&#160;&lt;/tr&gt;<br />&#160;&#160;&lt;/table&gt;<br />&lt;/div&gt;</CODE>
+        </div><a href="#top" class="link">Back to top</a>
+    </body>
+</html>

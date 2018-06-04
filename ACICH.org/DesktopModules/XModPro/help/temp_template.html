@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="3759" MadCap:lastWidth="896" class="">
+    <head><title></title>
+        <link rel="stylesheet" href="XModProHelp.css" type="text/css" />
+    </head>
+    <body>
+        <h1>&lt;xmod:Template&gt;</h1><a name="top"></a>
+        <p class="Nav"><a href="#syntax">Syntax</a>&#160;<a href="#remarks">Remarks</a>&#160;<a href="#example">Example</a></p>
+        <p>The template tag is the primary workhorse of XModPro. It contains the data 
+ commands and layout instructions for your display. Additionally, it enables you 
+ to specify who is allowed to add, edit, and delete records as well as who is 
+ allowed to view the details of records.  You can use multiple Template tags, 
+ enabling you to have side-by-side (or however you want to lay them out using 
+ HTML) displays within the same module instance, each being fed by different 
+ datasources.</p><a name="syntax"></a>
+        <h2>Syntax</h2>
+        <div xmlns="" style="font-size: 9pt;font-family: monospace;">
+            <CODE xmlns="http://www.w3.org/1999/xhtml" style="font-size: 9pt;">&lt;xmod:Template
+    </CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;AddRoles="DNNRoleName1,DNNRoleName2"
+    </CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;Ajax="True|<b>False</b>"
+    </CODE>
+            <br xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;    ConnectionString="<i>string</i>" </CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;DeleteRoles="DNNRoleName1;DNNRoleName2"
+    </CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;DetailRoles="DNNRoleName1;DNNRoleName2"</CODE>
+        </div>
+        <div xmlns="" style="font-size: 9pt;font-family: monospace;">
+            <CODE xmlns="http://www.w3.org/1999/xhtml"> EditRoles="DNNRoleName1;DNNRoleName2" </CODE>
+        </div>
+        <div xmlns="" style="font-family: monospace;font-size: 9pt;">
+            <CODE xmlns="http://www.w3.org/1999/xhtml"> ID="<i xmlns="http://www.w3.org/1999/xhtml">string</i>" </CODE>
+        </div>
+        <div xmlns="" style="font-family: monospace;font-size: 9pt;">
+            <CODE xmlns="http://www.w3.org/1999/xhtml"> UsePaging="<b>True</b>|False" &gt;</CODE> <![CDATA[ ]]><br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" /><br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" /><CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160; &lt;ListDataSource CommandText="<i>string</i>" <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ConnectionString="<i>string</i>" /&gt;</CODE><br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" /><CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160; &lt;DetailDataSource CommandText="<i>string</i>" <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ConnectionString="<i>string</i>" /&gt;<br /><br />&#160;&#160;&#160;&#160;&lt;DeleteCommand CommandText="<i>string</i>" /&gt;<br /><br />&#160;&#160;&#160;&#160;&lt;CustomCommands&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;DataCommand CommandName="<i>string</i>" CommandText="<i>string</i>" ConnectionString="<i>string</i>"&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;Parameter Name="<i>string</i>" Value="<i>string</i>" /&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;/DataCommand&gt;<br />&#160;&#160;&#160;&#160;&lt;/CustomCommands&gt;</CODE></div>
+        <div xmlns="" style="font-size: 9pt;font-family: monospace;">
+            <br style="mc-tag-and-class: CODE;" />
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE><![CDATA[    ]]><a href="temp_pager.html">&lt;Pager&gt;</a> ... &lt;/Pager&gt;<br /> <![CDATA[    ]]><a href="temp_searchsort.html">&lt;SearchSort&gt;</a>...&lt;/SearchSort&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160; &lt;HeaderTemplate&gt;...&lt;/HeaderTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160; &lt;ItemTemplate&gt;...&lt;/ItemTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160; &lt;AlternatingItemTemplate&gt;...&lt;/AlternatingItemTemplate&gt;<br />&#160;&#160;&#160;&#160;&lt;SeparatorTemplate&gt;...&lt;/SeparatorTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160; &lt;FooterTemplate&gt;...&lt;/FooterTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160; &lt;DetailTemplate&gt;...&lt;/DetailTemplate&gt;<br /><br />&#160;&#160;&#160;&#160;&lt;NoItemsTemplate&gt;...&lt;/NoItemsTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE><![CDATA[    ]]><span style="font-size: 9pt;" xmlns="http://www.w3.org/1999/xhtml">&lt;/xmod:Template&gt;</span></CODE>
+        </div><a name="remarks"></a>
+        <h2>Remarks</h2>
+        <ul>
+            <li xmlns=""><strong xmlns="">AddRoles/EditRoles/DeleteRoles/DetailRoles:</strong> Each of these 
+ properties are lists of DNN role names, separated by commas. 
+ Host/SuperUser and Admin accounts always have add/update/delete/detail 
+ permissions. By default, anyone who has access to view the module also has 
+ detail viewing permissions. Supply the DetailRoles attribute to limit who can 
+ view the details of records within the template. Users other than Host/Admin 
+ must be explicitly granted add/update/delete rights. Prior to version 4.0, role names were separated by semi-colons. To enhance consistency with other areas of XMod Pro, commas are now used. For backwards compatibility, you can still use semi-colons, but their usage is deprecated as of version 4.0. You should use commas going forward.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /><b>NOTE</b>: These permissions apply ONLY&#160;to controls <i>within</i> the <span style="font-family: monospace;">&lt;xmod:Template&gt;</span> tag. If you have an <span style="font-family: monospace;">&lt;xmod:AddButton&gt;</span>, and <span style="font-family: monospace;">&lt;xmod:AddLink&gt;</span>, or <span style="font-family: monospace;">&lt;xmod:AddImage&gt;</span> tag placed <i xmlns="http://www.w3.org/1999/xhtml">outside</i> of the <span style="font-family: monospace;" xmlns="http://www.w3.org/1999/xhtml">&lt;xmod:Template&gt;</span> tag, you will need to set permissions at the module level by going to the module's Configure page and choosing the Security tab. There you can choose the roles allowed to add records.</li>
+            <li xmlns="">
+                <p style="font-family: Verdana;" xmlns="http://www.w3.org/1999/xhtml"><b style="font-family: Verdana;">Ajax</b>: New to version 2.6, when this attribute is true, actions within the template tag will be performed without a full page refresh. This value is false by default. NOTE: buttons that postback such as the DetailButton (or DetailImage or DetailLink) or AddButton or DeleteButton or CommandButton, etc. must have their ID property set to function correctly. If you have to click twice on a button, for instance, make sure it's ID has been set.</p>
+                <p style="font-family: Verdana;" xmlns="http://www.w3.org/1999/xhtml"><b style="font-family: Verdana;">ConnectionString</b>: If you need to specify a SQL Server database other than the current DotNetNuke database, you can supply a connection string here. When specified, it serves as the default connection string for the ListDataSource and DetailDataSource. You can also use a connection string defined in the web.config file. To do so, use the ConnectionString token like so:</p><pre xml:space="preserve" style="font-family: Verdana;" xmlns="http://www.w3.org/1999/xhtml"><span style="font-family: monospace;">&lt;xmod:Template ... ConnectionString='[[ConnectionString:</span><i xmlns="http://www.w3.org/1999/xhtml" style="font-family: monospace;">connectionName</i><span style="font-family: monospace;">]]' ...&gt;</span></pre>
+            </li>
+            <li xmlns=""><b>UsePaging</b>: If set to true, the default, list views will display a pager if more than one page is available for display. The pager can be set using the <code style="font-size: 9pt;">&lt;Pager&gt;</code> tag.<br /> <![CDATA[ ]]></li>
+            <li xmlns=""><b xmlns="http://www.w3.org/1999/xhtml">Data Sources</b>: The data for each template is a SQL command. This could be a SQL <CODE style="font-size: 9pt;" xmlns="http://www.w3.org/1999/xhtml">SELECT</CODE> command or a stored procedure. Supply the SQL command as the CommandText attribute. For stored procedures, use <CODE xmlns="http://www.w3.org/1999/xhtml"><span style="font-size: 9pt;">EXEC </span><i style="font-size: 9pt;">sprocName</i></CODE>. In the initial release, data sources can only point to the current DotNetNuke database. Also note that Bit columns are returned as True/False - not 1/0. The data source for list views is defined in <span style="font-size: 9pt;" xmlns="http://www.w3.org/1999/xhtml">the </span><CODE xmlns="http://www.w3.org/1999/xhtml"><span style="font-size: 9pt; font-family: monospace;">&lt;ListDataSource&gt;</span></CODE> tag while the data source for the detail view is defined in the <span style="font-size: 9pt; font-family: monospace;" xmlns="http://www.w3.org/1999/xhtml">&lt;DetailDataSource&gt;</span> tag.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li>In addition to its attributes, the Template tag also contains numerous child 
+ tags which define most of the tag's functionality:<ul xmlns=""><li><p style="font-family: Verdana;font-size: 9pt;text-align: left;" xmlns="http://www.w3.org/1999/xhtml"><b>ListDataSource</b>: Provides the data for the template when it is displaying 
+ in list view. It accepts <span style="font-family: monospace;">&lt;parameter&gt;</span> tags to pass parameters as part of the command. The "alias" attribute is optional and is used to avoid conflicts or to accept a parameter with a specific name (the "name" attribute) but use a different parameter name in the command (the "alias" attribute). If no "alias" is specified, the "name" will be used.</p><p style="font-family: Verdana;font-size: 9pt;text-align: left;" xmlns="http://www.w3.org/1999/xhtml"><b>Output Parameters</b>: New to version 1.3, you can retrieve and use the value of SQL Output parameters. To do so, add the Direction="Output" to the <span style="font-family: monospace;">&lt;parameter&gt;</span> tag and specify a DataType and Size (required for Strings). See Example #4 and the <a href="tokens_data.html">Data Parameter Tokens Topic</a>.</p><p style="font-family: Verdana;font-size: 9pt;" xmlns="http://www.w3.org/1999/xhtml">Examples:</p><pre xml:space="preserve">#1
+&lt;ListDataSource CommandText="SELECT FirstName, LastName FROM Users" /&gt;</pre><pre xml:space="preserve">#2
+&lt;ListDataSource CommandText="SELECT FirstName, LastName FROM Users 
+                             WHERE ZipCode = @zip"&gt;
+  &lt;parameter name="zip" alias="zip" value="12345" /&gt;
+&lt;/ListDataSource&gt;</pre><pre xml:space="preserve">#3
+&lt;ListDataSource CommandText="EXEC GetUsers @zip"&gt;
+  &lt;parameter name="zip" alias="zip" value="12345" /&gt;
+&lt;/ListDataSource&gt;</pre><pre xml:space="preserve">#4
+&lt;ListDataSource CommandText="GetEmploeesByDepartment" CommandType="StoredProcedure"&gt;
+&#160;&#160;&lt;parameter name="DepartmentId" value="32"/&gt;
+&#160;&#160;&lt;parameter name="DepartmentName" direction="Output" datatype="string" size="100" /&gt;
+&lt;/ListDataSource&gt;</pre><p style="text-align: left;" xmlns="http://www.w3.org/1999/xhtml"><span style="font-family: Verdana;">You can optionally specify a </span><b style="font-family: Verdana;">ConnectionString</b><span style="font-family: Verdana;"> for this data source. If none is specified, the default connection will be used - either the connection specified by the ConnectionString property of the parent </span><code style="font-size: 9pt; font-family: monospace;">&lt;xmod:Template&gt;</code><span style="font-family: Verdana;">&#160;tag or the current DotNetNuke database if the template doesn't define a connection. As with the template tag, you can use the </span><code style="font-size: 9pt; font-family: monospace;">[[ConnectionString:connectionName]]</code><span style="font-family: Verdana;"> token to use a connection defined in the web.config file.</span><br />&#160;</p></li><li><b>DetailDataSource</b>: Provides the data for the template when it is 
+ displaying a single record. It accepts <code style="font-size: 9pt;">&lt;Parameter&gt;</code> tags like the <code style="font-size: 9pt;">&lt;ListDataSource&gt;</code>. You can optionally specify a <b>ConnectionString</b> for this data source. If none is specified, the default connection will be used - either the connection specified by the ConnectionString property of the parent <code style="font-family: monospace; font-size: 9pt;">&lt;xmod:Template&gt;</code>&#160;tag or the current DotNetNuke database if the template doesn't define a connection.  As with the template tag, you can use the <code style="font-size: 9pt;">[[ConnectionString:connectionName]]</code> token to use a connection defined in the web.config file.<br />&#160;<br />DetailDataSource tags can also take <b>Output Parameters</b>. See the ListDataSource topic above for details.<br />&#160;</li><li xmlns="http://www.w3.org/1999/xhtml"><b>DeleteCommand</b>: Provides the command to execute when a Delete Button/Image/Link is pressed within the template. It accepts <code style="font-size: 9pt;">&lt;parameter&gt;</code> tags like the <code style="font-size: 9pt;">&lt;ListDataSource&gt;</code>.<br />&#160;</li><li><p style="text-align: left;" xmlns="http://www.w3.org/1999/xhtml"><b style="font-size: 9pt;font-family: Verdana;">CustomCommands</b><span style="font-size: 9pt;"><span style="font-family: Verdana;">: New to version 3. Custom commands allow you to execute commands on your data source beyond the standard list/detail/delete commands. For instance, you may use them to create an Approve Record button which would set the approval status on a record. Custom Commands are triggered using <span style="font-family: monospace;">&lt;xmod:CommandButton&gt;, &lt;xmod:CommandLink&gt; and &lt;xmod:CommandImage&gt;</span> controls. For the &lt;Command&gt; tag, specify the Name of the command and set the Type to Custom. When a custom command is executed, the page will postback to the server and XMod Pro will attempt to reload the resultset on the same page the user was on when the command button was clicked. In most cases this should update any values on that page that have been changed. </span></span></p><p style="text-align: left;" xmlns="http://www.w3.org/1999/xhtml"><span style="font-size: 9pt;"><span style="font-family: Verdana;">An example is below:</span></span></p><pre xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml"><span style="font-family: monospace;">&lt;xmod:Template&gt;</span>
+ ...&#160;
+<code><![CDATA[ ]]><span style="font-size: 9pt;">&lt;CustomCommands&gt;
+    &lt;DataCommand CommandName="ChangeLastNameToSmith" CommandText="UPDATE Authors SET LastName='Smith' WHERE AuthorId=@AuthorId"&gt;
+      &lt;Parameter Name="AuthorId" /&gt;
+    &lt;/DataCommand&gt;
+  &lt;/CustomCommands&gt;</span></code></pre><pre xml:space="preserve">&#160;&#160;...</pre><pre xml:space="preserve">&#160;&#160;&lt;ItemTemplate&gt;</pre><pre xml:space="preserve">&#160;&#160;&#160;&lt;xmod:CommandButton Text="CustomCommand"&gt;</pre><pre xml:space="preserve">&#160;&#160;&#160;&#160;&lt;Command Name="ChangeLastNameToSmith" Type="Custom"&gt;</pre><pre xml:space="preserve">&#160;&#160;&#160;&#160;&#160;&#160;&lt;Parameter Name="AuthorId" Value='[[AuthorId]]' /&gt;</pre><pre xml:space="preserve">&#160;&#160;&#160;&#160;&lt;/Command&gt;</pre><pre xml:space="preserve">&#160;&#160;&#160;&lt;/xmod:CommandButton&gt;</pre><pre xml:space="preserve">&#160;&#160;...</pre><pre xml:space="preserve">&#160;&#160;&lt;/ItemTemplate&gt;</pre><pre xml:space="preserve">&#160;&#160;...</pre><pre xml:space="preserve">&lt;/xmod:Template&gt;<br />&#160;</pre></li><li><b>HeaderTemplate</b>: When displaying a list view, HTML, text, and controls 
+ that will be rendered once, at the beginning of the list. This template is 
+ optional. <br />&#160;</li></ul></li>
+            <ul>
+                <li><b xmlns="">ItemTemplate</b>: When displaying a list view, HTML, text, field tokens, and 
+ controls that will be rendered for each record in the result set. If the 
+ AlternatingItemTemplate is supplied, then the ItemTemplate will be used for all 
+ odd-numbered records.<br xmlns="" />&#160;</li>
+                <li xmlns=""><b xmlns="">AlternatingItemTemplate</b>: When displaying a list view, HTML, text, field 
+ tokens, and controls that will be rendered for the even-numbered records in the 
+ result set. This template is optional.<br xmlns="" />&#160;</li>
+                <li xmlns=""><b>SeparatorTemplate</b>: When displaying a list view, this will render any HTML or text that you specify between each record. One good example is if you're creating a list of comma-separated records (we'll use numbers for simplicity). If you put your comma in the ItemTemplate, you would get a trailing comma like this: 1,2,3, But if you put your comma in the SeparatorTemplate, you won't get that trailing comma: 1,2,3. (Added in version 1.4)<br />&#160; </li>
+                <li><b xmlns="">FooterTemplate</b>: When displaying a list view, HTML, text, and controls 
+ that will be rendered once, at the end of the list. This template is optional.<br xmlns="" />&#160;</li>
+                <li xmlns=""><b>DetailTemplate</b>: Defines the layout for viewing a single record. When the 
+ user clicks a detail button, this template will be used. This template can 
+ contain HTML, text, Field Tokens, and controls. It is required if you will be 
+ using XMod Pro's detail buttons in your list view.<br />&#160;</li>
+                <li xmlns=""><b>NoItemsTemplate</b>: Defines the layout and text to display when the data source returns no records. This tag is optional. If not specified, nothing will be shown.<br />&#160;</li>
+                <li xmlns=""><b>Pager</b>: This optional tag allows you to override the default configuration and look of the top and bottom pagers. Additionally, you can optionally override the default layout of the top and bottom pagers using your own HTML. See the <CODE><a href="temp_pager.html" style="font-size: 9pt;">&lt;Pager&gt;</a><span style="font-size: 9pt;" xmlns="http://www.w3.org/1999/xhtml"> <![CDATA[ ]]></span></CODE>topic for more details.<br />&#160;</li>
+                <li xmlns=""><b xmlns="http://www.w3.org/1999/xhtml">SearchSort</b>: This allows you to define basic searching and sorting for your template. For more details see the <code><a href="temp_searchsort.html" style="font-size: 9pt;">&lt;SearchSort&gt;</a></code> topic.<br />&#160;</li>
+            </ul>
+            <li xmlns=""><b>Field Tokens</b>: In order to display data from your data source, XMod Pro uses "field tokens". These are essentially placeholders that contain the name of the column or field in your data source. At run-time, these tokens are replaced with the value from record. Field Tokens are written in this form: <CODE style="font-size: 9pt;">[[FieldName]]</CODE> "FieldName" is the name of the field or column in your data source. This name is case sensitive and must match the field/column's name exactly. It must be surrounded by [[ and ]]. You can use the Field Token in many places. However, when you use it as the attribute value for an XMod Pro tag or other third party control, you must delimit the attribute value with single quotes, rather than double quotes. See the <CODE style="font-size: 9pt;">&lt;xmod:DetailButton&gt;</CODE> code in the example. When used in the <CODE style="font-size: 9pt;">&lt;Parameter&gt;</CODE> tag, the attribute is written as: <CODE style="font-size: 9pt;">value='[[UserID]'</CODE> rather than:<span style="font-size: 9pt;">&#160;</span><CODE style="font-size: 9pt;">value="[[UserID]]"</CODE>. When using a Field Token with HTML&#160;tag attributes, this is not necessary.</li>
+        </ul><a href="#top" class="link">Back to top</a>
+        <br /><a name="example"></a>
+        <h2>Example</h2>
+        <div xmlns="">
+            <CODE style="font-size: 9pt;">&lt;xmod:Template AddRoles="SampleRole1;SampleRole2"&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">&#160;&#160;&#160; &lt;ListDataSource CommandText="SELECT * FROM Users" /&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">&#160;&#160;&#160; &lt;DetailDataSource CommandText="SELECT * FROM Users WHERE 
+ UserID=@UserID" /&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">&#160;&#160;&#160; &lt;HeaderTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;ul&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">&#160;&#160;&#160; &lt;/HeaderTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">&#160;&#160;&#160; &lt;ItemTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;li&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; User's Name: [[FirstName]] 
+ [[LastName]] &lt;br /&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+ &lt;xmod:DetailLink Text="More..."&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+ &lt;Parameter Name="UserID" Value='[[UserID]]' /&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+ &lt;/xmod:DetailLink&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;/li&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">&#160;&#160;&#160; &lt;/ItemTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">&#160;&#160;&#160; &lt;AlternatingItemTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;li class="AltItem"&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; User's Name: 
+ [[FirstName]] [[LastName]] &lt;br /&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+ &lt;xmod:DetailLink Text="More..."&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+ &lt;Parameter Name="UserID" Value='[[UserID]]' /&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+ &lt;/xmod:DetailLink&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;/li&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">&#160;&#160;&#160; &lt;/AlternatingItemTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">&#160;&#160;&#160; &lt;FooterTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;/ul&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">&#160;&#160;&#160; &lt;/FooterTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">&#160;&#160;&#160; &lt;DetailTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;h1&gt;This is the detail view&lt;/h1&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160; User's Name: [[FirstName]] [[LastName]]</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">&#160;&#160;&#160; &lt;/DetailTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;font-size: 9pt;" />
+            <CODE style="font-size: 9pt;">    &lt;/xmod:Template&gt;
+</CODE>
+        </div><a href="#top" class="link">Back to top</a>
+    </body>
+</html>

@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="7" MadCap:lastHeight="903" MadCap:lastWidth="1213" class="">
+    <head><title></title>
+        <link rel="stylesheet" href="XModProHelp.css" type="text/css" />
+    </head>
+    <body xmlns="">
+        <h1>Data Types</h1>
+        <p>XMod Pro data-bound controls enable you to specify the type of data the control will accept. Some controls may limit you to a specific type of data (for instance, a checkbox control might only allow boolean values). The list of valid data types is below: </p>
+        <ul>
+            <li>Boolean</li>
+            <li>DateTime</li>
+            <li>Decimal</li>
+            <li xmlns="http://www.w3.org/1999/xhtml">Double</li>
+            <li xmlns="http://www.w3.org/1999/xhtml">Byte</li>
+            <li>Int16</li>
+            <li>Int32</li>
+            <li>Int64</li>
+            <li>Single </li>
+            <li>String</li>
+        </ul>
+        <h3>SQL Server Data Type to XMod Pro Data Type Conversion</h3>
+        <p>To make the process of linking your fields up with XMod Pro, we've created a table listing the SQL Server data type and its XMod Pro equivalent, if available. While currently, XMod Pro is designed for SQL Server, it does not support every field type. The goal is to keep XMod Pro loosely coupled so that other databases and data sources can be added in the future. Also, keep in mind that while a certain data type may have an XMod Pro equivalent, you should ensure that the values accepted from your users do not exceed the limitations of the data type. For instance, if you choose the NChar datatype in SQL Server, you should use the String XMod Pro data type. However, you need to ensure the text entered falls within the limits of the NChar field (4,000 characters for SQL Server 2005). We have noted limitations for some data types.</p>
+        <p>&#160;</p>
+        <table style="border-left-style: solid; border-left-width: 1px; border-left-color: #000000; border-right-style: solid; border-right-width: 1px; border-right-color: #000000; border-top-style: solid; border-top-width: 1px; border-top-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: #000000; border-collapse: collapse;">
+            <col style="width: 249px;" />
+            <col style="width: 50%;" />
+            <tbody>
+                <tr>
+                    <td style="font-weight: bold;background-color: #18191b;"><span style="color: #ffffff;">SQL Server Data Type</span>
+                    </td>
+                    <td style="background-color: #18191b;"><b style="color: #ffffff;">XMod Pro Data Type</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>BigInt</td>
+                    <td>Int64</td>
+                </tr>
+                <tr>
+                    <td>Binary</td>
+                    <td>Not Supported</td>
+                </tr>
+                <tr>
+                    <td>Bit</td>
+                    <td>Boolean</td>
+                </tr>
+                <tr>
+                    <td>Char</td>
+                    <td>String (subject to Char size limits)</td>
+                </tr>
+                <tr xmlns="http://www.w3.org/1999/xhtml">
+                    <td>Date</td>
+                    <td>Date (supported as of XMod Pro 3.1)</td>
+                </tr>
+                <tr>
+                    <td>DateTime</td>
+                    <td>DateTime</td>
+                </tr>
+                <tr>
+                    <td>DateTime2</td>
+                    <td>DateTime (supported as of XMod Pro 3.1)</td>
+                </tr>
+                <tr xmlns="http://www.w3.org/1999/xhtml">
+                    <td>DateTimeOffset</td>
+                    <td>Not Supported</td>
+                </tr>
+                <tr>
+                    <td>Decimal</td>
+                    <td>Decimal</td>
+                </tr>
+                <tr>
+                    <td>Float</td>
+                    <td>Double</td>
+                </tr>
+                <tr>
+                    <td>Image</td>
+                    <td>Not Supported</td>
+                </tr>
+                <tr>
+                    <td>Int</td>
+                    <td>Int32</td>
+                </tr>
+                <tr>
+                    <td>Money</td>
+                    <td>Decimal. Do not include currency symbols (i.e $) in value.</td>
+                </tr>
+                <tr>
+                    <td>NChar</td>
+                    <td>String (subject to NChar size limits)</td>
+                </tr>
+                <tr>
+                    <td>NText</td>
+                    <td>String</td>
+                </tr>
+                <tr>
+                    <td>NVarChar</td>
+                    <td>String (subject to NVarChar size limits)</td>
+                </tr>
+                <tr>
+                    <td>Real</td>
+                    <td>Single</td>
+                </tr>
+                <tr>
+                    <td>SmallDateTime</td>
+                    <td>DateTime (subject to SmallDateTime size limits)</td>
+                </tr>
+                <tr>
+                    <td>SmallInt</td>
+                    <td>Int16</td>
+                </tr>
+                <tr>
+                    <td>SmallMoney</td>
+                    <td>Decimal (subject to SmallMoney size limits). Do not include currency symbols (i.e $) in value.</td>
+                </tr>
+                <tr>
+                    <td>Structured</td>
+                    <td>Not Supported</td>
+                </tr>
+                <tr>
+                    <td>Text</td>
+                    <td>String</td>
+                </tr>
+                <tr xmlns="http://www.w3.org/1999/xhtml">
+                    <td>Time</td>
+                    <td>Use SQL DateTime data type instead)</td>
+                </tr>
+                <tr>
+                    <td>Timestamp</td>
+                    <td>Not Supported</td>
+                </tr>
+                <tr>
+                    <td>TinyInt</td>
+                    <td>Byte (supported as of XMod Pro 3.1)</td>
+                </tr>
+                <tr>
+                    <td>Udt</td>
+                    <td>Not Supported</td>
+                </tr>
+                <tr>
+                    <td>UniqueIdentifier</td>
+                    <td>String (supported as of XMod Pro 3.1) Ensure your data is formatted accordingly</td>
+                </tr>
+                <tr>
+                    <td>VarBinary</td>
+                    <td>Not Supported</td>
+                </tr>
+                <tr>
+                    <td>VarChar</td>
+                    <td>String (subject to VarChar size limits)</td>
+                </tr>
+                <tr>
+                    <td>Variant</td>
+                    <td>Not Supported</td>
+                </tr>
+                <tr>
+                    <td>Xml</td>
+                    <td>String (supported as of XMod Pro 3.1)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+    </body>
+</html>

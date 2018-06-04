@@ -1,0 +1,224 @@
+﻿
+/* default.css fixes */
+a, a:visited {
+	color: inherit;
+}
+
+#ControlBar_ControlPanel *
+{
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.showControlBar .navbar-wrapper
+{
+    margin-top: 70px !important;
+}
+
+.container.marketing.innerskin
+{
+    margin-top: 75px;
+}
+
+.showControlBar .container.marketing.innerskin
+{
+    margin-top: 130px;
+}
+
+
+#dnn_dnnLOGO_imgLogo
+{
+   max-height: 50px;
+	padding-top: 4px;
+	padding-right: 14px;
+}
+
+.navbar-nav ul
+{
+    margin-left: 0px;
+}
+.navbar-wrapper .navbar-inverse .navbar-nav>li>a {
+    color: #ccc;
+}
+
+.navbar-wrapper .navbar-inverse .navbar-nav>.active>a, .navbar-wrapper .navbar-inverse .navbar-nav>.active>a:hover, .navbar-wrapper .navbar-inverse .navbar-nav>.active>a:focus {
+    color: #fff;
+    background-color: #080808;
+}
+
+.navbar-nav ul, .navbar-nav li
+{
+    list-style-type: none;
+}
+.navbar-inverse .navbar-nav > .active a.LoginLink, .navbar-inverse .navbar-nav > .active a.LoginLink:hover, .navbar-inverse .navbar-nav>.active a.LoginLink:focus,
+.navbar-inverse .navbar-nav > .active .registerGroup a, .navbar-inverse .navbar-nav > .active .registerGroup a:hover, .navbar-inverse .navbar-nav>.active .registerGroup a:focus {
+    color: #fff;
+    background-color: #080808;
+}
+
+.navbar-inverse .navbar-nav>li a.LoginLink,
+.navbar-inverse .navbar-nav>li .registerGroup a {
+    color: #ccc;
+}
+
+.nav>li a.LoginLink,
+.nav>li .registerGroup a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+
+
+.navbar-nav>li a.LoginLink,
+.navbar-nav>li .registerGroup a 
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 20px;
+}
+
+.navbar-nav .registerGroup li:first-child:hover 
+{
+    /*border-left: #222;*/
+}
+
+/* Register Group Styles */
+.navbar-nav .registerGroup li {
+    float: left;
+}
+
+.navbar-nav .registerGroup .buttonGroup {
+    margin-right: 0;
+}
+
+.navbar-nav .registerGroup a,
+.navbar-nav .loginGroup a {
+    display: block;
+    position: relative;
+    height: 50px;
+    min-width: 12px;
+    padding: 7px 15px 0 15px;
+    color: #333;
+    vertical-align: middle;
+}
+
+.navbar-nav .registerGroup a:hover,
+.navbar-navn .loginGroup a:hover {
+    background: rgb(45,45,45); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(45,45,45,1) 0%, rgba(86,86,86,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(45,45,45,1)), color-stop(100%,rgba(86,86,86,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(45,45,45,1) 0%,rgba(86,86,86,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(45,45,45,1) 0%,rgba(86,86,86,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(45,45,45,1) 0%,rgba(86,86,86,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom, rgba(45,45,45,1) 0%,rgba(86,86,86,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2d2d2d', endColorstr='#565656',GradientType=0 ); /* IE6-9 */
+    color: #ddd;
+    text-shadow: 0px -1px 0px #333333;
+}
+
+.navbar-nav .registerGroup a:active,
+.navbar-nav .loginGroup a:active {
+    color: #fff;
+    text-shadow: 0px -1px 0px #333333;
+}
+
+.navbar-nav .registerGroup a:hover,
+.navbar-nav .loginGroup a:hover {
+    text-decoration: none;
+}
+
+.navbar-nav .registerGroup a strong,
+.navbar-navn .loginGroup a strong {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+    text-indent: -9999px;
+}
+
+.navbar-nav .userMessages a,
+.navbar-nav .userNotifications a {
+    background-color: #333;
+}
+
+.navbar-nav .userMessages strong {
+    height: 100%;
+    background: url('images/icon_message.png') no-repeat center center;
+}
+
+
+.navbar-nav .userNotifications strong {
+    height: 100%;
+    background: url('images/icon_notification.png') no-repeat center center;
+}
+
+.navbar-nav .registerGroup a span {
+    display: inline-block;
+    position: absolute;
+    right: 2px;
+    top: -9px;
+    min-width: 7px;
+    margin-right: 3px;
+    background: rgb(59,150,182); /* Old browsers */
+    text-align: center;
+    color: #fff;
+    text-shadow: 0px 1px 0px #333333;
+}
+
+.navbar-nav .registerGroup .userProfileImg a {
+    min-width: 25px;
+    min-height: 32px;
+    padding: 0;
+    background: none;
+}
+
+.navbar-nav .registerGroup a img {
+    height: 51px;
+    width: 51px;
+    background: #333;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+/* Login Group Styles */
+
+
+.navbar-nav .loginGroup a {
+    color: #333;
+}
+
+/* Number of message next to the message icon*/
+.navbar-nav .userMessages a span,
+.navbar-nav .userNotifications a span {
+    display: inline-block;
+    margin-top: 9px;
+    margin-right: 0px;
+    background-color: transparent;
+    font-size: 10px;
+}
+
+.carousel.DNNEmptyPane {
+    height: 75px;
+    margin-bottom: 0px;
+}
+
+.searchInputContainer a.dnnSearchBoxClearText {
+    top: 2px;
+}
+
+#dnn_dnnSearch_cmdSearch
+{
+    margin-bottom: 2px;
+}
+
+@media (min-width: 768px)
+{
+    .navbar-nav > li a.LoginLink, .navbar-nav > li .registerGroup a
+    {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}

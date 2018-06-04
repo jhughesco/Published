@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="808" MadCap:lastWidth="1026" class="">
+    <head><title></title>
+        <link rel="stylesheet" href="XModProHelp.css" type="text/css" />
+    </head>
+    <body>
+        <h1>&lt;xmod:Register&gt;</h1><a name="top"></a>
+        <p class="Nav"><a href="#syntax">Syntax</a>&#160;<a href="#remarks">Remarks</a>&#160;<a href="#example">Example</a></p>
+        <p xmlns="">The Register tag enables you to use third-party controls in your XMod Pro templates.     <![CDATA[ ]]></p><a name="syntax"></a>
+        <h2>Syntax</h2>
+        <div xmlns=""><code>&lt;xmod:Register
+    </code>
+            <br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;TagPrefix="<i>string</i>"</code>
+        </div>
+        <div xmlns=""><code>&#160;&#160;&#160;&#160;Namespace="<i>string</i>"</code>
+        </div>
+        <div xmlns=""><code>&#160;&#160;&#160;&#160;Assembly="<i>string</i>"</code>
+            <br style="mc-tag-and-class: code;" /><code>   /&gt;&#160; </code>
+        </div>&#160;
+    
+<a name="remarks"></a><h2>Remarks</h2><ul xmlns=""><li xmlns="http://www.w3.org/1999/xhtml">Usage: Should you choose to use third-party controls, you'll need to add a Register tag to your template definition for each collection. Register tags tell XMod Pro where to find the controls you use. You only use the tag once per library. The register tag is declared outside all the <span style="font-family: Verdana;" xmlns="http://www.w3.org/1999/xhtml">&lt;xmod:Template&gt;</span> tags in your template.  This allows you to use the library in all your template tags.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li><li xmlns="http://www.w3.org/1999/xhtml"><b xmlns="http://www.w3.org/1999/xhtml">TagPrefix</b>: A short series of letters and numbers that you use as part of the control's tag. It helps XMod Pro determine what library the control belongs to. <br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li><li xmlns=""><b xmlns="http://www.w3.org/1999/xhtml">Namespace</b>: The namespace in which custom control resides. This information should be supplied by the control developer.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li><li xmlns=""><b xmlns="http://www.w3.org/1999/xhtml">Assembly</b>: This is the name of the assembly (DLL) in which the controls reside. Note, you do not specify the path to the DLL or the ".dll" extension. This information should be supplied by the control developer.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li></ul><a href="#top" class="link">Back to top</a> <![CDATA[ ]]><a name="example"></a><h2>Example</h2><div xmlns=""><code><span style="color: #ff0000;">&lt;xmod:Register TagPrefix="ctb" Namespace="Acme.CoolTools.XMPTools" Assembly="Acme.CoolTools" /&gt;</span><br />&lt;xmod:Template&gt;<br />&#160;&#160;...<br />&#160;&#160;&lt;HeaderTemplate&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&lt;table&gt;<br />&#160;&#160;&lt;/HeaderTemplate&gt;<br />&#160;&#160;&lt;ItemTemplate&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&#160;&#160;&lt;tr&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;td&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #ff0000;">&lt;ctb:CoolFader makeitcool="true" fadeduration="5"&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[[Headline]]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/ctb:CoolFader&gt;</span></code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/td&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&#160;&#160;&lt;/tr&gt;<br />&#160;&#160;&lt;/ItemTemplate&gt;<br />&#160;&#160;&lt;FooterTemplate&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&lt;/table&gt;<br />&#160;&#160;&lt;/FooterTemplate&gt;<br /></code><code>&lt;/xmod:Template&gt;</code></div><a href="#top">Back to top</a></body>
+</html>

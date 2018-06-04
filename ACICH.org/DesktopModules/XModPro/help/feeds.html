@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="10" MadCap:lastHeight="2473" MadCap:lastWidth="750" class="">
+    <head><title></title>
+        <link rel="stylesheet" href="XModProHelp.css" type="text/css" />
+    </head>
+    <body>
+        <h1>&lt;xmod:Feed&gt;</h1><a name="top"></a>
+        <p class="Nav"><a href="#syntax">Syntax</a>&#160;<a href="#remarks">Remarks</a>&#160;<a href="#example">Example</a></p>
+        <p xmlns="">The Feed tag, first introduced in version 3.0, is used to define the output of feeds. A feed typically is thought of as an RSS feed, but it can be much more than that. With the Feed tag, you can produce virtually any XML-based output, a printer-friendly HTML page, a plain text page, even a comma-delimited file that can be automatically opened by Excel or a similar program. </p>
+        <h2 xmlns="">Creating A Feed</h2>
+        <p xmlns="">Creating a feed is a two-step process:</p>
+        <ol xmlns="">
+            <li>Create your feed on the Manage Feeds page in the Control Panel. The Feed is very similar to XMod Pro's Template tag and is created in a similar fashion. You begin by clicking the "New Feed"&#160;button. On the dialog which pops-up, choose the type of feed you want to create, select a data source, and click the dialog's "New Feed" button to create it. From there, you can edit your feed in the editor. <br /><br />The Feed Tag is defined much the same way as the Template tag. You define your data source in the ListDataSource tag. You use the Header, ItemTemplate, AlternatingItemTemplate, and Footer tags to format the display of your data.<br /><br /><b>Helpful Formatting Tip</b>: If you are creating a CSV (comma-separated values) file or a file with similar plain text formatting, you will probably need to pay attention to the spacing of the tags in your feed. Unlike HTML, extra whitespace and linefeeds will show up in a plain text file.<br /><br /></li>
+            <li>Call your feed. You can get an example of how to call your feed by clicking the "How To Call Your Feed" link on the Manage Feeds page. Basically, you link to it like you would any other page. You'll call XMod Pro's "Feed.aspx" page and pass it a few required parameters and any additional parameters your data source may need to retrieve the data.<br /><br />Use a URL in the form of:<br /><strong>http://<em>sitename</em>/DesktopModules/XModPro/Feed.aspx?xfd=<em>FeedName</em>&amp;pid=<em>PortalId</em></strong><br /><br />Where <em>sitename</em> is your site's domain, <em>FeedName</em> is the name of the feed as listed in the grid, and <em>PortalId</em> is the numeric ID of the portal for which the feed is created.<br /></li>
+        </ol>
+        <h2 xmlns="">A Note About Security</h2>
+        <p xmlns="">It's important to note that feeds, by their nature, are typically intended to be public. No special security measures have been implemented for securing the feed. So you should be careful about what data you make available through a feed. One way you could make your feed more secure is by creating and passing a token to the feed. This token would then be checked by your data source (most likely a stored procedure) to determine its validity, returning the data only if it's valid.</p>
+        <ol xmlns="">&#160;</ol><a name="syntax"></a>
+        <h2>Syntax</h2>
+        <div xmlns="" style="font-size: 9pt;font-family: monospace;">
+            <CODE>&lt;xmod:Feed    </CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160; Doctype="<i>string</i>"
+    </CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160; ContentType="<i>string</i>"
+    </CODE>
+            <br xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;     ConnectionString="<i>string</i>" </CODE>
+        </div>
+        <div xmlns="" style="font-size: 9pt;font-family: monospace;">
+            <CODE xmlns="http://www.w3.org/1999/xhtml"> &#160;&#160;&#160;  &#160;&#160;&#160;Encoding="utf7|<b>utf8</b>|utf16|utf32|ascii" </CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160; Filename="<i>string</i>" </CODE>
+        </div>
+        <div xmlns="" style="font-size: 9pt;font-family: monospace;">
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;ViewRoles="role1,role2,role3" &gt;<br /><br /></CODE>
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&lt;ListDataSource CommandText="string"&#160;ConnectionString="<i>string</i>" /&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160; &lt;HeaderTemplate&gt;...&lt;/HeaderTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160; &lt;ItemTemplate&gt;...&lt;/ItemTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160; &lt;AlternatingItemTemplate&gt;...&lt;/AlternatingItemTemplate&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;SeparatorTemplate&gt;...&lt;/SeparatorTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160; &lt;FooterTemplate&gt;...&lt;/FooterTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">    &lt;/xmod:Feed&gt;</CODE>
+        </div><a name="remarks"></a>
+        <h2>Remarks</h2>
+        <ul>
+            <li xmlns=""><strong xmlns="">Doctype:</strong> (Optional) This property allows you to specify the DOCTYPE for the resulting page. Consumers of the feed may use the DOCTYPE to determine how to render the feed. <br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li xmlns=""><b>ContentType</b>: Defaults to "text/html". Helps the feed consumer determine the nature of the content. This is often referred to as MIME&#160;types. Other examples are:&#160;"text/plain", "text/xml", "text/javascript", "application/vnd.ms-excel", etc.</li>
+            <li xmlns="">
+                <p xmlns="http://www.w3.org/1999/xhtml"><b style="font-family: Verdana;">ConnectionString</b>:<span style="font-family: Verdana;"> If you need to specify a SQL Server database other than the current DotNetNuke database, you can supply a connection string here. When specified, it serves as the default connection string for the ListDataSource and DetailDataSource. You can also use a connection string defined in the web.config file. To do so, use the ConnectionString token like so:</span></p><pre xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">&lt;xmod:Feed ... ConnectionString='[[ConnectionString:<i>connectionName</i>]]' ...&gt;</pre>
+            </li>
+            <li xmlns=""><b xmlns="http://www.w3.org/1999/xhtml">Encoding</b>: (Optional) New to version 4.5.0. This property enables alternative content encoding and  can be set to utf7, utf8, utf16, utf32, or ASCII. Default value is utf8. <br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li xmlns=""><b>Filename</b>: (Optional) This property can be set to give the browser a filename for downloading purposes. It's a great way to provide your users with an export file. For example, by giving your feed a file name of "MyFile.csv" and setting the ContentType to "application/vnd.ms-excel" you can have the file opened by Microsoft Excel (assuming Excel is installed on the user's machine). <br /> <![CDATA[ ]]></li>
+            <li xmlns=""><b>Data Sources</b>: The data for each feed is a SQL command. This could be a SQL <CODE>SELECT</CODE> command or a stored procedure. Supply the SQL command as the CommandText attribute. For stored procedures, use <CODE>EXEC <i>sprocName</i></CODE>. Note that Bit columns are returned as True/False - not 1/0. The data source for a feed is defined in the <CODE>&lt;ListDataSource&gt;</CODE> tag. <br /></li>
+            <li>In addition to its attributes, the Feed tag also contains numerous child 
+ tags which define most of the tag's functionality:<ul xmlns=""><li><p><b style="font-family: Verdana;">ListDataSource</b>: Provides the data for the template when it is displaying 
+ in list view. It accepts &lt;Parameter&gt; tags to pass parameters as part of the command. The "alias" attribute is optional and is used to avoid conflicts or to accept a parameter with a specific name (the "name" attribute) but use a different parameter name in the command (the "alias" attribute). If no "alias" is specified, the "name" will be used.</p><p>Examples:</p><pre xml:space="preserve">#1
+&lt;ListDataSource CommandText="SELECT FirstName, LastName FROM Users" /&gt;</pre><pre xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">#2
+&lt;ListDataSource CommandText="SELECT FirstName, LastName FROM Users 
+                             WHERE ZipCode = @zip"&gt;
+  &lt;Parameter Name="zip" Alias="zip" Value="12345" /&gt;
+&lt;/ListDataSource&gt;</pre><pre xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">#3
+&lt;ListDataSource CommandText="EXEC GetUsers @zip"&gt;
+  &lt;Parameter Name="zip" Alias="zip" Value="12345" /&gt;
+&lt;/ListDataSource&gt;</pre><pre xml:space="preserve">&#160;</pre><p style="text-align: left;">You can optionally specify a <b style="font-family: Verdana;">ConnectionString</b> for this data source. If none is specified, the default connection will be used - either the connection specified by the ConnectionString property of the parent <code style="font-size: 9pt;">&lt;xmod:Feed&gt;</code>&#160;tag or the current DotNetNuke database if the tag doesn't define a connection. As with the template tag, you can use the <code style="font-size: 9pt;">[[ConnectionString:connectionName]]</code> token to use a connection defined in the web.config file.<br />&#160;</p></li></ul><ul xmlns=""><li><b>HeaderTemplate</b>: When displaying a list view, HTML, text, and controls 
+ that will be rendered once, at the beginning of the list. This template is 
+ optional. <br />&#160;</li></ul></li>
+            <ul>
+                <li><b xmlns="">ItemTemplate</b>: When displaying a list view, HTML, text, field tokens, and 
+ controls that will be rendered for each record in the result set. If the 
+ AlternatingItemTemplate is supplied, then the ItemTemplate will be used for all 
+ odd-numbered records.<br xmlns="" />&#160;</li>
+                <li xmlns=""><b xmlns="">AlternatingItemTemplate</b>: When displaying a list view, HTML, text, field 
+ tokens, and controls that will be rendered for the even-numbered records in the 
+ result set. This template is optional.<br xmlns="" />&#160;</li>
+                <li xmlns=""><b>SeparatorTemplate</b>: When displaying a list view, this will render any HTML or text that you specify between each record. One good example is if you're creating a list of comma-separated records (we'll use numbers for simplicity). If you put your comma in the ItemTemplate, you would get a trailing comma like this: 1,2,3, But if you put your comma in the SeparatorTemplate, you won't get that trailing comma: 1,2,3. (Added in version 1.4)<br />&#160; </li>
+                <li><b xmlns="">FooterTemplate</b>: When displaying a list view, HTML, text, and controls 
+ that will be rendered once, at the end of the list. This template is optional.<br xmlns="" />&#160;</li>
+            </ul>
+            <li xmlns=""><b xmlns="http://www.w3.org/1999/xhtml">Field Tokens</b>: In order to display data from your data source, XMod Pro uses "field tokens". These are essentially placeholders that contain the name of the column or field in your data source. At run-time, these tokens are replaced with the value from the record. Field Tokens are written in this form: <CODE xmlns="http://www.w3.org/1999/xhtml" style="font-size: 9pt;">[[FieldName]]</CODE> "FieldName" is the name of the field or column in your data source.  It must be surrounded by [[ and ]]. You can use the Field Token in many places. However, when you use it as the attribute value for an XMod Pro tag or other third party control, you must delimit the attribute value with single quotes, rather than double quotes. For example, when used in the <CODE xmlns="http://www.w3.org/1999/xhtml" style="font-size: 9pt;">&lt;Parameter&gt;</CODE> tag, the attribute is written as: <CODE xmlns="http://www.w3.org/1999/xhtml" style="font-size: 9pt;">Value='[[UserID]'</CODE> rather than:&#160;<CODE xmlns="http://www.w3.org/1999/xhtml" style="font-size: 9pt;">Value="[[UserID]]"</CODE>. When using a Field Token with HTML&#160;tag attributes, this is not necessary.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li xmlns=""><b xmlns="http://www.w3.org/1999/xhtml">ViewRoles</b>: New to version 4.0. Takes a comma-delimited list of DNN security roles. If the user is logged in and is a member of one of the roles, or is a Host/SuperUser or Admin, the user will be able to see the feed. If the user is not logged-in or is not in one of the roles, he or she will not be able to see the feed. If ViewRoles is empty or is not specified, all users will be able to see the feed.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+        </ul><a href="#top" class="link">Back to top</a>
+        <br /><a name="example"></a>
+        <h2>Example</h2>
+        <div xmlns=""><pre xml:space="preserve" style="font-size: 9pt;" xmlns="http://www.w3.org/1999/xhtml">&lt;xmod:Feed ContentType="application/vnd.ms-excel" Filename="test.csv"&gt;</pre><pre xml:space="preserve" style="font-size: 9pt;" xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&lt;ListDataSource CommandText="SELECT [AuthorId], [FirstName], [LastName], [GenreId] FROM Authors" /&gt;</pre><pre xml:space="preserve" style="font-size: 9pt;" xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&lt;HeaderTemplate&gt;Author Id,First Name,Last Name,Genre Id&lt;/HeaderTemplate&gt;</pre><pre xml:space="preserve" style="font-size: 9pt;" xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&lt;ItemTemplate&gt;[[AuthorId]],[[FirstName]],[[LastName]],[[GenreId]]&lt;/ItemTemplate&gt;</pre><pre xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml" style="font-size: 9pt;">&lt;/xmod:Feed&gt;</pre><pre xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">&#160;</pre>
+        </div><a href="#top" class="link">Back to top</a>
+    </body>
+</html>

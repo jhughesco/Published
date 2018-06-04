@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="8417" MadCap:lastWidth="913" class="">
+    <head><title></title>
+        <link rel="stylesheet" href="XModProHelp.css" type="text/css" />
+    </head>
+    <body xmlns="">
+        <h1>Walkthrough Six: <br />Editing And Deleting The Feedback Form Data</h1>
+        <p>This walkthrough assumes you have successfully completed <a href="Walkthrough5.html">Walkthrough Five "Displaying The Feedback Form Data"</a>. </p>
+        <p>In the last walkthrough, we created a template to display a list of the feedback we've received from customers and provided a button to add feedback.  Now we'll modify that template and the feedback form to enable us to edit and delete feedback. </p>
+        <ol>
+            <li>If you haven't done so already open the page in your site that contains the Feedback form and its display template we've been working with.</li>
+            <li>Ensure you're logged-in as Host or SuperUser.</li>
+            <li>We're going to modify our existing template. So, from the Actions menu, select <b>Manage Templates</b>:<br /><img src="ActionMenu_ManageTemplates.png" /></li>
+            <li>Click the <b>Edit</b> link next to the "CustomerFeedback" template name to open the content editor for that template.       <![CDATA[ ]]></li>
+            <li>The current template is displayed below. The changes we'll be making are highlighted in Red:<br /><pre xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">&lt;xmod:addbutton text="Submit Feedback" /&gt;
+&lt;xmod:template <span style="color: #ff0000;">EditRoles="Role 1;Role 3"</span>&gt;
+  &lt;ListDataSource 
+    CommandText="SELECT FeedbackId, Name, Email, Question 
+                 FROM&#160;XMP_Feedback"/&gt;
+  &lt;DetailDataSource 
+    CommandText="SELECT Name, Email, Question 
+                 FROM XMP_Feedback 
+                 WHERE FeedbackId = @FeedbackId"&gt;
+    &lt;parameter name="FeedbackId" /&gt;
+  &lt;/DetailDataSource&gt;
+ 
+&lt;HeaderTemplate&gt;<br />  &lt;table style="border: 1px solid black; padding: 5px;"&gt;<br />    &lt;tr&gt;
+      &lt;td&gt;<br />        &lt;strong&gt;Name&lt;/strong&gt;<br />      &lt;/td&gt;<br />      &lt;td&gt;<br />        &lt;strong&gt;Email&lt;/strong&gt;<br />     &lt;/td&gt;<br />    &lt;/tr&gt;
+  &lt;/HeaderTemplate&gt;
+  &lt;ItemTemplate&gt;<br />    &lt;tr&gt;
+      &lt;td&gt;
+        &lt;xmod:detailimage imageurl="~/images/rt.gif"&gt;
+          &lt;parameter name="FeedbackId" value='[[FeedbackId]]'/&gt;
+        &lt;/xmod:detailimage&gt;
+        <span style="color: #ff0000;">&lt;xmod:editimage imageurl="~/images/edit.gif"&gt;
+          &lt;parameter name="FeedbackId" value='[[FeedbackId]]'/&gt;
+        &lt;/xmod:editimage&gt;</span>&lt;/td&gt;
+      &lt;td&gt;[[Name]]&lt;/td&gt;<br />      &lt;td&gt;[[Email]]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;[[Question]]&lt;/td&gt;<br />    &lt;/tr&gt;<br />  &lt;/ItemTemplate&gt;
+  &lt;FooterTemplate&gt;<br />    &lt;/table&gt;<br />  &lt;/FooterTemplate&gt;
+
+  &lt;DetailTemplate&gt;
+    &lt;h1&gt;Feedback Details&lt;/h1&gt;
+    &lt;strong&gt;Name:&lt;/strong&gt; [[Name]]&lt;br /&gt;
+    &lt;strong&gt;Email:&lt;/strong&gt; &lt;a href="mailto:[[Email]]"&gt;[[Email]]&lt;/a&gt;&lt;br /&gt;
+    &lt;strong&gt;Question:&lt;/strong&gt;&lt;br /&gt;
+    [[Question]]&lt;br /&gt;&lt;br /&gt;
+    &lt;xmod:returnbutton text="Back" /&gt;
+  &lt;/DetailTemplate&gt;
+&lt;/xmod:template&gt;
+</pre><p><b>Edit Roles</b></p><p>This property of the &lt;xmod:template&gt; tag is optional. Hosts and Administrators can always edit records. If you want members of other roles to have permission, you'll need to specify it using the EditRoles property. In this case, members of "Role 1" or "Role 2" can edit records as well. Note that you should replace these with appropriate role names for your site.</p><p><b>Edit Button</b></p><p>Just as we provided a detail button to initiate the display of a record's details, so too we need to provide an edit button to initiate editing of that record. As with most buttons in XMod Pro, the edit button comes in several varieties. For this example, we're using the &lt;xmod:editimage&gt; to display a clickable image instead of a button or a link. We've chosen a standard graphic from the default DNN&#160;installation. Feel free to choose your own image. </p><p>As with the Detail Button (See Walkthrough 5), we need to supply a parameter that will be passed to the EditForm so that it can retrieve the record to edit. We'll be passing the FeedbackId. At this point, you may be wondering where the command to retrieve that record is. You'll find it in the EditForm, which we'll cover in just a moment.</p><p>&#160;</p></li>
+            <li>
+                <p>Save your changes to the template. Your display should now look something like this:</p>
+                <p><![CDATA[ ]]><img src="Walkthrough6_DisplayWithEditButton.png" /></p>
+            </li>
+            <li>
+                <p>Before that Edit Button will work correctly, we need to add an Edit Form to our form definition. Go to the Manage Forms page:</p>
+                <p>
+                    <img src="ActionMenu_ManageForms.png" />
+                </p>
+            </li>
+            <li>
+                <p>On the Manage Forms page, click to Edit the "FeedbackForm" form. Since we won't be modifying the &lt;AddForm&gt; code, we'll omit that, for the sake of brevity. After the closing &lt;/AddForm&gt; tag, add the following highlighted code:</p><pre xml:space="preserve">&lt;AddForm&gt;<br /><code>&#160;</code> ...<br />&lt;/AddForm&gt;
+
+<span style="color: #ff4500;"><span style="color: #ff0000;">&lt;EditForm&gt;
+  &lt;SelectCommand CommandText="SELECT FeedbackId, Name, Email, Question 
+                              FROM XMP_Feedback 
+                              WHERE FeedbackId=@FeedbackId"&gt;
+  &lt;/SelectCommand&gt;
+  &lt;SubmitCommand CommandText="UPDATE XMP_Feedback SET 
+                               Name=@Name, Email=@Email, Question=@Question 
+                              WHERE FeedbackId=@FeedbackId"&gt;
+  &lt;/SubmitCommand&gt;
+  
+  </span></span><code><span style="color: #ff0000;"></span></code><span style="color: #ff4500;"><span style="color: #ff0000;">&lt;table style="border: 1px solid black; padding: 5px;"&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">&#160;&#160;  &lt;tr&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">      &lt;td&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">        &lt;label for="txtName" cssclass="NormalBold"&gt;Name: &lt;/label&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">&#160;&#160;&#160;&#160;  &lt;/td&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">&#160;&#160;&#160;&#160;  &lt;td&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">&#160;&#160;&#160;&#160;&#160;&#160;  &lt;textbox id="txtName" datafield="Name" width="200"/&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">&#160;&#160;&#160;&#160;  &lt;/td&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">&#160;&#160;  &lt;/tr&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">    &lt;tr&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">      &lt;td&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">        &lt;label for="txtEmail" cssclass="NormalBold"&gt;Email: &lt;/label&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">      &lt;/td&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">      &lt;td&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">        &lt;textbox id="txtEmail" datafield="Email" width="200"/&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff0000;"><span style="color: #ff4500;"><span style="color: #ff0000;">        </span></span></span><span style="color: #ff4500;"><span style="color: #ff0000;">&lt;Validate type="required" target="txtEmail" message="An email address is required" /&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">        &lt;Validate type="email" target="txtEmail" message="Invalid email address supplied" /&gt;&lt;/td&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">    &lt;/tr&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">    &lt;tr&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">      &lt;td&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">        &lt;label for="txtQuestion" cssclass="NormalBold"&gt;Your Question&lt;/label&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">      &lt;/td&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">      &lt;td&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">        &lt;textarea id="txtQuestion" rows="7" columns="60" datafield="Question" /&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">      &lt;/td&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">    &lt;/tr&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">    &lt;tr&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">      &lt;td colspan="2"&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">        &lt;updatebutton text="Update Record" /&gt; &lt;cancelbutton text="Cancel" /&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">      &lt;/td&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">    &lt;/tr&gt;</span></span><br style="color: #ff0000;" /><span style="color: #ff4500;"><span style="color: #ff0000;">  &lt;/table&gt; 
+  &lt;textbox id="txtFeedbackId" datafield="FeedbackId" datatype="int32" visible="false"/&gt;
+&lt;/EditForm&gt;</span></span></pre>
+                <p>If you look closely at the code, you'll notice that it is almost identical to the AddForm definition, but there are some important differences</p>
+                <p><b>Select Command</b>
+                </p>
+                <p>This is the command XMod Pro will execute to retrieve the record to be edited. It uses a single parameter - FeedbackId. This is the parameter that is passed from the Edit Button. The parameter names must match. </p>
+                <p><b>Linking Controls to Data</b>
+                </p>
+                <p>Once we've retrieved the record's values, XMod Pro will populate the form's controls with those values. As with the AddForm, the "datafield" and "datatype" attributes are used for this purpose. The "datafield" must match the column name of a column returned from the Select Command. The "datatype" tells XMod Pro and the control what type of data it is handling. This is necessary when the form's data is saved back to the database in the Submit Command.</p>
+                <p><b>Saving the FeedbackId</b>
+                </p>
+                <p><b style="color: #ff0000;">This is a critical step</b>. You need to save your key field values in the form so they can be used when updating the record. In this case, we only need to save the FeedbackId. To do this, we use the &lt;textbox&gt; control and set its Visible property to False, so that it is hidden. We also set the "datafield" property of the control to "FeedbackId" and its "datatype" to "int32". Now, when the Submit Command is executed, it can use FeedbackId.</p>
+                <p><b>Update/Cancel Button</b>
+                </p>
+                <p>Notice the &lt;addbutton&gt; tag has changed to an &lt;updatebutton&gt; tag. The Update button, when clicked, executes the Submit Command. The Cancel button will cancel the Edit record action and return to the previous view.</p>
+                <p><b>No Email</b>
+                </p>
+                <p>One other difference between the Add and Edit form is the lack of an &lt;email&gt; tag in the Edit form. For this solution, we only want to be notified when a user has created a new feedback record, not when that record has been edited. Should you need a notification be sent when a record is updated, you can add an &lt;email&gt; tag, following the example in the &lt;AddForm&gt;.</p>
+                <p><b>Submit Command</b>
+                </p>
+                <p>Finally, the &lt;SubmitCommand&gt; tag contains the command to execute when the Update button is clicked. The command uses @Name, @Email, @Question, and @FeedbackId. These are parameters to the command but you do not have to create &lt;parameter&gt; tags for each of them. The "datafield" properties you specified for the form controls are used to link these parameters with the values from those controls. No additional work is needed on your part. </p>
+                <p>&#160;</p>
+            </li>
+            <li>
+                <p>Once you've made the changes to your form, save it and close the Manage Forms page. </p>
+                <p>
+                    <img src="Walkthrough6_DisplayWithEditButton.png" />
+                </p>
+            </li>
+            <li>
+                <p>Now you can click the Edit button: the pencil graphic in the example above. You be presented with the Edit Form, with the controls pre-populated with values from the record. </p>
+                <p>
+                    <img src="Walkthrough6_EditForm_BeforeChange.png" />
+                </p>
+            </li>
+            <li>
+                <p>You can make some changes to the record. In the example below, we've changed the name to "Harry Truman":</p>
+                <p>
+                    <img src="Walkthrough6_EditForm_AfterChange.png" />
+                </p>
+            </li>
+            <li>
+                <p>Click the Update Record button and your changes will be saved. The end result should look something like this:</p>
+                <p>
+                    <img src="Walkthrough6_DisplayWithChangeHighlighted.png" />
+                </p>
+            </li>
+            <li>
+                <p>There's one more feature we want to add to our solution - the ability to delete a record. For this we'll add a Delete Button and a Delete Command to our template. So, go to the <b>Manage Templates</b> page:</p>
+                <p>
+                    <img src="ActionMenu_ManageTemplates.png" />
+                </p>
+            </li>
+            <li>
+                <p>On the Manage Templates page click to Edit the "CustomerFeedback" template. This will load our existing template into the Content editor area.</p>
+            </li>
+            <li>
+                <p>Next, make the following changes - highlighted in red:</p><pre xml:space="preserve">&lt;xmod:addbutton text="Submit Feedback" editroles="Role 1;Role 3" 
+         <span style="color: #ff0000;">deleteroles="Role 1"</span>/&gt;
+&lt;xmod:template&gt;
+  &lt;ListDataSource 
+    CommandText="SELECT FeedbackId, Name, Email, Question 
+                 FROM&#160;XMP_Feedback"/&gt;
+  &lt;DetailDataSource 
+    CommandText="SELECT Name, Email, Question 
+                 FROM XMP_Feedback 
+                 WHERE FeedbackId = @FeedbackId"&gt;
+    &lt;parameter name="FeedbackId" /&gt;
+  &lt;/DetailDataSource&gt;
+  <span style="color: #ff0000;">&lt;DeleteCommand CommandText="DELETE FROM XMP_Feedback WHERE FeedbackId=@FeedbackId"&gt;
+    &lt;parameter name="FeedbackId" /&gt;
+  &lt;/DeleteCommand&gt;</span>&lt;HeaderTemplate&gt;<br />  &lt;table style="border: 1px solid black; padding: 5px;"&gt;<br />    &lt;tr&gt;
+      &lt;td&gt;<br />        &lt;strong&gt;Name&lt;/strong&gt;<br />      &lt;/td&gt;<br />      &lt;td&gt;<br />        &lt;strong&gt;Email&lt;/strong&gt;<br />     &lt;/td&gt;<br />    &lt;/tr&gt;
+  &lt;/HeaderTemplate&gt;
+  &lt;ItemTemplate&gt;<br />    &lt;tr&gt;
+      &lt;td&gt;
+        &lt;xmod:detailimage imageurl="~/images/rt.gif"&gt;
+          &lt;parameter name="FeedbackId" value='[[FeedbackId]]'/&gt;
+        &lt;/xmod:detailimage&gt;
+        &lt;xmod:editimage imageurl="~/images/edit.gif"&gt;
+          &lt;parameter name="FeedbackId" value='[[FeedbackId]]'/&gt;
+        &lt;/xmod:editimage&gt;
+        <span style="color: #ff0000;">&lt;xmod:deleteimage imageurl="~/images/delete.gif" 
+           onclientclick="return confirm('Really delete?');"&gt;
+          &lt;parameter name="FeedbackId" value='[[FeedbackId]]'/&gt;
+        &lt;/xmod:deleteimage&gt;</span>&lt;/td&gt;
+      &lt;td&gt;[[Name]]&lt;/td&gt;<br />      &lt;td&gt;[[Email]]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;[[Question]]&lt;/td&gt;<br />    &lt;/tr&gt;<br />  &lt;/ItemTemplate&gt;
+  &lt;FooterTemplate&gt;<br />    &lt;/table&gt;<br />  &lt;/FooterTemplate&gt;
+
+  &lt;DetailTemplate&gt;
+    &lt;h1&gt;Feedback Details&lt;/h1&gt;
+    &lt;strong&gt;Name:&lt;/strong&gt; [[Name]]&lt;br /&gt;
+    &lt;strong&gt;Email:&lt;/strong&gt; &lt;a href="mailto:[[Email]]"&gt;[[Email]]&lt;/a&gt;&lt;br /&gt;
+    &lt;strong&gt;Question:&lt;/strong&gt;&lt;br /&gt;
+    [[Question]]&lt;br /&gt;&lt;br /&gt;
+    &lt;xmod:returnbutton text="Back" /&gt;
+  &lt;/DetailTemplate&gt;
+&lt;/xmod:template&gt;
+</pre>
+                <p>There are two required components and one optional component needed to delete records</p>
+                <p><b>Delete Roles </b>
+                </p>
+                <p>This is property of the &lt;xmod:template&gt; tag is optional. When used, you specify a semi-colon-delimited list of DotNetNuke security role names. Only members of those roles will see the delete button. Hosts and Administrators always can delete records.</p>
+                <p><b>Delete Command </b>
+                </p>
+                <p>In order to delete a record, you'll need to specify a <code>&lt;DeleteCommand&gt;</code> tag in your template. As with the <code>&lt;DetailDataSource&gt;</code> tag, your command should delete only one record. Usually this is done by specifying a parameter or set of parameters that limit what record(s) are deleted. In this case, we use the FeedbackId value to accomplish that task. So, the tag includes a <code>&lt;parameter&gt;</code> tag with the name "FeedbackId". <b style="color: #ff0000;">WARNING</b>: As with any application that allows you to directly manipulate the database, an incorrectly formed delete command can cause you to accidentally delete all the records in your table. So, double-check your command and parameters and <b>backup your database</b> frequently.</p>
+                <p><b>Delete Button</b>
+                </p>
+                <p>The final piece in the delete puzzle is the button that initiates the process - the delete button. As with most buttons, it comes in several forms, including a push button (&lt;xmod:deletebutton&gt;), hyperlink (&lt;xmod:deletelink&gt;) and, the form we're using, a clickable image (&lt;xmod:deleteimage&gt;). As with the detail and edit buttons, we specify a URL to the image we want to use. Regardless of the type of button you use, you'll need to supply one or more &lt;parameter&gt; tags as shown in the code. Your parameter names must match the parameter names you defined in the Delete Command.</p>
+                <p>Note that we've also added a confirmation to the Delete Button. Typically you want to help users avoid accidental deletions. You can do this by using the delete button's OnClientClick attribute. This attribute allows you to call your own or built-in Javascript functions when the button is clicked. In this example, we're showing a Javascript "confirm" dialog when the user clicks the button.</p>
+            </li>
+            <li>
+                <p>Save your changes to the template and close the <b>Manage Templates</b> page. Your display should now look similar to this (remember we changed the Name to "Harry Truman" earlier):</p>
+                <p>
+                    <img src="Walkthrough6_DisplayWithDeleteButton.png" />
+                </p>
+            </li>
+            <li>
+                <p>Now, let's add a new record and delete it. First, click the Submit Feedback button and add a new record. </p>
+                <p>
+                    <img src="Walkthrough6_AddSecondRecord.png" />
+                </p>
+                <p>After adding the record, your display will look similar to this:</p>
+                <p>
+                    <img src="Walkthrough6_DisplayOfTwoRecords.png" />
+                </p>
+            </li>
+            <li>
+                <p>Click the red "X" (or whatever image you used) next to the new record you've added. </p>
+                <p>
+                    <img src="Walkthrough6_ConfirmDelete.png" />
+                </p>
+                <p>If you click "OK", the record will be deleted. Clicking cancel will cancel the operation.</p>
+                <p>&#160;</p>
+            </li>
+        </ol>
+    </body>
+</html>

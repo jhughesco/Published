@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="10" MadCap:lastHeight="1110" MadCap:lastWidth="974" class="">
+    <head><title></title>
+        <link rel="stylesheet" href="XModProHelp.css" type="text/css" />
+    </head>
+    <body>
+        <h1>&lt;xmod:Slideshow&gt;</h1><a name="top"></a>
+        <p class="Nav"><a href="#syntax">Syntax</a>&#160;<a href="#remarks">Remarks</a>&#160;<a href="#example">Example</a></p>
+        <p xmlns="">The Slideshow tag, like the Template tag, is a View control that is used for displaying records from your datasource. Unlike the Template tag, the Slideshow is a view with a single purpose - to display images in an eye-pleasing presentation with very little work on your part. All you have to do is supply it with a list of URL's to your images and set a Width and Height for the viewer. It is used in essentially the same manner as the Template tag and can be used together with the Template tag within your templates.</p>
+        <p xmlns="">Unlike the Template or DataList tags, the Slideshow doesn't allow any data commands or paging. Additionally, since this is a presentation control, it is assumed that those who can see the module can view the slideshow, so there are no permissions. As a result, the syntax is very simple.</p>
+        <p xmlns=""><b>IMPORTANT</b>: Use of this control REQUIRES jQuery 1.3 or later be available on the page.</p><a name="syntax"></a>
+        <h2>Syntax</h2>
+        <div xmlns="">
+            <CODE>&lt;xmod:Slideshow</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>
+                <br />&#160;&#160;&#160;&#160;BasePath="<i>string</i>"<br />&#160;&#160;&#160;&#160;ConnectionString="<i>string</i>" <br />&#160;&#160;&#160;&#160;Height="pixels" <br />&#160;&#160;&#160;&#160;ID="<i>string</i>" <br />&#160;&#160;&#160;&#160;ImageField="<i>string</i>" <br />&#160;&#160;&#160;&#160;ResizeImages="True|<b>False</b>" <br />&#160;&#160;&#160;&#160;Timeout="milliseconds|<b>4000</b>"<br />&#160;&#160;&#160;&#160;Width="pixels"&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160; &lt;ListDataSource CommandText="<i xmlns="http://www.w3.org/1999/xhtml">string</i>" <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ConnectionString="<i>string</i>"/&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>    &lt;/xmod:Slideshow&gt;</CODE>
+        </div><a name="remarks"></a>
+        <h2>Remarks</h2>
+        <ul>
+            <li xmlns=""><strong xmlns="">BasePath:</strong> Provides the option of pre-pending a common path for your image URL's. So, if your image URL's are stored in the data source with their filename only, you can set BasePath to point to the actual directory where the image files reside. You can optionally use the tilde (~) character to represent the application root.</li>
+            <li xmlns="">
+                <p xmlns="http://www.w3.org/1999/xhtml"><b style="font-family: Verdana;">ConnectionString</b><span style="font-family: Verdana;">: If you need to specify a SQL Server database other than the current DotNetNuke database, you can supply a connection string here. When specified, it serves as the default connection string for the ListDataSource and DetailDataSource. You can also use a connection string defined in the web.config file. To do so, use the ConnectionString token like so:</span>
+                </p><pre xml:space="preserve">&lt;xmod:DataList... ConnectionString='[[ConnectionString:<i>connectionName</i>]]' ...&gt;</pre>
+            </li>
+            <li xmlns=""><b>Height</b>: Height of the slideshow view port, specified as a number pixels. Do not add "px" to the value. This should be the height of the largest image, generally. For best results all images should be same size. If not, try shrinking the dimensions of the viewport and setting ResizeImages to true.<br />&#160;</li>
+            <li xmlns=""><b>ID</b>: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the template file.<br />&#160;</li>
+            <li xmlns=""><b>ImageField</b>: <span style="color: #ff0000; font-weight: bold;">Required</span>. Specify the name of the column in your data source that contains the URL of the images. <br />&#160;</li>
+            <li xmlns=""><b>ResizeImages</b>: If set to true, all images will be set to the same size as the slideshow viewport (Height and Width properties). If false, the default, images larger than the viewport size will be partially visible. Setting this to true can be helpful if your images are not the same size. In that case, set the Height and Width to the size of the smallest image and set ResizeImages to true. This will cause your larger images to display in a smaller size (the image is not affected). For best results, all images should be the same size.<br /> <![CDATA[ ]]></li>
+            <li xmlns=""><b>Timeout</b>: The time, in milliseconds (1 second = 1000 milliseconds), that an image should be displayed. The default value is 4000 or 4 seconds.<br />&#160;</li>
+            <li xmlns=""><b>Width</b>: Width of the slideshow view port, specified as a number pixels. Do not add "px" to the value. This should be the width of the largest image, generally. For best results all images should be same size. If not, try shrinking the dimensions of the viewport and setting ResizeImages to true.<br />&#160;</li>
+            <li xmlns=""><b>ListDataSource</b>: Provides the data for the DataList when it is displaying 
+ in list view. It accepts &lt;parameter&gt; tags to pass parameters as part of the command. The "alias" attribute is optional and is used to avoid conflicts or to accept a parameter with a specific name (the "name" attribute) but use a different parameter name in the command (the "alias" attribute). If no "alias" is specified, the "name" will be used.</li>
+        </ul><a href="#top" class="link">Back to top</a>
+        <br /><a name="example"></a>
+        <h2>Example</h2>
+        <div xmlns="">
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&lt;xmod:Slideshow ImageField="EmployeePicUrl" Height="250" width="200" Timeout="6000" BasePath="/images/employees/"&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160; &lt;ListDataSource CommandText="SELECT EmployeePicUrl FROM Employees" /&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">   &lt;/xmod:Slideshow&gt;
+</CODE>
+        </div><a href="#top" class="link">Back to top</a>
+    </body>
+</html>

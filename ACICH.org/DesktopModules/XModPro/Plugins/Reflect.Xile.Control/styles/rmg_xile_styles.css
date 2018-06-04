@@ -1,0 +1,327 @@
+﻿@charset "UTF-8";
+/*
+ * jQuery File Upload Plugin CSS 1.3.0
+ * https://github.com/blueimp/jQuery-File-Upload
+ *
+ * Copyright 2013, Sebastian Tschan
+ * https://blueimp.net
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
+
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+}
+.fileinput-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  -ms-filter: 'alpha(opacity=0)';
+  font-size: 200px;
+  direction: ltr;
+  cursor: pointer;
+}
+
+/* Fixes for IE < 8 */
+@media screen\9 {
+  .fileinput-button input {
+    filter: alpha(opacity=0);
+    font-size: 100%;
+    height: 100%;
+  }
+}
+
+
+.fileupload-buttonbar .btn,
+.fileupload-buttonbar .toggle {
+  margin-bottom: 5px;
+}
+.progress-animated .progress-bar,
+.progress-animated .bar {
+  background: url("../img/progressbar.gif") !important;
+  filter: none;
+}
+.fileupload-process {
+  float: right;
+  display: none;
+}
+.fileupload-processing .fileupload-process,
+.files .processing .preview {
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: url("../img/loading.gif") center no-repeat;
+  background-size: contain;
+}
+.files audio,
+.files video {
+  max-width: 300px;
+}
+
+@media (max-width: 767px) {
+  .fileupload-buttonbar .toggle,
+  .files .toggle,
+  .files .btn span {
+    display: none;
+  }
+  .files .name {
+    width: 80px;
+    word-wrap: break-word;
+  }
+  .files audio,
+  .files video {
+    max-width: 80px;
+  }
+  .files img,
+  .files canvas {
+    max-width: 100%;
+  }
+}
+
+/* CUSTOM */
+
+.fileupload-progress {
+	margin: 0px;
+}
+.fileupload-progress .progress-extended {
+	margin-top: 5px;
+}
+.rmg-drop 
+{
+    padding: 40px;
+    text-align: center;
+    font-size: 16px;
+    color: #999;
+    font-style: italic;
+}
+
+.rmg-imgpreview 
+{
+   width: 70px;
+   height: 70px;
+   vertical-align: middle;
+   text-align: center;
+}
+
+.rmg-namepreview .name
+{
+    width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0px;
+}
+
+.rmg-buttons 
+{
+    padding-left: 20px;
+}
+
+.rmg-uploadwidget 
+{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: white;
+}
+
+.fileupload-buttons 
+{
+    padding: 10px;
+    border-bottom: 1px solid #f1f1f1;
+    
+}
+
+.fileupload-buttonbar .toggle {
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
+.rmg-filetable 
+{
+    width: 100%;
+    border-top: 2px solid #f1f1f1;
+    padding: 10px;
+}
+
+.rmg-progress 
+{
+    width: 100px;
+}
+
+.rmg-progress .progress 
+{
+    margin-bottom: 0px;
+}
+
+.rmg-filesize p 
+{
+    margin: 0px;
+}
+
+.progress {
+    overflow: hidden;
+    height: 5px;
+    margin-bottom: 0px;
+    background-color: #f5f5f5;
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+}
+
+
+.progress-bar-success {
+    background-color: #5cb85c;
+}
+
+.progress-bar {
+    float: left;
+    width: 0;
+    height: 100%;
+    font-size: 12px;
+    line-height: 20px;
+    color: #fff;
+    text-align: center;
+    background-color: #428bca;
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+    -webkit-transition: width .6s ease;
+    transition: width .6s ease;
+}
+
+.rmg-btn 
+{
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.4;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.rmg-btn[disabled] 
+{
+    cursor: not-allowed;
+    opacity: .8;
+}
+
+.rmg-btn[disabled]:hover 
+{
+    opacity: .8;
+}
+
+.rmg-addfiles-btn 
+{
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.rmg-addfiles-btn:hover 
+{
+    color: #fff;
+    background-color: #47a447;
+    border-color: #398439;
+}
+
+
+.rmg-startupload-btn 
+{
+    color: #fff;
+    background-color: #428bca;
+    border-color: #357ebd;
+}
+
+.rmg-startupload-btn:hover, .rmg-startuploadind-btn:hover 
+{
+    color: #fff;
+    background-color: #3276b1;
+    border-color: #285e8e;
+}
+
+.rmg-startuploadind-btn 
+{
+    color: #fff;
+    background-color: #428bca;
+    border-color: #357ebd;
+    padding: 2px 7px;
+    font-size: 12px;
+}
+
+.rmg-cancelupload-btn 
+{
+    color: #fff;
+    background-color: #f0ad4e;
+    border-color: #eea236;
+}
+
+.rmg-canceluploadind-btn 
+{
+    color: #fff;
+    background-color: #f0ad4e;
+    border-color: #eea236;
+    padding: 2px 7px;
+    font-size: 12px;
+}
+
+.rmg-cancelupload-btn:hover, .rmg-canceluploadind-btn:hover
+{
+    color: #fff;
+    background-color: #ed9c28;
+    border-color: #d58512;
+}
+
+.rmg-deletefiles-btn 
+{
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.rmg-deletefilesind-btn
+{
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+    padding: 2px 7px;
+    font-size: 12px;
+}
+
+.rmg-deletefiles-btn:hover, .rmg-deletefilesind-btn:hover 
+{
+    color: #fff;
+    background-color: #d2322d;
+    border-color: #ac2925;
+}
+
+p.rmg-size 
+{
+    margin: 0px;
+    font-size: 10px;
+}
+
+.template-upload p, .template-download p 
+{
+    margin: 0px;
+}
+
+.template-download img 
+{
+    max-width: 60px;
+}
+
+.template-upload .rmg-error, .template-download .rmg-error 
+{
+    color: Red;
+    font-style: italic;
+}  

@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="lblTitle.Text" xml:space="preserve">
+    <value>DNNDev Licensing</value>
+  </data>
+  <data name="plAccount.Text" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="plAccount.Help" xml:space="preserve">
+    <value>Your account ID (the email address that was used with your purchase from Snowcovered or PayPal)</value>
+  </data>
+  <data name="plInvoice.Text" xml:space="preserve">
+    <value>Invoice Number</value>
+  </data>
+  <data name="plInvoice.Help" xml:space="preserve">
+    <value>The invoice number (given to you by Snowcovered) or Transaction ID (given to you by PayPal)</value>
+  </data>
+  <data name="plServerId.Text" xml:space="preserve">
+    <value>Server ID</value>
+  </data>
+  <data name="plServerId.Help" xml:space="preserve">
+    <value>The ID of this server</value>
+  </data>
+  <data name="plActivationKey.Text" xml:space="preserve">
+    <value>Activation Key</value>
+  </data>
+  <data name="plActivationKey.Help" xml:space="preserve">
+    <value>This is the key that has been sent to you by DNNDev after your request</value>
+  </data>
+  <data name="cmdSave.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="cmdRequest.Text" xml:space="preserve">
+    <value>Request activation key through http</value>
+  </data>
+  <data name="StatusOK.Text" xml:space="preserve">
+    <value>Your license is in order</value>
+  </data>
+  <data name="StatusNoLicenseKey.Text" xml:space="preserve">
+    <value>You did not yet enter an activation key</value>
+  </data>
+  <data name="StatusWrongLicenseKey.Text" xml:space="preserve">
+    <value>Your activation key is incorrect for this machine</value>
+  </data>
+  <data name="RequestConfirm.Text" xml:space="preserve">
+    <value>This will send a web request to DNNDev.com for an activation key\nPlease be patient while the DNNDev.com website is contacted\nYou will receive a response shortly</value>
+  </data>
+  <data name="ResponseOK.Text" xml:space="preserve">
+    <value>Your request has been successfully submitted and you will be notified shortly</value>
+  </data>
+  <data name="ResponseNotOK.Text" xml:space="preserve">
+    <value>There was an error processing your request:&lt;br/&gt;</value>
+  </data>
+  <data name="cmdActivate.Text" xml:space="preserve">
+    <value>Request Activation Key</value>
+  </data>
+  <data name="ConnectionProblem.Text" xml:space="preserve">
+    <value>There seems to be a problem connecting with DNNDev.com</value>
+  </data>
+  <data name="ActivationInProgress.Text" xml:space="preserve">
+    <value>Activation request started ... Please wait. This page will refresh {0} more times.</value>
+  </data>
+  <data name="ResponseWaiting.Text" xml:space="preserve">
+    <value>Waiting for response ...</value>
+  </data>
+  <data name="ActivationSuccess.Text" xml:space="preserve">
+    <value>Activation Successful</value>
+  </data>
+  <data name="UseLinkBelow.Text" xml:space="preserve">
+    <value>Please use the button below to try to connect to our website directly.</value>
+  </data>
+  <data name="cmdCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ControlTitle_license.Text" xml:space="preserve">
+    <value>License Information</value>
+  </data>
+  <data name="DNNDevLicensing.Text" xml:space="preserve">
+    <value>DNNDev Licensing</value>
+  </data>
+  <data name="Required.Error" xml:space="preserve">
+    <value>Required</value>
+  </data>
+  <data name="Details.Title" xml:space="preserve">
+    <value>Account Details</value>
+  </data>
+  <data name="Activation.Title" xml:space="preserve">
+    <value>Activate</value>
+  </data>
+  <data name="Status.Title" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Details.Help" xml:space="preserve">
+    <value>With the purchase of this module you have identified yourself with an email address and an invoice code has been supplied to you. Please fill these in here.</value>
+  </data>
+  <data name="Activation.Help" xml:space="preserve">
+    <value>You can use the link to request an activation code. The page will refresh a number of times if necessary while XMod Pro attempts to connect to DNNDev.com. You may also request by http on the next page.</value>
+  </data>
+  <data name="Status.Help" xml:space="preserve">
+    <value>Here you will see the status of your license. You may use the link (if visible) to request an activation code by http from DNNDev.com. If everything fails please copy the contents of the result of this screen and send to kford@dnndev.com</value>
+  </data>
+  <data name="GoToB2M.Text" xml:space="preserve">
+    <value>Go to DNNDev.com for a key</value>
+  </data>
+  <data name="btnManual.Text" xml:space="preserve">
+    <value>Manual Activation</value>
+  </data>
+  <data name="btnRequestActivation.Text" xml:space="preserve">
+    <value>Request Activation (Web Service)</value>
+  </data>
+  <data name="btnRequestActivationWeb.Text" xml:space="preserve">
+    <value>Request Activation (Web Post)</value>
+  </data>
+  <data name="cmdUpload.Text" xml:space="preserve">
+    <value>Submit Activation Key</value>
+  </data>
+  <data name="plTrialLicense.Help" xml:space="preserve">
+    <value>Check this to request a trial license</value>
+  </data>
+  <data name="plTrialLicense.Text" xml:space="preserve">
+    <value>Trial License</value>
+  </data>
+  <data name="ControlHelp.Text" xml:space="preserve">
+    <value>This is where you can verify the status of your license for XMod Pro. The account and invoice should correspond to the purchase of this module. Temporary licenses such as a trial license are indicated by the fact that they can expire. The 'Subscription Until' indicates &lt;b&gt;until which date upgrades can be installed&lt;/b&gt;. Please keep this in mind before installing a new version. The max portals indicates the maximum number of portals that are allowed to use the module on this installation, not the absolute number of portals in the current installation.&lt;br /&gt;You can try to contact the DNNDev server either through a web service, through and http web request, or by directly browsing to the website. The former 2 methods will only work if the server is connected to the Internet. If not you're going to have to copy the server ID that is generated when you click on 'manual activation' and use that to make an activation key.&lt;br /&gt;If you have any questions feel free to open a support ticket at &lt;a href=&quot;http://dnndev.zendesk.com&quot; target=&quot;_blank&quot;>http://dnndev.zendesk.com&lt;/a&gt;.</value>
+  </data>
+  <data name="ControlTitle.Text" xml:space="preserve">
+    <value>License Status and Activation</value>
+  </data>
+  <data name="plStatus.Help" xml:space="preserve">
+    <value>This is the status of the currently stored license</value>
+  </data>
+  <data name="plStatus.Text" xml:space="preserve">
+    <value>Status</value>
+  </data>
+</root>

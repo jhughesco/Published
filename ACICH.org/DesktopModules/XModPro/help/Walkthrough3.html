@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="4642" MadCap:lastWidth="890" class="">
+    <head><title></title>
+        <link rel="stylesheet" href="XModProHelp.css" type="text/css" />
+    </head>
+    <body xmlns="">
+        <h1>Walkthrough Three: <br />Creating A Feedback Form</h1>
+        <p>In the first two walkthroughs, you created a list-based view of your data and then added the ability to view the details of each record. In this walkthrough, we're going to switch gears from displaying data, to enabling the input of data via XMod Pro's custom forms. We'll be creating a simple Feedback form that will allow site visitors to enter their Name, Email Address, and Question. The form will then send that information, via email to our site administrator. To keep things simple, no data will be saved to the database.</p>
+        <p>&#160;</p>
+        <ol>
+            <li>If you haven't done so already, install the FormView module that came with XMod Pro. You'll find it in the Installation folder alongside the XMod Pro installation file. </li>
+            <li>Next, open a page in your site and add an XMod Pro FormView instance to the page.</li>
+            <li>Ensure you're logged-in as Host or SuperUser.</li>
+            <li>We're going to create a form. So, from the Actions menu, select <b>Manage Forms</b>:<br /><img src="ActionMenu_ManageForms.png" /></li>
+            <li>The <b>Manage Forms</b> page is where you add, edit, copy, and delete your data input forms. For the mechanics of how to use the Manage Forms page, refer to <a href="ManageForms.html">this topic</a>.</li>
+            <li>Click the <b>New Form</b> button. The new form dialog appears in-line, within the grid. </li>
+            <li>In the Form Name field type "FeedbackForm" (without quotes). Form names can consist of only letters, numbers, hyphens (-) and underscores (_).</li>
+            <li>In the Content editing area, you'll see some boilerplate code that can help you get a jump-start on creating your forms. It's not necessary for our purposes, so delete all the text.</li>
+            <li>As with our other walkthroughs, we'll present and explain the individual parts of our form first and then present you with the full form definition at the end.
+                <ol><li><pre xml:space="preserve">&lt;AddForm&gt;</pre><p>The AddForm is the form that is displayed when creating a record. 
+                        We won't actually be creating a database record in this example, but we'll still use the 
+                        &lt;AddForm&gt; tag. The reason for this is that we will be displaying this form in "form view" mode. 
+                        This means that when the page is loaded, the form will be displayed. The user won't have to click an 
+                        "Add" button or other button to display the form. XMod Pro uses the AddForm for this form.</p></li><li><pre xml:space="preserve">&lt;table style="border: 1px solid black;"&gt;<br />  &lt;tr&gt;<br />    &lt;td&gt;<br />      &lt;label for="txtName" cssclass="NormalBold"&gt;Name: &lt;/label&gt;<br />    &lt;/td&gt;<br />    &lt;td&gt;<br />      &lt;textbox id="txtName" datafield="CustName" width="200"/&gt;<br />    &lt;/td&gt;<br />  &lt;/tr&gt;<br />  &lt;tr&gt;<br />    &lt;td&gt;<br />      &lt;label for="txtEmail" cssclass="NormalBold"&gt;Email: &lt;/label&gt;<br />    &lt;/td&gt;<br />    &lt;td&gt;<br />      &lt;textbox id="txtEmail" datafield="CustEmail" width="200"/&gt;<br />      &lt;validate type="email" target="txtEmail" message="Enter a valid email address" /&gt;<br />    &lt;/td&gt;<br />  &lt;/tr&gt;</pre><p>We'll be using a standard HTML table to arrange our controls. You can see the 
+                        tags for that in the example above. You can choose HTML that suits your needs, 
+                        but for our purpose, the important bits are the <code>&lt;label&gt;</code>, 
+                        <code>&lt;textbox&gt;</code>, and <code>&lt;validate&gt;</code> tags. While 
+                        they may look like HTML tags, they're actually specific to XMod Pro. </p><p>The <code>&lt;label&gt;</code> tag has the same purpose as an HTML&#160;<code>&lt;label&gt;</code>. 
+                        It displays static text. The for attribute is used to make your form more accessible 
+                        to those with disabilities. Fill this attribute with the ID of the control for which 
+                        it provides the caption. This will link it with that control and, at run-time, 
+                        screen readers will be able to interpret the form for those users who have difficulty 
+                        seeing the screen.</p><p>The <code>&lt;textbox&gt;</code> tag renders as a single-line text input box at run-time. 
+                        The "id" attribute should consist of letters and numbers and begin with a letter. 
+                        This value should be unique within the form. Notice that even though we aren't saving 
+                        these values in the database, we still need to provide a value for the "datafield" attribute. 
+                        This value will be used later when we discuss the &lt;email&gt; tag. 
+                        Finally, we want the textbox to have a width of 200 pixels so we set width="200".</p><p>The <code>&lt;validate&gt;</code> tag is one of the various controls you can use to validate your user's input. 
+                        In this case, we are using the "email" validation type (via the "type" attribute) to ensure 
+                        a properly formatted email address is entered. Notice that the "target" attribute contains 
+                        the ID of the control we want to validate - txtEmail in this case. This is required. 
+                        If you don't specify a target, you'll end up with a nasty error message. Finally, 
+                        we provide some helpful text in the "message" attribute that will be displayed to 
+                        the user when the email address doesn't validate.</p></li></ol><ol MadCap:continue="true"><li><pre xml:space="preserve">&#160;&#160;&lt;tr&gt;<br />    &lt;td&gt;<br />    <![CDATA[ ]]>     &lt;label for="txtQuestion" cssclass="NormalBold"&gt;Your Question&lt;/label&gt;<br />    &lt;/td&gt;<br />    &lt;td&gt;<br />      &lt;textarea id="txtQuestion" rows="7" columns="60" datafield="CustQuestion" /&gt;<br />    &lt;/td&gt;<br />  &lt;/tr&gt;
+</pre><p>                       In this snippet, notice the <code>&lt;textarea&gt;</code> tag. At run-time, this tag 
+                        renders as multi-line text input box. This provides the user with the ability to enter 
+                        extended text. You can set the dimensions using "height" and "width" attributes or you 
+                        can use the "rows" and "columns" attributes. 
+                    </p></li><li><pre xml:space="preserve">&#160;&#160;&lt;tr&gt;<br />    &lt;td&gt;<br />      &lt;addbutton text="Send Your Question" /&gt;<br />    &lt;/td&gt;<br />  &lt;/tr&gt;<br />&lt;/table&gt;
+</pre><p>                        This tag renders as a push-button at run-time. It is used to submit an AddForm. 
+                        The value of the "text" attribute is the text that will be displayed on the push 
+                        button. Also in this snippet, we close out the table with the closing 
+                        &lt;/table&gt; tag.
+                    </p></li><li><pre xml:space="preserve">  &lt;email to="you@yoursite.com" from="[[CustEmail]]" <br />   subject="A Question Has Been Submitted" format="html"&gt;<br />   &lt;strong&gt;[[CustName]]&lt;/strong&gt; has submitted a question:&lt;br /&gt;<br />   Question:&lt;br /&gt;<br />   [[CustQuestion]]<br />  &lt;/email&gt;<br />&lt;/AddForm&gt;
+</pre><p>                        This tag defines the email that should be sent when the form has been submitted. 
+                        If we were adding a record, the email wouldn't be sent until the record was 
+                        successfully save to the database. The tag can be placed anywhere between the 
+                        <code>&lt;AddForm&gt;</code> and <code>&lt;/AddForm&gt;</code> tags. It doesn't 
+                        display at run-time.<br /><br />                        The attributes of the tag should be pretty familiar: "to" is the email address 
+                        to which the email should be sent; "from" is the email from which the email is 
+                        sent; "subject" is the text to use as the subject of the email; format determines 
+                        if the email should be formatted as HTML (format="html") or as plain text (format="text"). 
+                        Finally, the text between the &lt;email&gt; and &lt;/email&gt; 
+                        tags make up the body of the email.<br /><br />                        You probably have noticed the use of field token tags: 
+                        <code>[[CustEmail]]</code>, <code>[[CustName]]</code>, and <code>[[CustQuestion]]</code>. 
+                        If you look at the <code>&lt;textbox&gt;</code> and <code>&lt;textarea&gt;</code> tags, 
+                        you'll notice we specified a "datafield" attribute for each one. This allows us to 
+                        use those control values in the <code>&lt;email&gt;</code> tag. We're using the 
+                        customer entered email in the "from" attribute and the customer-entered name 
+                        and question in the body of the email.<br /><br />                        Finally, the <code>&lt;/AddForm&gt;</code> tag closes the AddForm definition.<br /></p></li><li><p>The full form definition looks like this:</p><pre xml:space="preserve">&lt;AddForm&gt;<br />  &lt;table style="border: 1px solid black; padding: 5px;"&gt;<br />    &lt;tr&gt;<br />      &lt;td&gt;<br />        &lt;label for="txtName" cssclass="NormalBold"&gt;Name: &lt;/label&gt;<br />      &lt;/td&gt;<br />      &lt;td&gt;<br />        &lt;textbox id="txtName" datafield="Name" width="200"/&gt;<br />      &lt;/td&gt;<br />    &lt;/tr&gt;<br />    &lt;tr&gt;<br />      &lt;td&gt;<br />        &lt;label for="txtEmail" cssclass="NormalBold"&gt;Email: &lt;/label&gt;<br />      &lt;/td&gt;<br />      &lt;td&gt;<br />        &lt;textbox id="txtEmail" datafield="Email" width="200"/&gt;<br />        &lt;validate type="email" target="txtEmail" message="Enter a valid email address" /&gt;
+      &lt;/td&gt;<br />    &lt;/tr&gt;<br />    &lt;tr&gt;<br />      &lt;td&gt;<br />        &lt;label for="txtQuestion" cssclass="NormalBold"&gt;Your Question&lt;/label&gt;<br />      &lt;/td&gt;<br />      &lt;td&gt;<br />        &lt;textarea id="txtQuestion" rows="7" columns="60" datafield="Question" /&gt;<br />      &lt;/td&gt;<br />    &lt;/tr&gt;<br />    &lt;tr&gt;<br />      &lt;td colspan="2"&gt;<br />        &lt;addbutton text="Send Your Question" /&gt;<br />      &lt;/td&gt;<br />    &lt;/tr&gt;<br />  &lt;/table&gt;<br />  <br />  &lt;email to="you@yoursite.com" from="[[Email]]" <br />     subject="A Question Has Been Submitted" format="html"&gt;<br />     &lt;strong&gt;[[Name]]&lt;/strong&gt; has submitted a question:&lt;br /&gt;<br />     Question:&lt;br /&gt;<br />     [[Question]]<br />  &lt;/email&gt;<br />  <br />&lt;/AddForm&gt;
+<br /></pre></li></ol></li>
+            <li>Type or copy and paste the code above into the Content editing area and click the "Update" link.</li>
+            <li>Click the "Close" button at the bottom of the grid to return to the previous page.</li>
+            <li>Select "Configure" from the module's Actions menu:<br /><img src="ActionMenu_Configure.png" /> <![CDATA[ ]]></li>
+            <li>Select "FeedbackForm" from the Form drop-down list. </li>
+            <li>Ensure that the Form Mode is set to Add. This tells the module to load the form defined in the &lt;AddForm&gt; tag. </li>
+            <li>Click the "Close" button to save your changes and return to the previous page.</li>
+            <li>You should now see the form displayed for you:<br /><img src="Walkthrough3_FormView.png" /></li>
+            <li>Now, if you fill in the form with an invalidly formatted email address, you'll see something like this:<br /><img src="Walkthrough3_FormView_Error.png" /> <![CDATA[ ]]></li>
+            <li>When the user clicks the "Send Your Question" button, assuming the email address is correct, an email will be sent to "you@yoursite.com" - or whatever address you specified in the &lt;email&gt; tag.<br /></li>
+        </ol>
+    </body>
+</html>

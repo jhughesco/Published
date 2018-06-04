@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="3657" MadCap:lastWidth="890" class="">
+    <head><title></title>
+        <link rel="stylesheet" href="XModProHelp.css" type="text/css" />
+    </head>
+    <body xmlns="">
+        <h1>Walkthrough Four: <br />Saving Data From The Feedback Form</h1>
+        <p>This walkthrough assumes you have successfully completed <a href="Walkthrough3.html">Walkthrough Three "Creating A Feedback Form"</a>. </p>
+        <p>In the last walkthrough, you created a form to have customer feedback sent via email. This is great if you just need customers to send you information, but what if you want to save that data for later reference or use? That's what we'll be covering in this walkthrough. </p>
+        <p>Before you start, you'll need to create a table in your DotNetNuke database to store the information. You can create the table using your database tools or execute a script. The table is simple. It contains a column for each field in the form and an additional column to store a unique numeric ID for each submission we receive. The table should be named "XMP_Feedback". The table information is described below. Following that is a sample SQL script you can use or modify to create your table.</p>
+        <table style="">
+            <col style="width: 152px;" />
+            <col style="width: 122px;" />
+            <col />
+            <col style="width: 71px;" />
+            <col style="width: 331px;" />
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Column Name</th>
+                    <th style="text-align: left;">Data Type</th>
+                    <th style="text-align: center;">Size</th>
+                    <th style="text-align: center;">Allow Nulls</th>
+                    <th style="text-align: left;">Additional Info</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>FeedbackId</td>
+                    <td>int</td>
+                    <td style="text-align: center;">&#160;</td>
+                    <td style="text-align: center;">No</td>
+                    <td>IDENTITY, StartingValue 1, Increment Size:&#160;1</td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>nvarchar</td>
+                    <td style="text-align: center;">50</td>
+                    <td style="text-align: center;">Yes</td>
+                    <td>&#160;</td>
+                </tr>
+                <tr>
+                    <td>Question</td>
+                    <td>ntext</td>
+                    <td style="text-align: center;">&#160;</td>
+                    <td style="text-align: center;">Yes</td>
+                    <td>&#160;</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>nvarchar</td>
+                    <td style="text-align: center;">50</td>
+                    <td style="text-align: center;">No</td>
+                    <td>&#160;</td>
+                </tr>
+            </tbody>
+        </table>
+        <pre xml:space="preserve">CREATE TABLE [dbo].[XMP_Feedback](
+  [FeedbackId] [int] IDENTITY(1,1) NOT NULL,
+  [Name] [nvarchar](50) NULL,
+  [Question] [ntext] NULL,
+  [Email] [nvarchar](50) NOT NULL) ON [PRIMARY]</pre>
+        <p>&#160;</p>
+        <ol>
+            <li>If you haven't done so already open the page in your site that contains the Feedback form we created in Walkthrough Three.</li>
+            <li>Ensure you're logged-in as Host or SuperUser.</li>
+            <li>We're going to edit our form. So, from the Actions menu, select <b>Manage Forms</b>:<br /><img src="ActionMenu_ManageForms.png" /></li>
+            <li>The <b>Manage Forms</b> page is where you add, edit, copy, and delete your data input forms. For the mechanics of how to use the Manage Forms page, refer to <a href="ManageForms.html">this topic</a>.</li>
+            <li>Find the "FeedbackForm" form in the grid and click the "Edit" link next to its name.</li>
+            <li>We'll be modifying the form, so let's first review what we have:<br /><pre xml:space="preserve">&lt;AddForm&gt;<br />  &lt;table style="border: 1px solid black; padding: 5px;"&gt;<br />&#160;&#160;  &lt;tr&gt;<br />      &lt;td&gt;<br />        &lt;label for="txtName" cssclass="NormalBold"&gt;Name: &lt;/label&gt;<br />&#160;&#160;&#160;&#160;  &lt;/td&gt;<br />&#160;&#160;&#160;&#160;  &lt;td&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;  &lt;textbox id="txtName" datafield="Name" width="200"/&gt;<br />&#160;&#160;&#160;&#160;  &lt;/td&gt;<br />&#160;&#160;  &lt;/tr&gt;<br />    &lt;tr&gt;<br />      &lt;td&gt;<br />        &lt;label for="txtEmail" cssclass="NormalBold"&gt;Email: &lt;/label&gt;<br />      &lt;/td&gt;<br />      &lt;td&gt;<br />        &lt;textbox id="txtEmail" datafield="Email" width="200"/&gt;<br />      &lt;/td&gt;<br />    &lt;/tr&gt;<br />    &lt;tr&gt;<br />      &lt;td&gt;<br />        &lt;label for="txtQuestion" cssclass="NormalBold"&gt;Your Question&lt;/label&gt;<br />      &lt;/td&gt;<br />      &lt;td&gt;<br />        &lt;textarea id="txtQuestion" rows="7" columns="60" datafield="Question" /&gt;<br />      &lt;/td&gt;<br />    &lt;/tr&gt;<br />    &lt;tr&gt;<br />      &lt;td&gt;<br />        &lt;addbutton text="Send Your Question" /&gt;<br />      &lt;/td&gt;<br />    &lt;/tr&gt;<br />  &lt;/table&gt;<br />  <br />  &lt;email to="you@yoursite.com" from="[[Email]]" <br />&#160;&#160;  subject="A Question Has Been Submitted" format="html"&gt;<br />&#160;&#160;  &lt;strong&gt;[[Name]]&lt;/strong&gt; has submitted a question:&lt;br /&gt;<br />&#160;&#160;  Question:&lt;br /&gt;<br />&#160;&#160;  [[Question]]<br />  &lt;/email&gt;<br />&#160;&#160;<br />&lt;/AddForm&gt;
+</pre></li>
+            <li>
+                <p>From this starting point, we'll need to tell XMod Pro what command to execute when the user clicks the <code>&lt;addbutton&gt;</code> control. this is done via the <code>&lt;SubmitCommand&gt;</code> tag. This tag defines the command that is executed when the user submits the form.</p>
+                <pre xml:space="preserve"><code>&lt;AddForm&gt;<br /><span style="color: #ff0000;">&#160;&#160;&lt;SubmitCommand CommandText="INSERT INTO XMP_Feedback(Name, Email, Question) </span><br style="color: #ff0000;" /><span style="color: #ff0000;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;         VALUES(@Name, @Email, @Question)" /&gt;</span></code>
+                    <br style="mc-tag-and-class: CODE;" /><code>&#160; &lt;table style="border: 1px solid black; padding: 5px;"&gt;<br />&#160;&#160;...</code>
+                </pre>
+                <p>If you're familiar with SQL, this is a standard INSERT command that create a new record, inserting the values in the parameters:&#160;@Name, @Email, and @Question into the columns: Name, Email, and Question, respectively. Note that there is no declaration of those parameters. That is handled for you behind-the-scenes by XMod Pro. It uses the "datafield" and "datatype" properties of form control tags to create them.</p>
+            </li>
+            <li>
+                <p><b>Validation</b>: Whenever you allow users to enter data you should validate that input. Since we're focused on the mechanics of linking your form to a data source, we'll touch on validation, but you'll probably want to add more.</p>
+                <pre xml:space="preserve">&lt;textbox id="txtEmail" datafield="CustEmail" width="200"/&gt;<br /><span style="color: #ff0000;">&lt;Validate type="required" target="txtEmail" message="An email address is required" /&gt;</span><br style="color: #ff0000;" />&lt;Validate type="email" target="txtEmail" message="Invalid email address supplied" /&gt;</pre>
+                <p>In the highlighted code above, we've added a second validator to the Email text box. It is a required field validator. This will not allow the form to be submitted if the Email textbox is empty. The second validator you see in the code is the Email Validator we added in Walkthough 3. This checks to see if the email address is in a valid format (somename@somesite.com). </p>
+            </li>
+            <li>
+                <p>That's all the changes we need to make. Our modified form definition looks like this:</p>
+                <pre xml:space="preserve">&lt;AddForm&gt;<br /><code><span style="color: #ff0000;">&#160;&#160;&lt;SubmitCommand CommandText="INSERT INTO XMP_Feedback(Name, Email, Question) </span><br style="color: #ff0000;" /><span style="color: #ff0000;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;         VALUES(@Name, @Email, @Question)" /&gt;
+  </span></code>&lt;table style="border: 1px solid black; padding: 5px;"&gt;<br />&#160;&#160;  &lt;tr&gt;<br />      &lt;td&gt;<br />        &lt;label for="txtName" cssclass="NormalBold"&gt;Name: &lt;/label&gt;<br />&#160;&#160;&#160;&#160;  &lt;/td&gt;<br />&#160;&#160;&#160;&#160;  &lt;td&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;  &lt;textbox id="txtName" datafield="Name" width="200"/&gt;<br />&#160;&#160;&#160;&#160;  &lt;/td&gt;<br />&#160;&#160;  &lt;/tr&gt;<br />    &lt;tr&gt;<br />      &lt;td&gt;<br />        &lt;label for="txtEmail" cssclass="NormalBold"&gt;Email: &lt;/label&gt;<br />      &lt;/td&gt;<br />      &lt;td&gt;<br />        &lt;textbox id="txtEmail" datafield="Email" width="200"/&gt;<br /><span style="color: #ff0000;">        &lt;Validate type="required" target="txtEmail" message="An email address is required" /&gt;</span><br style="color: #ff0000;" /><span style="color: #ff0000;">        </span>&lt;Validate type="email" target="txtEmail" message="Invalid email address supplied" /&gt;<span style="color: #ff0000;"></span>&lt;/td&gt;<br />    &lt;/tr&gt;<br />    &lt;tr&gt;<br />      &lt;td&gt;<br />        &lt;label for="txtQuestion" cssclass="NormalBold"&gt;Your Question&lt;/label&gt;<br />      &lt;/td&gt;<br />      &lt;td&gt;<br />        &lt;textarea id="txtQuestion" rows="7" columns="60" datafield="Question" /&gt;<br />      &lt;/td&gt;<br />    &lt;/tr&gt;<br />    &lt;tr&gt;<br />      &lt;td&gt;<br />        &lt;addbutton text="Send Your Question" /&gt;<br />      &lt;/td&gt;<br />    &lt;/tr&gt;<br />  &lt;/table&gt;<br /><br />  &lt;email to="you@yoursite.com" from="[[Email]]" <br />&#160;&#160;  subject="A Question Has Been Submitted" format="html"&gt;<br />&#160;&#160;  &lt;strong&gt;[[Name]]&lt;/strong&gt; has submitted a question:&lt;br /&gt;<br />&#160;&#160;  Question:&lt;br /&gt;<br />&#160;&#160;  [[Question]]<br />  &lt;/email&gt;<br />&#160;&#160;<br />&lt;/AddForm&gt;</pre>
+            </li>
+            <li>Once you've made the changes highlighted above, click the "Update" link.</li>
+            <li>Click the "Close" button at the bottom of the grid to return to the previous page.</li>
+            <li>You should now see the form displayed for you. It's exactly the same as before, except now it will add the data to the database as well as send the email:<br /><img src="Walkthrough3_FormView.png" /></li>
+            <li>When the user clicks the "Send Your Question" button, assuming the email address is correct, an email will be sent to "you@yoursite.com" - or whatever address you specified in the <code>&lt;email&gt;</code> tag.<br /></li>
+        </ol>
+    </body>
+</html>

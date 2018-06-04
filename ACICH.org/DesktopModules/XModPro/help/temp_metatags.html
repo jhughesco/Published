@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="950" MadCap:lastWidth="1026" class="">
+    <head><title></title>
+        <link rel="stylesheet" href="XModProHelp.css" type="text/css" />
+    </head>
+    <body>
+        <h1>&lt;xmod:MetaTags&gt;</h1><a name="top"></a>
+        <p class="Nav"><a href="#syntax">Syntax</a>&#160;<a href="#remarks">Remarks</a>&#160;<a href="#example">Example</a></p>
+        <p xmlns="">The MetaTags tag is used to alter the host page's Title, Description, and Keywords. This is useful for Search Engine Optimization (SEO) as well as being an aid for your users. </p><a name="syntax"></a>
+        <h2>Syntax</h2>
+        <div xmlns="">
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&lt;xmod:MetaTags&gt;<br /></CODE>
+            <CODE xmlns="http://www.w3.org/1999/xhtml"> <![CDATA[    ]]><br />&#160;&#160;&#160;&#160;&lt;Title Append="True|<b>False</b>"&gt;...Title Text...&lt;/Title&gt;<br />&#160;&#160;&#160;&#160;&lt;Keywords Append="True|<b>False</b>"&gt;...Keywords...&lt;/Keywords&gt;<br />&#160;&#160;&#160;&#160;&lt;Description Append="True|<b>False</b>"&gt;...Description...&lt;/Description&gt;<br xmlns="http://www.w3.org/1999/xhtml" />&#160;&#160;&#160;&#160;&lt;Redirect Delay="integer" Url="<i>string</i>" /&gt;<br /> <![CDATA[    ]]><br />&lt;/xmod:MetaTags&gt;</CODE>
+        </div><a name="remarks"></a>
+        <h2>Remarks</h2>
+        <ul>
+            <li xmlns=""><b xmlns="http://www.w3.org/1999/xhtml">Title</b>: The page's Title will be replaced with the tag's inner content. If append is specified and is True, then the content will be appended to the page's Title.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li xmlns=""><b xmlns="http://www.w3.org/1999/xhtml">Keywords</b>: The page's Keywords will be replaced with the tag's inner content. If append is specified and is True, then the content will be appended to the page's Keywords. Note: for this tag to function correctly, you should set the default Keywords in the DNN Site Settings page for your website.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li xmlns=""><b xmlns="http://www.w3.org/1999/xhtml">Description</b>: The page's Description will be replaced with the tag's inner content. If append is specified and is True, then the content will be appended to the page's Description. Note: for this tag to function correctly, you should set the default Description in the DNN Site Settings page for your website.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li xmlns=""><b xmlns="http://www.w3.org/1999/xhtml">Redirect</b>: This will insert a 'refresh' meta tag into the page that will redirect the browser to another URL. The Delay value indicates the number of seconds before the redirect takes place. If you set delay to 0 the redirect will take place immediately. (new to version 4.3)<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+        </ul><a href="#top" class="link">Back to top</a>
+        <br /><a name="example"></a>
+        <h2>Example</h2>
+        <div xmlns="">
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&lt;div&gt;<br />&#160;&#160;&lt;table width="100%"&gt;<br />&#160;&#160;&#160;&#160;&lt;tr&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;td width="250" valign="top"&gt;<br /> <![CDATA[        ]]><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;!-- EMPLOYEES TEMPLATE --&gt;<br /> <![CDATA[        ]]><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;xmod:Template Id="Employees"&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;DetailDataSource CommandText="SELECT * FROM&#160;XMPDemo_Employees WHERE EmployeeId = @EmpID"&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;parameter name="EmployeeId" alias="EmpID" /&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/DetailDataSource&gt;<br /></CODE>
+            <CODE xmlns="http://www.w3.org/1999/xhtml">
+                <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;DetailTemplate&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;h1&gt;Employee Profile&lt;/h1&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;h3&gt;[[FirstName]] [[LastName]]&lt;/h3&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;h4&gt;Biography:&lt;/h4&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;div&gt;[[Bio]]&lt;/div&gt;<br /><span class="CodeHighlight">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;xmod:MetaTags&gt;</span><br style="mc-tag-and-class: ;" /><span class="CodeHighlight">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;Title&gt;Employee Profile for [[FirstName]] [[LastName]]&lt;/Title&gt;</span><br style="mc-tag-and-class: ;" /><span class="CodeHighlight">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;Keywords append="true"&gt;[[FirstName]],[[LastName]]&lt;/Keywords&gt;</span><br style="mc-tag-and-class: ;" /><span class="CodeHighlight">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/xmod:MetaTags&gt;</span><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/DetailTemplate&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/xmod:Template&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;/td&gt;<br />&#160;&#160;&#160;&#160;&lt;/tr&gt;<br />&#160;&#160;&lt;/table&gt;<br />&lt;/div&gt;</CODE>
+        </div><a href="#top" class="link">Back to top</a>
+    </body>
+</html>

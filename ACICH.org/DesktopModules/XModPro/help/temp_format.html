@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="2211" MadCap:lastWidth="1026" class="" MadCap:ignoredWords="RegEx;MaxLength;InputCulture;OutputCulture">
+    <head><title></title>
+        <link rel="stylesheet" href="XModProHelp.css" type="text/css" />
+    </head>
+    <body>
+        <h1 xmlns="">&lt;xmod:Format&gt;</h1><a name="top"></a>
+        <p class="Nav" xmlns=""><a href="#syntax">Syntax</a>&#160;<a href="#remarks">Remarks</a>&#160;<a href="#example">Example</a></p>
+        <p xmlns="">The Format tag allows you to present your data in a more user-friendly format. With it, you can format currency, numbers, dates. You can perform text substitutions and regular expression substitutions. It also provides you with the ability to cloak text - i.e. obfuscate it so that web 'bots have more difficulty scraping your web pages for data like email addresses. </p><a name="syntax" xmlns=""></a>
+        <h2 xmlns="">Syntax</h2>
+        <div xmlns="">
+            <CODE>&lt;xmod:Format
+    </CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160; Type="Numeric|Float|Date|Text|RegEx|Cloak|HtmlEncode|HtmlDecode|UrlEncode|UrlDecode"<br />&#160;&#160;&#160;&#160;Value="<i>string</i>"<br />&#160;&#160;&#160;&#160;Pattern="<i>string</i>"<br />&#160;&#160;&#160;&#160;Replacement="<i>string</i>"<br />&#160;&#160;&#160;&#160;MaxLength="<i>integer</i>"<br />&#160;&#160;&#160;&#160;InputCulture="<i>locale ID</i>"<br />&#160;&#160;&#160;&#160;OutputCulture="<i>locale ID</i>"</CODE>
+            <CODE>
+                <br />
+            </CODE>
+            <CODE>/&gt;</CODE>
+        </div>
+        <h2 xmlns="">Remarks</h2>
+        <p xmlns="">The Format tag is used to operate on data - usually from form fields, but it can also operate on hard-coded values. It gives you the ability to take a value and adjust its appearance. For instance the value "1" could be formatted as "01", "1", or "1.00". The value "2005-05-21" could be formatted like "05/21/2005", "Sat May 21 2005", etc. </p>
+        <p xmlns="">The Format tag will format values as numbers (no floating point), floating-point numbers, and dates. It will also allow you to perform text substitutions as well as regular expression substitutions.
+
+ 
+
+Format tags are empty tags, meaning that they do not contain any inner text. Please follow the XHTML syntax for empty tags which is to write them as a single tag. (i.e. &lt;xmod:format ... /&gt;   See example)</p>
+        <ul xmlns="">
+            <li><b>Type:</b> <![CDATA[ ]]>This determines how it should treat the value it will be formatting. For numbers and dates, the input value must be convertible to the type you specify. Valid values are below:</li>
+            <ul style="list-style-type: circle;">
+                <li><b>Numeric</b>: the input value will be treated as a whole number (1, 100, -1, 1000, etc.).</li>
+                <li><b>Float</b>: the input value will be treated as a floating point number (1.01, -0.315, etc.)</li>
+                <li><b>Date</b>: the input will be treated as a date/time value (5/21/05, 2005-05-21 1:00 pm, etc.)</li>
+                <li><b>Text</b>: the input is treated as text. This mode allows you to perform replacements in that text by using placeholders ({0}, {1}, etc.) and a list of replacement values. The first item in the list would replace {0}, the second would replace {1}, and so on. (see examples for more info)</li>
+                <li><b>RegEx</b>: the input is treated as text. This mode allows you to put your regular expression skills to work to perform magical feats of text manipulation. In the pattern attribute, you would place the regular expression pattern for matching. In the replacement attribute, you would place your regular expression replacement pattern (see examples for more info)</li>
+                <li><b>Cloak</b>: This type of formatting can be used for potentially sensitive information that you want to hide from robots and spiders which crawl the web looking to harvest information. The primary use for this is to obfuscate email addresses but other data can be used as well. When using the cloak format type, you only need to supply a value. All other attributes are ignored.<br /><br />NOTE: Cloaking uses Javascript to obscure the data within the HTML source code. If Javascript is enabled in the browser, the text will display. If Javascript is disabled, the text will not display. While this is effective at hiding data like email addresses from spam bots, no solution is foolproof. Additionally, this method cannot be used to supply data to a "mailto" hyperlink because of the Javascript involved.</li>
+                <li><b>HtmlEncode/Decode</b>: the input value will have its HTML encoded (or decoded) before rendering out to the page.</li>
+                <li><b xmlns="http://www.w3.org/1999/xhtml">UrlEncode/Decode</b>: the input value will be encoded for URL's (or decoded from a URL-encoded value).<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            </ul>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">Value:</b> This is the input value that you intend to format. It can be hard-coded - i.e. a value you type in, or it can be a field token representing the value of a field.
+NOTE: Sometimes the value you're dealing with may contain double and/or single quotes. In many cases this may prevent the parser from correctly recognizing the correct value of the "value" attribute. In these cases, you can place the value inside the opening and closing tags. See the examples section for details.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li><b>Pattern:</b> This is the pattern XMod will use to perform the formatting. What you place here will depend on what type you have specified. Some examples are listed below. <ul xmlns="" style="list-style-type: circle;"><li><b>Numeric</b>: "0" , "#0", "00", "0.00", "c" (currency), "g" (general number format). On a US system, the results for the input value "1" would be: "1", "1", "01", "1.00", "$1.00", "1" </li><li><b>Date</b>: "MM/dd/yyyy" (01/31/2005), "ddd MMM dd yyyy" (Wed Apr 13 2005) </li><li><b>Text</b>: For text replacements the "pattern" ({0}, {1}, etc.) is embedded in the input value, so no pattern is specified. 
+</li><li><b>RegEx</b>: The input value may be: "Hello NAME, How's the CONDITION" In this case your pattern may be: "(.*)(NAME)(.*)(CONDITION)" and your replacement value might be "$1John$3weather" with the result being: "Hello John, How's the weather". </li><li><b xmlns="http://www.w3.org/1999/xhtml">Cloak</b>: This attribute is not used.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li></ul></li>
+            <li><b>Replacement:</b> The replacement is used for text and regex formatting types. What you place in this attribute depends on which formatting type you're using: <ul xmlns="" style="list-style-type: circle;"><li><b>Text</b>: For text replacements, you would supply a comma-delimited list of values to use for the replacements. Their order will determine which placeholder (i.e. {0}, {1}, etc.) they replace. For example, if the input value is "Hello {0}, How's the {1}?" your replacement might be "John,weather" with the result being "Hello John, How's the weather?" </li><li><b xmlns="http://www.w3.org/1999/xhtml">RegEx</b>: For regular expression-based formatting, you would specify a pattern to match in the pattern attribute and use the captured items in your replacement. For example: The input value may be: "Hello NAME, How's the CONDITION" In this case your pattern may be: "(.*)(NAME)(.*)(CONDITION)" and your replacement value might be "$1John$3weather" with the result being: "Hello John, How's the weather". Notice there are 4 captures in the pattern. the first and third match any characters. The second and fourth match "NAME" and "CONDITION" respectively. In your replacement, the $1 stands for the first capture, $3 stands for the 3rd capture.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li></ul></li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">MaxLength:</b> If this value is 1 or greater, the format tag will truncate the resulting text and add an ellipsis (...). The total number of characters (including the ellipsis) will not exceed the number of characters specified.
+This attribute is ignored if the Format Type is Cloak because truncating the results could prevent the cloaked text from displaying correctly.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li><b>InputCulture/OutputCulture:</b>If the input value is in a culture-specific format, you can specify what culture should be used when trying to convert that value. Dates, for instance, vary widely based on culture. There are many pre-defined culture names (known as LCID's or locale ID's) which are valid values such as: en-US (English - United States), en-GB (English - United Kingdom), fr-FR (French - France), de-DE (German - Germany), es-ES (Spanish - Spain), es-MX (Spanish - Mexico, etc.<ul xmlns="" style="list-style-type: circle;"><li><b>InputCulture</b> is used to tell the tag what culture to assume when processing the incoming value (the value attribute).</li><li><b>OutputCulture</b> is used to tell the tag what culture to assume when performing the formatting.<br /></li><li>For example, the input value may be a US date, but you want to format it for display to a French audience. In that case, you would specify "en-US" as the InputCulture and "fr-FR" as the OutputCulture. When used this way, you can avoid using the pattern attribute altogether and rely on the default formatting for the respective cultures. See the "date" examples below for an example of this.</li></ul></li>
+        </ul>
+        <p xmlns="">&#160;</p><a href="#top" class="link" xmlns="">Back to top</a>
+        <br xmlns="" /><a name="example" xmlns=""></a>
+        <h2 xmlns="">Example</h2>
+        <div xmlns="">
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&lt;xmod:Template ...&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160; ...</CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160; &lt;ItemTemplate&gt;<br /> <![CDATA[      ]]><br /> <![CDATA[      ]]><span style="font-size: 10pt;">EXAMPLE #1</span><br />&#160;&#160;&#160;&#160;&#160;&#160;If Quantity=5 Output Value Will Be: 05.00 </CODE>
+        </div>
+        <div xmlns="">
+            <CODE xmlns="http://www.w3.org/1999/xhtml">
+                <br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;xmod:Format Type="Float" Value='[[Price]]' Pattern="0#.00" /&gt;<br /> <![CDATA[      ]]><br /> <![CDATA[      ]]><span style="font-size: 10pt;">EXAMPLE #2</span><br />&#160;&#160;&#160;&#160;&#160;&#160;If Quantity=5 Output Value Will Be: 05</CODE>
+        </div>
+        <div xmlns="">
+            <CODE xmlns="http://www.w3.org/1999/xhtml">
+                <br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;xmod:Format Type="Numeric" Value='[[Quantity]]' Pattern="d2" /&gt;</CODE>
+        </div>
+        <div xmlns="">
+            <CODE xmlns="http://www.w3.org/1999/xhtml">
+                <br />&#160;&#160;&#160;&#160;&#160;&#160;NOTES: The "d" pattern is a pre-defined pattern for working <br />&#160;&#160;&#160;&#160;&#160;&#160;with numeric values. It works only with whole numbers. It <br />&#160;&#160;&#160;&#160;&#160;&#160;instructs the tag to display the value as a decimal (base 10). <br />&#160;&#160;&#160;&#160;&#160;&#160;The "2" instructs the tag to display the number as a 2 digit <br />&#160;&#160;&#160;&#160;&#160;&#160;number.<br /> <![CDATA[      ]]><br /> <![CDATA[      ]]><span style="font-size: 10pt;">EXAMPLE #3</span><br />&#160;&#160;&#160;&#160;&#160;&#160;If Quantity=5 <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Output On US Systems:$5.00<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Output On United Kingdom Systems:£5.00</CODE>
+        </div>
+        <div xmlns="">
+            <CODE xmlns="http://www.w3.org/1999/xhtml">
+                <br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;xmod:Format Type="Float" Value='[[Price]]' Pattern="c" /&gt;</CODE>
+        </div>
+        <div xmlns="">
+            <CODE xmlns="http://www.w3.org/1999/xhtml">
+                <br />&#160;&#160;&#160;&#160;&#160;&#160;NOTES: No output culture is specified so the output defaults <br />&#160;&#160;&#160;&#160;&#160;&#160;to the web server's culture. The "c" pattern stands for <br />&#160;&#160;&#160;&#160;&#160;&#160;formatting the value as currency.<br /> <![CDATA[      ]]></CODE>
+        </div>
+        <div xmlns="">
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml"> <![CDATA[      ]]><span style="font-size: 10pt;">EXAMPLE #4</span><br />&#160;&#160;&#160;&#160;&#160;&#160;If Quantity=5 <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Output On US Systems:£5.00<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Output On United Kingdom Systems:£5.00</CODE>
+        </div>
+        <div xmlns="">
+            <CODE xmlns="http://www.w3.org/1999/xhtml">
+                <br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;xmod:Format Type="Numeric" Value='[[Price]]' Pattern="c" <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;OutputCulture="en-GB" /&gt;</CODE>
+        </div>
+        <div xmlns="">
+            <CODE xmlns="http://www.w3.org/1999/xhtml">
+                <br />&#160;&#160;&#160;&#160;&#160;&#160;NOTES: United Kingdom English is specified as the output <br />&#160;&#160;&#160;&#160;&#160;&#160;culture, effectively forcing the value to be formatted <br />&#160;&#160;&#160;&#160;&#160;&#160;with the £ symbol, even on US systems.</CODE>
+        </div>
+        <p xmlns="">&#160;</p>
+        <div xmlns="">
+            <CODE><![CDATA[      ]]><span style="font-size: 10pt;">EXAMPLE #5</span><br xmlns="http://www.w3.org/1999/xhtml" />&#160;&#160;&#160;&#160;&#160;&#160;If theDateColumn=04/25/2013 <br xmlns="http://www.w3.org/1999/xhtml" />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Output Value Will Be:04/25/2013</CODE>
+        </div>
+        <div xmlns="">
+            <CODE>
+                <br xmlns="http://www.w3.org/1999/xhtml" />&#160;&#160;&#160;&#160;&#160;&#160;&lt;xmod:Format Type="Date" Value='[[theDateColumn]]' Pattern="MM/dd/yyyy" /&gt;<br /></CODE>
+            <CODE>
+                <br xmlns="http://www.w3.org/1999/xhtml" />
+                <br />&#160;&#160;&#160; &lt;/ItemTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160;&#160;...</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>    &lt;/xmod:Template&gt;
+</CODE>
+        </div><a href="#top" class="link" xmlns="">Back to top</a>
+    </body>
+</html>

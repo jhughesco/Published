@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="826" MadCap:lastWidth="1026" class="">
+    <head><title></title>
+        <link rel="stylesheet" href="XModProHelp.css" type="text/css" />
+    </head>
+    <body>
+        <h1>&lt;xmod:NavigateUrl&gt;</h1><a name="top"></a>
+        <p class="Nav"><a href="#syntax">Syntax</a>&#160;<a href="#remarks">Remarks</a>&#160;<a href="#example">Example</a></p>
+        <p xmlns="">The NavigateUrl tag (new to version 4.6) allows you to call the DNN&#160;API function NavigateUrl(). This allows you to generate URLs that utilize the site's configured URL&#160;Provider and makes it easier to generate Friendly links.   <![CDATA[   ]]></p><a name="syntax"></a>
+        <h2>Syntax</h2>
+        <div xmlns="">
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&lt;xmod:NavigateUrl<br xmlns="http://www.w3.org/1999/xhtml" />&#160;&#160;&#160;&#160;TabId="integer"<br xmlns="http://www.w3.org/1999/xhtml" />&#160;&#160;&#160;&#160;ControlKey="string" &gt;<br /></CODE>
+            <CODE xmlns="http://www.w3.org/1999/xhtml"> <![CDATA[    ]]><br />&#160;&#160;&#160;&#160;&lt;Parameter Name="string" Value="string" /&gt;<br xmlns="http://www.w3.org/1999/xhtml" />&#160;&#160;&#160;&#160;...</CODE>
+        </div>
+        <div xmlns="">
+            <CODE xmlns="http://www.w3.org/1999/xhtml">
+                <br />&lt;/xmod:NavigateUrl&gt;</CODE>
+        </div><a name="remarks"></a>
+        <h2>Remarks</h2>
+        <ul>
+            <li xmlns=""><b xmlns="http://www.w3.org/1999/xhtml">ControlKey</b>:Optional. Specify this if you want to load a particular control on a page. Must supply the TabId if using this property. This property is not frequently used.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li xmlns=""><b xmlns="http://www.w3.org/1999/xhtml">TabId</b>: Optional. The unique numeric value that represents the page. "Tab" is used for historical reasons. Pages in DNN used to be called Tabs. If no TabId is provided, NavigateUrl will return the current page's URL.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li xmlns=""><b xmlns="http://www.w3.org/1999/xhtml">Parameter</b>: Optional. You can specify multiple Parameter tags. These child tags are used to pass parameters via the rendered URL. The tag will URLEncode the value prior to passing it to DNN. The URL&#160;parameter name is the value of the Name property. The parameter's value is defined in the Value property. All values are passed as text so no data type can be specified.</li>
+        </ul><a href="#top" class="link">Back to top</a>
+        <br /><a name="example"></a>
+        <h2>Example</h2>
+        <div xmlns="">
+            <CODE>&lt;div&gt;<br />&#160;&#160;&lt;table width="100%"&gt;<br />&#160;&#160;&#160;&#160;&lt;tr&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;td width="250" valign="top"&gt;<br /> <![CDATA[        ]]><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;!-- EMPLOYEES TEMPLATE --&gt;<br /> <![CDATA[        ]]><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;xmod:Template Id="Employees"&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;ListDatasource commandtext="SELECT * FROM&#160;XMPDemo_Employees" /&gt;<br /></CODE>
+            <CODE>
+                <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;ItemTemplate&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[[FirstName]] [[LastName]]&lt;br /&gt;<br xmlns="http://www.w3.org/1999/xhtml" />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;a href="<span style="color: #ff0000;" xmlns="http://www.w3.org/1999/xhtml">&lt;xmod:NavigateUrl TabId="237"&gt;&lt;Parameter Name="eid" Value='[[Id]]' /&gt;&lt;/xmod:NavigateUrl&gt;</span>"&gt;View Work History&lt;/a&gt;<br xmlns="http://www.w3.org/1999/xhtml" />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/ItemTemplate&gt;<br xmlns="http://www.w3.org/1999/xhtml" /></CODE>
+            <CODE>
+                <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/xmod:Template&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;/td&gt;<br />&#160;&#160;&#160;&#160;&lt;/tr&gt;<br />&#160;&#160;&lt;/table&gt;<br />&lt;/div&gt;</CODE>
+        </div><a href="#top" class="link">Back to top</a>
+    </body>
+</html>

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="10" MadCap:lastHeight="2001" MadCap:lastWidth="778" class="">
+    <head><title></title>
+        <link rel="stylesheet" href="XModProHelp.css" type="text/css" />
+    </head>
+    <body>
+        <h1>&lt;xmod:JsonFeed&gt;</h1><a name="top"></a>
+        <p class="Nav"><a href="#syntax">Syntax</a>&#160;<a href="#remarks">Remarks</a>&#160;<a href="#example">Example</a></p>
+        <p xmlns="">The JsonFeed tag, first introduced in version 4.3, is used to easily generate JSON output from your data. JSON is the lingua franca of client-server communication these days and many Javascript and jQuery plugins natively consume it. You could create a JSON feed using the standard feed tag, but the JsonFeed tag saves you a lot of typing. There may still be times when you want to use special layouts or formatting in your feed that you'll want to use the Feed tag, but in most situations, the JsonFeed is all you need. </p>
+        <h2 xmlns="">Creating A Feed</h2>
+        <p xmlns="">Creating a feed is a two-step process:</p>
+        <ol xmlns="">
+            <li xmlns="http://www.w3.org/1999/xhtml">Create your feed on the Manage Feeds page in the Control Panel. The Feed is very similar to XMod Pro's Template tag and is created in a similar fashion. You begin by clicking the "New Feed"&#160;button. On the dialog which pops-up, choose the type of feed you want to create, select a data source, and click the dialog's "New Feed" button to create it. From there, you can edit your feed in the editor. <br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" />The JsonFeed tag is VERY simple. All you need to do is specify the &lt;xmod:JsonFeed&gt; tag and a &lt;ListDataSource&gt;. That's it. Seriously. XMod Pro will do the extra work of setting your content type to application/json, and formatting the data that comes from the ListDataSource so that the values are properly escaped and formatted for JSON. It will also take the column names from your ListDataSource and use those as the property names in your JSON object. <br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" />For Example:<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" />&lt;xmod:JsonFeed&gt;<br xmlns="http://www.w3.org/1999/xhtml" />&#160;&#160;&lt;ListDataSource CommandText="SELECT FirstName, LastName FROM vw_Users" /&gt;<br xmlns="http://www.w3.org/1999/xhtml" />&lt;/xmod:JsonFeed&gt;<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" />XMod Pro will create a Javascript Array and add an object for each record returned. For the above, the returned result may look something like this: <br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" />[ { "FirstName" : "John", "LastName" : "Smith"}, <br xmlns="http://www.w3.org/1999/xhtml" />&#160;&#160;&#160;{ "FirstName" : "Suzy", "LastName", "Harris" }, <br xmlns="http://www.w3.org/1999/xhtml" />&#160;&#160;&#160;{ "FirstName" : "Sinead", "Conner" } ]<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li>Call your feed. You can get an example of how to call your feed by clicking the "How To Call Your Feed" link on the Manage Feeds page. Basically, you link to it like you would any other page. You'll call XMod Pro's "Feed.aspx" page and pass it a few required parameters and any additional parameters your data source may need to retrieve the data.<br /><br />Use a URL in the form of:<br /><strong>http://<em>sitename</em>/DesktopModules/XModPro/Feed.aspx?xfd=<em>FeedName</em>&amp;pid=<em>PortalId</em></strong><br /><br />Where <em>sitename</em> is your site's domain, <em>FeedName</em> is the name of the feed as listed in the grid, and <em>PortalId</em> is the numeric ID of the portal for which the feed is created.<br /></li>
+        </ol>
+        <h2 xmlns="">A Note About Security</h2>
+        <p xmlns="">It's important to note that feeds, by their nature, are typically intended to be public. No special security measures have been implemented for securing the feed. So you should be careful about what data you make available through a feed. One way you could make your feed more secure is by creating and passing a token to the feed. This token would then be checked by your data source (most likely a stored procedure) to determine its validity, returning the data only if it's valid.</p>
+        <ol xmlns="">&#160;</ol><a name="syntax"></a>
+        <h2>Syntax</h2>
+        <div xmlns="">
+            <CODE>&lt;xmod:JsonFeed   </CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160; Doctype="<i>string</i>"
+    </CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160; ContentType="<i>string</i>"
+    </CODE>
+            <br xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;     ConnectionString="<i>string</i>" </CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160; Filename="<i>string</i>"</CODE>
+        </div>
+        <div xmlns="">
+            <CODE xmlns="http://www.w3.org/1999/xhtml"> &#160;&#160;&#160;ViewRoles="role1,role2,role3"&gt;<br /><br /></CODE>
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160; &lt;ListDataSource CommandText="<i>string</i>" ConnectionString="<i>string</i>"/&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">    &lt;/xmod:JsonFeed&gt;</CODE>
+        </div><a name="remarks"></a>
+        <h2>Remarks</h2>
+        <ul>
+            <li xmlns=""><b>Data Sources</b>: The data for each feed is a SQL command. This could be a SQL <CODE>SELECT</CODE> command or a stored procedure. Supply the SQL command as the CommandText attribute. For stored procedures, use <CODE>EXEC <i>sprocName</i></CODE>. Note that Bit columns are returned as True/False - not 1/0. The data source for a feed is defined in the <CODE>&lt;ListDataSource&gt;</CODE> tag. </li>
+            <li xmlns="">
+                <p xmlns="http://www.w3.org/1999/xhtml"><b xmlns="http://www.w3.org/1999/xhtml" style="font-family: Verdana;">ContentType</b>: Defaults to "text/html". Helps the feed consumer determine the nature of the content. This is often referred to as MIME&#160;types. Other examples are:&#160;"text/plain", "text/xml", "text/javascript", "application/vnd.ms-excel", etc.</p>
+            </li>
+            <li>
+                <p><b style="font-family: Verdana;" xmlns="http://www.w3.org/1999/xhtml">ConnectionString</b>: If you need to specify a SQL Server database other than the current DotNetNuke database, you can supply a connection string here. When specified, it serves as the default connection string for the ListDataSource and DetailDataSource. You can also use a connection string defined in the web.config file. To do so, use the ConnectionString token like so:</p><pre xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">&lt;xmod:JsonFeed ... ConnectionString='[[ConnectionString:<i xmlns="http://www.w3.org/1999/xhtml">connectionName</i>]]' ...&gt;</pre>
+            </li>
+            <li xmlns="" style="text-align: left;"><strong>Doctype:</strong> (Optional) This property allows you to specify the DOCTYPE for the resulting page. Consumers of the feed may use the DOCTYPE to determine how to render the feed. <br xmlns="http://www.w3.org/1999/xhtml" /><br /></li>
+            <li>In addition to its attributes, the Feed tag also contains numerous child 
+ tags which define most of the tag's functionality:<ul xmlns=""><li><p><b xmlns="http://www.w3.org/1999/xhtml" style="font-family: Verdana;">ListDataSource</b>: Provides the data for the feed when it is rendering. It accepts &lt;Parameter&gt; tags to pass parameters as part of the command. The "alias" attribute is optional and is used to avoid conflicts or to accept a parameter with a specific name (the "name" attribute) but use a different parameter name in the command (the "alias" attribute). If no "alias" is specified, the "name" will be used.</p><p>Examples:</p><pre xml:space="preserve">#1
+&lt;ListDataSource CommandText="SELECT FirstName, LastName FROM Users" /&gt;</pre><pre xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">#2
+&lt;ListDataSource CommandText="SELECT FirstName, LastName FROM Users 
+                             WHERE ZipCode = @zip"&gt;
+  &lt;Parameter Name="zip" Value='[[Url:zip]]' /&gt;
+&lt;/ListDataSource&gt;</pre><pre xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">#3
+&lt;ListDataSource CommandText="EXEC GetUsers @zip"&gt;
+  &lt;Parameter Name="zip" Value="12345" /&gt;
+&lt;/ListDataSource&gt;</pre><pre xml:space="preserve">&#160;</pre><p>You can optionally specify a <b xmlns="http://www.w3.org/1999/xhtml">ConnectionString</b> for this data source. If none is specified, the default connection will be used he current DotNetNuke database if the tag doesn't define a connection. As with the template tag, you can use the <code xmlns="http://www.w3.org/1999/xhtml">[[ConnectionString:connectionName]]</code> token to use a connection defined in the web.config file.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</p></li></ul></li>
+            <li xmlns=""><b xmlns="http://www.w3.org/1999/xhtml">Filename</b>: (Optional) This property can be set to give the browser a filename for downloading purposes. It's a great way to provide your users with an export file. For example, by giving your feed a file name of "MyFile.csv" and setting the ContentType to "application/vnd.ms-excel" you can have the file opened by Microsoft Excel (assuming Excel is installed on the user's machine). <br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li xmlns=""><b xmlns="http://www.w3.org/1999/xhtml">ViewRoles</b>: Takes a comma-delimited list of DNN security roles. If the user is logged in and is a member of one of the roles, or is a Host/SuperUser or Admin, the user will be able to see the feed. If the user is not logged-in or is not in one of the roles, he or she will not be able to see the feed. If ViewRoles is empty or is not specified, all users will be able to see the feed.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+        </ul><a href="#top" class="link">Back to top</a>
+        <br /><a name="example"></a>
+        <h2>Example</h2>
+        <div xmlns=""><pre xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">&lt;xmod:JsonFeed&gt;</pre><pre xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">&lt;ListDataSource CommandText="SELECT [AuthorId], [FirstName], [LastName], [GenreId] FROM Authors WHERE 
+GenreId = @gid"&gt;
+&#160;&#160;&lt;Parameter Name="gid" Value='[[Url:genre]]' DataType="Int32" DefaultValue="-1" /&gt;
+&lt;/ListDataSource&gt;</pre><pre xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">&lt;/xmod:JsonFeed&gt;</pre>
+        </div><a href="#top" class="link">Back to top</a>
+    </body>
+</html>

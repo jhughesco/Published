@@ -1,0 +1,44 @@
+﻿<dotnetnuke type="ResourceFile" version="5.0">
+  <files>
+    <file>
+      <path />
+      <name>Alert_Danger.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>Alert_Info.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>Alert_Success.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>Alert_Warning.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>Blank.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>Jumbotron.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>Title_H1.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>Title_H2.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>Title_H3.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>Title_H4.ascx</name>
+    </file>
+  </files>
+</dotnetnuke>

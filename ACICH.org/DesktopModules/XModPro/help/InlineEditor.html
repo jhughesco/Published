@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="8" MadCap:lastHeight="4190" MadCap:lastWidth="1171" class="">
+    <head><title>Adding, Editing, Copying and Deleting Templates</title>
+        <link rel="stylesheet" href="XModProHelp.css" type="text/css" />
+    </head>
+    <body xmlns="">
+        <h1>Inline Editor - Editing Your Forms and Templates with the Inline Editor</h1>
+        <p xmlns="http://www.w3.org/1999/xhtml">Beginning in version 1.4, XMod Pro includes a quick and easy way to edit the templates and forms configured for a given module. It is available only to Host or SuperUser accounts and is accessed via the new Host Options Panel that appears to Hosts and SuperUsers when working with XMod Pro modules. </p>
+        <p xmlns="http://www.w3.org/1999/xhtml">&#160;</p>
+        <p xmlns="http://www.w3.org/1999/xhtml">
+            <img src="Resources/Images/XMP43_HostEditPanel.png" xmlns="http://www.w3.org/1999/xhtml" />
+        </p>
+        <p>&#160;</p>
+        <p>If your modules hasn't yet been configured with a form or template, the Host Options Panel will not appear. </p>
+        <p><b>IMPORTANT</b>: The Host Options Panel and the Inline Editor <b>REQUIRE jQuery 1.3.2 or later</b> to be registered in the page. </p>
+        <p><b>For DNN&#160;5</b> and later, jQuery is usually automatically included. To ensure that you are using version 1.3.2 or later, go to the Host Settings/jQuery section. From there you can specify the URL&#160;to use for jQuery. </p>
+        <p><b>For DNN 4</b>, jQuery is not included by default. Because of this, XMod Pro cannot provide the Host Panel to every module instance. For each module you want to use the panel on, you will need to go to the Configure page for the module (make sure you're logged in as Host/SuperUser) and check the box to enable the panel. Also, specify a URL&#160;to use for the jQuery 1.3.2 library. You should only specify the URL in one module per page because that will include the library for every module on the page.</p>
+        <p xmlns="http://www.w3.org/1999/xhtml">Once you have successfully included the jQuery library and configured your module to use a form and/or template, you can click on the form/template name and the Inline Editor will be displayed, giving you one-click access to edit the current template/form (note: if you are using Internet Explorer, you editor may look slightly different). </p>
+        <p xmlns="http://www.w3.org/1999/xhtml">&#160;</p>
+        <p xmlns="http://www.w3.org/1999/xhtml">
+            <img src="Resources/Images/InlineFormEditor_XMP44.png" xmlns="http://www.w3.org/1999/xhtml" style="width: 1094px;height: 958px;" />
+        </p>
+        <p>&#160;</p>
+        <p xmlns="http://www.w3.org/1999/xhtml">Beyond giving you one-click access for editing, the included editor also makes it easier to add tokens, controls, and tags to your form/template through easy-to-use lists available from the toolbar (number 3 below).</p>
+        <p xmlns="http://www.w3.org/1999/xhtml">&#160;</p>
+        <p xmlns="http://www.w3.org/1999/xhtml">
+            <img src="Resources/Images/InlineFormEditor_WithNumberHighlights_XMP44.png" xmlns="http://www.w3.org/1999/xhtml" style="width: 1098px;height: 962px;" />
+        </p>
+        <p>&#160;</p>
+        <ol xmlns="http://www.w3.org/1999/xhtml">
+            <li xmlns="http://www.w3.org/1999/xhtml"><b xmlns="http://www.w3.org/1999/xhtml">Form/Template Name</b>: The name of the form/template you're editing is displayed above.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li xmlns="http://www.w3.org/1999/xhtml"><b xmlns="http://www.w3.org/1999/xhtml">Tabstrip</b>: When editing forms, you can choose whether to edit the Add form - the form used when creating new records - or the Edit form - used when updating records - simply by clicking its tab.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li xmlns="http://www.w3.org/1999/xhtml"><b>Toolbar</b>:<ul><li xmlns="http://www.w3.org/1999/xhtml"><img src="Resources/Images/FormEditorToolbar_bold.png" /><img src="Resources/Images/FormEditorToolbar_italic.png" /> Select some text in the editor and click these buttons to wrap the text in Bold or Italic HTML tags.</li><li><img src="Resources/Images/FormEditorToolbar_inserttable.png" xmlns="http://www.w3.org/1999/xhtml" /> Inserts the skeleton structure of an HTML table.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li><li xmlns="http://www.w3.org/1999/xhtml"><b xmlns="http://www.w3.org/1999/xhtml">Tags Dropdown</b>: For Forms, this button will display a list of form controls you can choose to use when working with your form. For Templates, this will list the tags that are available for use in your template.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li><li xmlns="http://www.w3.org/1999/xhtml"><b xmlns="http://www.w3.org/1999/xhtml">Tokens Dropdown</b>:&#160;Allows you to select from a list of XMod&#160;Pro tokens such as Field tokens ([[FieldName]]), Portal tokens (e.g. [[Portal:ID]]), User tokens ([[User:DisplayName]]) and others.The token will then be inserted into your code.</li><li xmlns="http://www.w3.org/1999/xhtml"><b xmlns="http://www.w3.org/1999/xhtml">Snippets Dropdown</b>: Allows you to select from and insert a snippet from a list of your available code snippets that you have created.&#160;<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li></ul></li>
+            <li xmlns="http://www.w3.org/1999/xhtml"><b xmlns="http://www.w3.org/1999/xhtml">Editing Area</b>: New to version 4, the editor now has colored syntax highlighting, line numbers, auto-complete of XMod Pro tags, search and replace, auto-indent, and block indent/outdent. Note in the image that &lt;/HeaderTemplate&gt;, &lt;/ul&gt;, and &lt;/FooterTemplate&gt; are highlighted in red. This indicates invalid HTML syntax. However, since templates dynamically build the HTML at run-time, these error indicators can be ignored.</li>
+            <li xmlns="http://www.w3.org/1999/xhtml"><b xmlns="http://www.w3.org/1999/xhtml">Reload Page</b>: If you want your changes to be visible immediately, tick this box. This will instruct XMod Pro to save your form/template changes and then reload the DNN page you were viewing. If this box is not ticked, the changes will still be saved and any page that uses the form/template will see those changes when they're reloaded.</li>
+            <li xmlns="http://www.w3.org/1999/xhtml"><b xmlns="http://www.w3.org/1999/xhtml">Save/Cancel Buttons</b>: Click the Save button to save your changes and return to the Edit Form/Template screen or click Cancel to abandon your changes and return to the Edit Form/Template screen.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+        </ol>
+        <p xmlns="http://www.w3.org/1999/xhtml">&#160;</p>
+        <p>&#160;</p>
+    </body>
+</html>

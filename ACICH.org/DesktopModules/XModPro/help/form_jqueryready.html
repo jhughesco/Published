@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="844" MadCap:lastWidth="902" class="">
+    <head><title></title>
+        <link rel="stylesheet" href="XModProHelp.css" type="text/css" />
+    </head>
+    <body>
+        <h1 xmlns="http://www.w3.org/1999/xhtml">&lt;jQueryReady&gt;</h1><a name="top" xmlns="http://www.w3.org/1999/xhtml"></a>
+        <p class="Nav" xmlns="http://www.w3.org/1999/xhtml"><a href="#syntax">Syntax</a>&#160;<a href="#remarks">Remarks</a>&#160;<a href="#example">Example</a></p>
+        <p xmlns="">The jQueryReady tag is a quick and easy way to embed a jQuery "ready" event in the page.  This tag requires jQuery be included in the page.</p><a name="syntax" xmlns="http://www.w3.org/1999/xhtml"></a>
+        <h2 xmlns="http://www.w3.org/1999/xhtml">Syntax</h2>
+        <div xmlns="">
+            <CODE>&lt;jQueryReady&gt;</CODE>
+            <CODE>&#160;&#160;<br />&#160;&#160;<i xmlns="http://www.w3.org/1999/xhtml">[jQuery&#160;and/or Javascript script]</i><br />&lt;/jQueryReady&gt;</CODE>
+        </div><a name="remarks" xmlns="http://www.w3.org/1999/xhtml"></a>
+        <h2 xmlns="http://www.w3.org/1999/xhtml">Remarks</h2>
+        <ul xmlns="http://www.w3.org/1999/xhtml">
+            <li xmlns=""><b xmlns="http://www.w3.org/1999/xhtml">Usage</b>: Use this tag to quickly insert Javascript and/or jQuery code that should only be run after the document's DOM has been loaded. The jQuery(document).ready() function is standard fare when working with jQuery. This tag allows you to forget about the boilerplate script and focus on your script. The tag will place your script near the bottom of the page - standard practice for improving page load times. Importantly, the tag automatically creates a "closure" for your script allowing you to use the "$" shortcut instead of "jQuery" in your code. Use of the closure also helps ensure your script operates in its own scope and will be not be impacted by other Javascript on the page. This tag requires jQuery be included in the page.</li>
+        </ul><a href="#top" class="link" xmlns="http://www.w3.org/1999/xhtml">Back to top</a>
+        <br xmlns="http://www.w3.org/1999/xhtml" /><a name="example" xmlns="http://www.w3.org/1999/xhtml"></a>
+        <h2 xmlns="http://www.w3.org/1999/xhtml">Example</h2>
+        <p xmlns="http://www.w3.org/1999/xhtml">In the example below, added a "help" image and some help text just after the ListBox. We've set the help SPAN tag containing the help text to initially be hidden (style="display:none;"). Then, we used the jQueryReady tag to attach some code to the image tag's  click event. It simply makes the help SPAN tag visible.</p>
+        <div xmlns="">
+            <CODE xmlns="http://www.w3.org/1999/xhtml"><code xmlns="http://www.w3.org/1999/xhtml">&lt;AddForm&gt;</code>
+                <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;...</code>
+                <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&lt;table&gt;</code>
+                <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&lt;tr&gt;</code>
+                <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160;&#160;
+ &lt;td&gt;</code>
+                <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+ &lt;label for="txtFirstName" text="First Name" /&gt; </code>
+                <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;textbox id="txtFirstName" datafield="FirstName" 
+ datatype="string" /&gt;</code>
+                <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160; 
+ &lt;/td&gt;</code>
+                <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&lt;/tr&gt;</code>
+                <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&lt;tr&gt;</code>
+                <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160; 
+ &lt;td&gt;</code>
+                <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+ &lt;label for="lstColors" text="Favorite Color" /&gt;</code>
+                <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml"> <![CDATA[        ]]></code><code>&lt;listbox id="lstColors" datafield="FavoriteColors" 
+ datatype="string" selectionmode="single"&gt;</code>
+                <br /><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+ &lt;listitem value="#00FF00"&gt;Green&lt;/listitem&gt;</code>
+                <br /><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+ &lt;listitem value="#FF0000" selected="true"&gt;Red&lt;/listitem&gt;</code>
+                <br /><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+ &lt;listitem value="#0000FF"&gt;Blue&lt;/listitem&gt;</code>
+                <br /><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+ &lt;/listbox&gt;</code>
+                <br xmlns="http://www.w3.org/1999/xhtml" />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;img src="/images/help_icon.gif" class="help-icon" /&gt;<br xmlns="http://www.w3.org/1999/xhtml" />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;span class="help-text" style="display:none;"&gt;Choose your absolute favorite color&lt;/span&gt;<br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160;&#160;&lt;/td&gt;</code><br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&lt;/tr&gt;</code><br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&lt;tr&gt;</code><br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160;&#160;&lt;td colspan="2"&gt;</code><br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;addbutton text="Add"/&gt; &lt;cancelbutton 
+ text="Cancel"/&gt;</code><br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160;&#160;&lt;/td&gt;</code><br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&lt;/tr&gt;</code><br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&lt;/table&gt;</code><span style="color: #ff0000;" xmlns="http://www.w3.org/1999/xhtml"><br xmlns="http://www.w3.org/1999/xhtml" />&#160;&#160;&lt;jQueryReady&gt;</span><br xmlns="http://www.w3.org/1999/xhtml" style="color: #ff0000;" /><span style="color: #ff0000;" xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;$("img.help-icon").click(function(){</span><br xmlns="http://www.w3.org/1999/xhtml" style="color: #ff0000;" /><span style="color: #ff0000;" xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160;&#160;$(this).next().show();</span><br xmlns="http://www.w3.org/1999/xhtml" style="color: #ff0000;" /><span style="color: #ff0000;" xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;});</span><br xmlns="http://www.w3.org/1999/xhtml" style="color: #ff0000;" /><span style="color: #ff0000;" xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&lt;/jQueryReady&gt;</span><br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&lt;/AddForm&gt;</code></CODE>
+            <CODE xmlns="http://www.w3.org/1999/xhtml">
+                <br xmlns="http://www.w3.org/1999/xhtml" />&#160;</CODE>
+        </div><a href="#top" class="link" xmlns="http://www.w3.org/1999/xhtml">Back to top</a>
+    </body>
+</html>

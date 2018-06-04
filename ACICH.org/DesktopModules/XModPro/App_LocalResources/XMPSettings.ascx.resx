@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Cancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Close.Text" xml:space="preserve">
+    <value>Save Changes</value>
+  </data>
+  <data name="Template.Text" xml:space="preserve">
+    <value>Template</value>
+  </data>
+  <data name="ControlTitle_xmpsettings.Text" xml:space="preserve">
+    <value>Configure Settings for this XMod Pro Module</value>
+  </data>
+  <data name="Form.Text" xml:space="preserve">
+    <value>Form</value>
+  </data>
+  <data name="Settings.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Security.Text" xml:space="preserve">
+    <value>Security</value>
+  </data>
+  <data name="AddRolesLabel.Text" xml:space="preserve">
+    <value>Roles Whose Members Can Add Records</value>
+  </data>
+  <data name="NoneSelected.Text" xml:space="preserve">
+    <value>(None Selected)</value>
+  </data>
+  <data name="ModuleHelp.Text" xml:space="preserve">
+    <value>This page allows you to select a template and form for use with this module instance.  On the Security Tab, you can select the roles whose members have permission to create records through this module. For additional support please consult the help file which accompanied this application and visit our forums at http://dnndev.com</value>
+  </data>
+  <data name="XMPVersion.Text" xml:space="preserve">
+    <value>XMod Pro Version:</value>
+  </data>
+  <data name="About.Text" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="EnableHostOptionsPanel.Text" xml:space="preserve">
+    <value>Enable Host Options Panel</value>
+  </data>
+  <data name="CustomSettings.Text" xml:space="preserve">
+    <value>Custom Settings</value>
+  </data>
+  <data name="DnnSearch.Text" xml:space="preserve">
+    <value>DNN Search Integration</value>
+  </data>
+  <data name="DnnSearchDescription.Text" xml:space="preserve">
+    <value>You can have the data from this module incorporated into DNN's site-wide search mechanism. To do so, enter a Data Command to retrieve alll the records for this module instance. Then, use field tokens, as you would in a template, to assign your data to the required and optional fields that DNN Search Integration uses.</value>
+  </data>
+  <data name="SearchAuthorIdInfo.Text" xml:space="preserve">
+    <value>User ID of record author (optional). This should evaluate to the DNN User ID of the record's author. Leave it blank if there is no author.</value>
+  </data>
+  <data name="SearchContentInfo.Text" xml:space="preserve">
+    <value>The actual content that will be indexed by DNN.</value>
+  </data>
+  <data name="SearchDataCommandInfo.Text" xml:space="preserve">
+    <value>Enter a SQL command to return the records to be indexed for this module instance. You can use certain tokens like [[Portal:ID]] and [[Module:ID]] but not user or session specific tokens like [[User:ID]], [[Url:paramName]], or [[Form:paramName]] since this will be executed by DNN without a web page being loaded (and thus no user session).  Simply embed your tokens in the command and they'll be replaced at run-time.</value>
+  </data>
+  <data name="SearchDescriptionInfo.Text" xml:space="preserve">
+    <value>A description of the record that will be displayed in the DNN search results page. Descriptions can be a maximum length of 2000 characters.</value>
+  </data>
+  <data name="SearchGuidInfo.Text" xml:space="preserve">
+    <value>Use this field to add URL parameters to the link that DNN creates that points to the detail view of the record.  If your template is displaying a list of books, you might enter: bookid=[[BookId]]. You can chain multiple parameters together just as you would in a standard URL: bookid=[[BookId]]&amp;authorid=[[AuthorId]]. Please ensure that your selected template has a DetailTemplate tag and that the DetailDataSource has Parameter tags set to same names as the URL parameters you pass-in.</value>
+  </data>
+  <data name="SearchKeyInfo.Text" xml:space="preserve">
+    <value>A text value that uniquely identifies this record. Typically this may be the unique numeric ID that is assigned to a record. Search keys can be a maximum of 100 characters.</value>
+  </data>
+  <data name="SearchPubDateInfo.Text" xml:space="preserve">
+    <value>This should evaluate to a valid date and time value. This value should be the date the record was last updated. DNN uses this value to determine if the record should be re-indexed. If you use a date that doesn't change when the record is updated, the record will not be re-indexed. This value is required.</value>
+  </data>
+  <data name="SearchTitleInfo.Text" xml:space="preserve">
+    <value>The title for the record that will appear on the DNN search results page. Titles can be a maximum length of 200 characters.</value>
+  </data>
+  <data name="SecurityDescription.Text" xml:space="preserve">
+    <value>XMod Pro allows you to put multiple templates within a sinlge view or master template file. If you are defining an Add button outside of one of the template tags, you need to set the security for that button here. Otherwise, use the "AddRoles" property of the template tag to define the permissions for the Add buttons inside the template tags.</value>
+  </data>
+  <data name="Cloud.Text" xml:space="preserve">
+    <value>Cloud</value>
+  </data>
+</root>

@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="7" MadCap:lastHeight="6953" MadCap:lastWidth="1090" class="">
+    <head><title></title>
+        <link rel="stylesheet" href="XModProHelp.css" type="text/css" />
+    </head>
+    <body xmlns="">
+        <h1 xmlns="http://www.w3.org/1999/xhtml">Creating, Editing, Copying, Renaming, and Deleting Forms</h1>
+        <p>Don't Feel Like Reading? <b style="color: #ff0000;">Watch the videos</b> instead:</p>
+        <ul>
+            <li><a href="http://dnndev.com/Learn/Videos/vid/13/video/XMod-Pro-3-Form-Manager-Grid.aspx">Form Manager Grid</a>: Takes you on a tour of the Form Manager grid on the Manage Forms page and describes the difference between Custom and Auto-Layout forms.</li>
+            <li><a href="http://dnndev.com/Learn/Videos/vid/5/video/XMod-Pro-Form-Builder-Tour-Contact-Us-Form.aspx">Form Builder Tour</a>: Creating a Contact Us form with Email notification.</li>
+            <li><a href="http://dnndev.com/Learn/Videos/vid/12/video/XMod-Pro-3-Creating-A-DataBound-Form-with-the-Form-Builder.aspx">Creating A Data-Bound Form</a>: Shows how to use the Form Builder to create forms that add and edit records in your database.</li>
+            <li><a href="http://dnndev.com/Learn/Videos/vid/4/video/Creating-Picker-Lists-in-Your-Forms.aspx">Creating Picker Lists</a>: Builds on the data-bound form video and shows you how to setup drop-down lists that are populated from your database. </li>
+        </ul>
+        <p>&#160;</p>
+        <p xmlns="http://www.w3.org/1999/xhtml">Data entry forms are created, edited, copied, renamed, and deleted within the Control Panel's Manage Forms page. The Manage Forms page is only available to Hosts or SuperUser accounts. To get there, select "Control Panel" from the module's Actions/Manage Menu:</p>
+        <p xmlns="http://www.w3.org/1999/xhtml">&#160;</p>
+        <p xmlns="http://www.w3.org/1999/xhtml">
+            <img src="Resources/Images/XMP44_ControlPanelMenu.jpg" xmlns="http://www.w3.org/1999/xhtml" />
+        </p>
+        <p>&#160;</p>
+        <p>On the Control Panel Page, select "Manage Forms":</p>
+        <p xmlns="http://www.w3.org/1999/xhtml">
+            <img src="Resources/Images/XMP4_ControlPanel_Toolbar_ManageForms.png" xmlns="http://www.w3.org/1999/xhtml" />
+        </p>
+        <p>As you can see in the image below, any forms you've already created will be displayed within a two-column grid</p>
+        <p xmlns="http://www.w3.org/1999/xhtml">&#160;</p>
+        <p>
+            <img src="Resources/Images/XMP4_ManageFormsPage.png" xmlns="http://www.w3.org/1999/xhtml" style="width: 934px;height: 729px;" />
+        </p>
+        <p xmlns="http://www.w3.org/1999/xhtml">Buttons to Preview <img src="Resources/Images/preview.png" xmlns="http://www.w3.org/1999/xhtml" />, Edit <img src="Resources/Images/edit.gif" xmlns="http://www.w3.org/1999/xhtml" />, Rename <img src="Resources/Images/rename.png" xmlns="http://www.w3.org/1999/xhtml" />, Copy <img src="Resources/Images/copy.png" xmlns="http://www.w3.org/1999/xhtml" />, or Delete <img src="Resources/Images/delete.gif" xmlns="http://www.w3.org/1999/xhtml" />each form are listed in the left column, followed by the Form's Name. The right-most columns list the date and time the form was last Modified and when it was originally created. You can sort your forms by clicking the header of each column. Click it a second time to reverse the sort order.</p>
+        <p xmlns="http://www.w3.org/1999/xhtml">&#160;</p>
+        <h3>Form Types</h3>
+        <p>Under the Type column, you can see if the form is a Custom HTML&#160;layout form or an Auto-Layout form (added in version 3.0). An Auto-Layout form has been created by and is editable by the Form Builder. You can edit an Auto-Layout form by converting it to a Custom HTML Layout form. This is done by clicking the "Auto-Layout" link for the form in the Type column. Once you do this, XMod Pro will convert the form as a new form. This allows you to convert a form non-destructively.</p>
+        <p>&#160;</p>
+        <h3>Reloading and Navigating the List of Forms </h3>
+        <p>To enhance performance, XMod Pro caches the list of forms. If you have added a form via the Form Builder or via some other means, your new form may not appear in the list. You can rectify this by clicking the Reload button  found on the left side of the grid's navigation bar.</p>
+        <p>
+            <img src="Resources/Images/ControlPanel_GridNavBar_WithDescriptions.png" />
+        </p>
+        <p>Also on the navigation bar, you'll find the usual elements: buttons to page to the first page, previous page, next page, and last page. You can type the number of the page into the text box and go directly to that page. You can also select how many items to show by selecting an appropriate number from the drop-down list box.</p>
+        <h3>
+            <img src="Resources/Images/preview.png" /> Previewing A Form</h3>
+        <p>Click the magnifying glass icon on the row of the form you want to preview.</p>
+        <p>
+            <img src="Resources/Images/FormPreview.png" />
+        </p>
+        <p>The Add Form will be displayed. If you have added validation to your form, you can click the Add button to show the validation messages:</p>
+        <p>
+            <img src="Resources/Images/FormPreview_withValidation.png" />
+        </p>
+        <p><b>NOTE</b>: While the preview does not allow you to submit data, since it is a live preview, some form controls like the FileUpload control may be functional. Additionally, the preview is intended to give you a sense for how a form will look at run-time. Because it doesn't save data, it also does not process tokens like User and other tokens. Depending on how you've setup your form, this may affect the display.</p>
+        <h3>
+            <img src="Resources/Images/rename.png" /> Renaming A Form</h3>
+        <p>Click the Rename image next to the name of the form you want to rename. The row will change to look similar to this: </p>
+        <p>
+            <img src="Resources/Images/RenamingForm.png" />
+        </p>
+        <p>Change the name to the desired text and click the green Save <img src="Resources/Images/accept.gif" /> icon to save your changes. If you wish to cancel out of the operation and keep the name, click the red Cancel <img src="Resources/Images/cancel.gif" /> icon.</p>
+        <h3>
+            <img src="Resources/Images/copy.png" /> Copying A Form</h3>
+        <p>Click the Copy image on the row of the form you want to copy. XMod Pro creates a duplicate of the form, gives it a new name, appending a number to the end of the name, and places it just below the row of the form you're copying. From there you can rename it to whatever name you'd like.</p>
+        <p>
+            <img src="Resources/Images/CopyingAForm.png" />
+        </p>
+        <h3>
+            <img src="Resources/Images/delete.gif" /> Deleting A Form</h3>
+        <p>Click the Delete image on the row of the form you want to delete. XMod Pro prompts you to confirm you want to delete the form. Click the Delete button on the dialog and your form will be deleted. Click the Cancel button if you do not want to delete the form.</p>
+        <p>
+            <img src="Resources/Images/DelectConfirmationDialog.png" />
+        </p>
+        <h3>
+            <img src="Resources/Images/edit.gif" /> Editing A Form</h3>
+        <p xmlns="http://www.w3.org/1999/xhtml">Click the Edit icon on the row of the form you want to edit. The form editor is displayed and loaded with the selected form.</p>
+        <p xmlns="http://www.w3.org/1999/xhtml">
+            <img src="Resources/Images/ManageForms_TextEditor_WithNumbers_XMP44.png" xmlns="http://www.w3.org/1999/xhtml" style="width: 836px;height: 501px;" />
+        </p>
+        <p xmlns="http://www.w3.org/1999/xhtml">&#160;</p>
+        <ol>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">Form Name</b>: The name of the form you're editing is displayed above the editor.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">Help Topics</b>: XMod Pro provides online help for form controls and tokens. You can access it by selecting a topic from the drop-down list.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">Tabstrip</b>: New to version 2.7. Easily switch between editing the Add form and Edit form by clicking on the appropriate tab.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li><b>Toolbar</b>:<ul><li xmlns="http://www.w3.org/1999/xhtml"><img src="Resources/Images/FormEditorToolbar_bold.png" /><img src="Resources/Images/FormEditorToolbar_italic.png" /> Select some text in the editor and click these buttons to wrap the text in Bold or Italic HTML tags.</li><li><img src="Resources/Images/FormEditorToolbar_inserttable.png" xmlns="http://www.w3.org/1999/xhtml" /> Inserts the skeleton structure of an HTML table.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li><li xmlns="http://www.w3.org/1999/xhtml"><b xmlns="http://www.w3.org/1999/xhtml">Tags Dropdown</b>: Allows you to select from and insert a form control tag from a list of available controls. When you select a tag, a designer will pop-up enabling you specify the tag's properties. An example of the Checkbox List control's dialog is below:<br xmlns="http://www.w3.org/1999/xhtml" /><img src="Resources/Images/ManageForms_CheckboxListDesigner_XMP4.png" xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li><li xmlns="http://www.w3.org/1999/xhtml"><b>Tokens Dropdown</b>:&#160;Allows you to select from a list of XMod&#160;Pro tokens. The token will then be inserted into your code.</li><li xmlns="http://www.w3.org/1999/xhtml"><b xmlns="http://www.w3.org/1999/xhtml">Snippets Dropdown</b>: Allows you to select from and insert a snippet from a list of your available code snippets that you have created.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li></ul></li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">Editing Area</b>: New to version 4, the editor now has colored syntax highlighting, line numbers, auto-complete of XMod Pro tags, search and replace, auto-indent, and block indent/outdent. <br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">Update/Cancel Buttons</b>: Click the Update button to save your changes and return to the main Manage Forms screen or click Cancel to abandon your changes and return to the Manage Forms screen.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+        </ol>
+        <h3>Creating A New Form </h3>
+        <p>There are two ways to create a new form in XMod Pro. The Form Builder and the Plain Text Editor. Rather than try to describe all the facets of the Form Builder, we've created some videos that show you instead. These videos are hosted on the internet and, thus, require internet access.</p>
+        <ul>
+            <li><a href="http://dnndev.com/Learn/Videos/vid/5/video/XMod-Pro-Form-Builder-Tour-Contact-Us-Form.aspx">Form Builder Tour</a>: Creating a Contact Us form with Email notification.</li>
+            <li><a href="http://dnndev.com/Learn/Videos/vid/12/video/XMod-Pro-3-Creating-A-DataBound-Form-with-the-Form-Builder.aspx">Creating A Data-Bound Form</a>: Shows how to use the Form Builder to create forms that add and edit records in your database.</li>
+            <li><a href="http://dnndev.com/Learn/Videos/vid/4/video/Creating-Picker-Lists-in-Your-Forms.aspx">Creating Picker Lists</a>: Builds on the data-bound form video and shows you how to setup drop-down lists that are populated from your database. </li>
+        </ul>
+        <h4>Creating a Custom HTML Layout Form</h4>
+        <p>The Form Builder is a great way to create forms quickly and easily. Even if you plan to customize it later, we recommend looking at using the Form Builder to jump-start your form development and then converting that form to a Custom HTML Layout form. The Custom&#160;HTML&#160;Layout form type gives you the greatest flexibility and options when it comes to layout, styling, and interactivity. Of course, that additional power means you'll have to do some more work. The Plain Text Editor was created for that purpose. See the section above to see how the editor functions. </p>
+        <p>To create a new Custom HTML Layout form, un-tick the "Use Form Builder"&#160;checkbox and click the New Form button at the top of the Form Manager grid. You'll be presented with a screen similar to what you see below.</p>
+        <p xmlns="http://www.w3.org/1999/xhtml">
+            <img src="Resources/Images/XMP4_ManageForms_NewCustomHtmlForm_Settings.png" xmlns="http://www.w3.org/1999/xhtml" />
+        </p>
+        <ol>
+            <li>Enter the name to use for the form. You can only use Letters, Numbers, hypens (-) and Underscores (_) in the form name. Special characters and spaces are not allowed.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li>If you want XMod Pro to auto-create a basic Add and Edit form for you, select a Data Source. You can choose a table in the DNN&#160;database or one in an External SQL Server database. If you choose the latter, you will need to supply a connection string. If you just want a bare-bones form skeleton, choose "None".<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li>If you choose DotNetNuke Database as your Data Source or, if you've chosen External SQL Server Database, entered a connection string and clicked the Load Tables button, you'll see a drop-down list with tables in your datasource. Select the table you want to work with.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li>Once you've selected a table, you'll need to select a Key Field. This is the column in the table that uniquely identifies each record. It is required so that XMod Pro can set up editing for the record.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li>Finally, click the Create button to have your form generated (refer to the plain text form editor description earlier in this topic for usage details). Click the Cancel button to go back to the Form Manager grid.</li>
+        </ol>
+        <p>&#160;</p>
+        <p>If you click the Create button, your form will be generated and placed into the form editor, ready for editing. The generated form definition provides the Add and Edit forms, complete with the data commands to insert, retrieve, and update the record. It also provides a basic, CSS-based layout that you can alter or remove. It also makes educated guesses as to which controls to use for your form. Make any changes you want to the form. Once you are satisfied with your edits, click the Save button.</p>
+        <p>&#160;</p>
+        <p>
+            <img src="Resources/Images/XMP4_ManageForms_GeneratedCustomHtmlForm.png" xmlns="http://www.w3.org/1999/xhtml" />
+        </p>
+    </body>
+</html>

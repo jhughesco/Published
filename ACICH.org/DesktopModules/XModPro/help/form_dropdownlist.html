@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="4" MadCap:lastHeight="3852" MadCap:lastWidth="828" class="">
+    <head><title></title>
+        <link rel="stylesheet" href="XModProHelp.css" type="text/css" />
+    </head>
+    <body>
+        <h1>&lt;DropDownList&gt;</h1><a name="top"></a>
+        <p class="Nav"><a href="#syntax">Syntax</a>&#160;<a href="#remarks">Remarks</a>&#160;<a href="#example">Example</a></p>
+        <p>The DropdownList tag renders as a drop-down list control at run-time.</p><a name="syntax"></a>
+        <h2>Syntax</h2>
+        <div xmlns=""><code xmlns="http://www.w3.org/1999/xhtml">&lt;DropDownList    </code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;AccessKey="<i>string</i>" <br />&#160;&#160;&#160;&#160;AppendDataBoundItems="True|<b>False</b>" <br />&#160;&#160;&#160;&#160;BackColor="<i>color name</i>|#dddddd" <br />&#160;&#160;&#160;&#160;BorderColor="<i>color name</i>|#dddddd" <br />&#160;&#160;&#160;&#160;BorderStyle="<b>NotSet</b>|None|Dotted|Dashed|Solid|Double|Groove|Ridge|         Inset|Outset" <br />&#160;&#160;&#160;&#160;BorderWidth="<i>size</i>" <br />&#160;&#160;&#160;&#160;CssClass="<i>string</i>" <br /><code>&#160;&#160;&#160;DataField="<i>string</i>"<br /></code>&#160;&#160;DataSourceID="<i>string</i>" <br />&#160;&#160;&#160;&#160;DataTextField="<i>string</i>" <br />&#160;&#160;&#160;&#160;DataTextFormatString="<i>string</i>" <br />&#160;&#160;&#160; DataType="<b>string</b>|int32|...."<br />&#160;&#160;&#160;&#160;DataValueField="<i>string</i>" <br />&#160;&#160;&#160;&#160;Font-Bold="True|<b>False</b>" <br />&#160;&#160;&#160;&#160;Font-Italic="True|<b>False</b>" <br />&#160;&#160;&#160;&#160;Font-Names="<i>string</i>" <br />&#160;&#160;&#160;&#160;Font-Overline="True|<b>False</b>" <br />&#160;&#160;&#160;&#160;Font-Size="<i>string</i>|Smaller|Larger|XX-Small|X-Small|Small|Medium|        Large|X-Large|XX-Large" <br />&#160;&#160;&#160;&#160;Font-Strikeout="True|<b>False</b>" <br />&#160;&#160;&#160;&#160;Font-Underline="True|<b>False</b>" <br />&#160;&#160;&#160;&#160;ForeColor="<i>color name</i>|#dddddd" <br />&#160;&#160;&#160;&#160;Height="<i>size</i>" <br />&#160;&#160;&#160;&#160;ID="<i>string</i>" <br />&#160;&#160;&#160;&#160;Nullable="True|<b>False</b>"<br />&#160;&#160;&#160;&#160;ParameterName="<i>string</i>"<br />&#160;&#160;&#160;&#160;Style="<i>string</i>" <br />&#160;&#160;&#160;&#160;TabIndex="<i>integer</i>"<br />&#160;&#160;&#160;&#160;TargetControlId="<i>string</i>"<br />&#160;&#160;&#160;&#160;TargetDataSourceId="<i>string</i>" <br />&#160;&#160;&#160;&#160;ToolTip="<i>string</i>" <br />&#160;&#160;&#160;&#160;Visible="<b>True</b>|False" <br />&#160;&#160;&#160;&#160;Width="<i>size</i>" &gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" />
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160; &lt;ListItem Value="<i>string</i>" &gt;Item1&lt;/ListItem&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160; &lt;ListItem Value="<i>string</i>" &gt;Item2&lt;/ListItem&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160; ...</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">    &lt;/DropDownList&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" />
+        </div><a name="remarks"></a>
+        <h2>Remarks</h2>
+        <ul>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">AccessKey</b>: In browsers that support it, this property can be set to a character on the keyboard that can be used to set focus to the control. For instance, setting the value to F allows the user to access the control by pressing Alt+F on their keyboard (for Windows machines)<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">AppendDataBoundItems</b>: If True, items retrieved from a <CODE xmlns="http://www.w3.org/1999/xhtml" style="font-size: 9pt;">&lt;ControlDataSource&gt;</CODE> tag will be appended to the list of items already defined in the control. This only applies if the control is bound to such a tag. The default value is False.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">BackColor</b>: Color of the background of the control.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">BorderColor</b>: Color of the border around the control.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">BorderStyle</b>: Style of the border around the control.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">BorderWidth</b>: Width of the border around the control, specified in <a href="units.html" xmlns="http://www.w3.org/1999/xhtml">units.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</a></li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">CssClass</b>: Name of the Cascading Style Sheets (CSS) class used to style this control.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">DataField</b>: Name of the parameter in the <code xmlns="http://www.w3.org/1999/xhtml" style="font-size: 9pt;">&lt;SubmitCommand&gt;</code> which will be filled with this control's data on when the form is submitted and/or the parameter in the <code xmlns="http://www.w3.org/1999/xhtml" style="font-size: 9pt;">&lt;SelectCommand&gt;</code> which will supply this control's data when the form is loaded. This attribute is required if the control will participate in operations with your form's data commands.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">DataSourceId</b>: If this control's data is supplied by a <code xmlns="http://www.w3.org/1999/xhtml" style="font-size: 9pt;">&lt;ControlDataSource&gt;</code> tag, specify that tag's ID in this attribute. This attribute is required only if the control's data is supplied via a <code xmlns="http://www.w3.org/1999/xhtml" style="font-size: 9pt;">&lt;ControlDataSource&gt;</code> tag.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">DataTextField</b>: When using a <code xmlns="http://www.w3.org/1999/xhtml" style="font-size: 9pt;">&lt;ControlDataSource&gt;</code> this attribute specifies the column name in that datasource that supplies each list item's display text. This attribute is required if the control's data is supplied via a <code xmlns="http://www.w3.org/1999/xhtml" style="font-size: 9pt;">&lt;ControlDataSource&gt;</code>&#160;tag.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">DataTextFormatString</b>: Gets or sets the formatting string used to control how data bound to the list control is displayed.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">DataType</b>: The type of data this control is supplying to the data commands. This is a <a href="datatypes.html" xmlns="http://www.w3.org/1999/xhtml">Database type</a>. Valid values are: string (default), int32, int64, boolean . This attribute is required if the control will participate in operations with your form's data commands.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">DataValueField</b>: When using a <code xmlns="http://www.w3.org/1999/xhtml" style="font-size: 9pt;">&lt;ControlDataSource&gt;</code> this attribute specifies the column name in that datasource that supplies each list item's hidden value. This attribute is required only if the control's data is supplied via a <code xmlns="http://www.w3.org/1999/xhtml" style="font-size: 9pt;">&lt;ControlDataSource&gt;</code> tag.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">Font Properties</b>: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. <a href="fontproperties.html" xmlns="http://www.w3.org/1999/xhtml">More<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</a></li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">ForeColor</b>:&#160;Sets the foreground color (typically the color of the text) of the control.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;<br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">Height</b>: Height of the control, specified in <a href="units.html" xmlns="http://www.w3.org/1999/xhtml">units</a>.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">ID</b>: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">Nullable</b>: Since an item is always selected in a drop-down list, if Nullable is set to True (the default value is False), the control will return a DBNull value if the selected item has a hidden value of an empty string.  If a DBNull value is passed to this control, regardless of the Nullable setting, XMod Pro will attempt to select the first item that has an empty string as its hidden value. If no item is found, it will attempt to select the first item in the list.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">ParameterName</b>: The name of the parameter the target ControlDataSource is expecting in order to retrieve its data.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">Style</b>: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. "color: red; border: solid 1px black;").<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">TabIndex</b>: Sets the tab index for the control. <br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li><b>TargetControlId</b>:&#160;One or more control ID's (separated by commas - new to v.4.0). This property is used when creating dependent list controls and reflects the control(s) which should be updated when this control's value has changed.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">TargetDataSourceId</b>:&#160;One or more ControlDataSource control ID's (separated by commas - new to v.4.0). This property is used when creating dependent list controls and reflects the data sources that should be updated with this control's newly selected value.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">ToolTip</b>: In browsers that support it, sets the text to display when the mouse pointer hovers over the control.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">Visible</b>: Determines if the control is visible (true) or hidden (false).<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">Width</b>: Width of the control in <a href="units.html" xmlns="http://www.w3.org/1999/xhtml">units</a>.<br xmlns="http://www.w3.org/1999/xhtml" />&#160;</li>
+            <li style="font-weight: bold;" xmlns=""><b xmlns="http://www.w3.org/1999/xhtml">Usage</b><span style="font-weight: normal;" xmlns="http://www.w3.org/1999/xhtml">&#160; The drop-down list allows <code style="font-size: 9pt;">&lt;ListItem&gt;</code> child tags which define the items that will appear in the list. The control can also be bound to a <code style="font-size: 9pt;">&lt;ControlDataSource&gt;</code> tag. To do so, specify the ID of the <code style="font-size: 9pt;">&lt;ControlDataSource&gt;</code> tag in the control's "DataSourceId" attribute, the name of the column in the data source that should supply the display text for each list item, and the column in the data source that should supply the hidden value of each list item.</span>
+            </li>
+        </ul>
+        <h2 xmlns="">Creating Dependent Lists/Cascading Lists</h2>
+        <p style="font-weight: normal;" xmlns="">New In Version 1.5: Two drop-down list controls can be bound together so that the selected value in the first control determines the available values in the second control.  To do this, you'll need to set a few properties on the 1st control and bind the 2nd control to a <code xmlns="http://www.w3.org/1999/xhtml" style="font-size: 9pt;">&lt;ControlDataSource&gt;</code>. </p>
+        <p style="font-weight: normal;" xmlns=""><b>Example</b>
+        </p>
+        <p style="font-weight: normal;" xmlns="">For this example, we'll be using the DNN Lists table. This table contains numerous values - among them are a list of Countries and, for some of those Countries, a list of Regions. We will set up two drop-down list controls. The 1st control will load a list of Countries from the Lists table. The 2nd control will be dynamically loaded with a list of Regions (if any) for the selected country. Thus, linking together two cascading dropdownlists (ddls). Not all countries will have regions. </p><pre xml:space="preserve" xmlns="">&lt;AddForm&gt;
+&#160;&#160;&lt;SubmitCommand CommandText="INSERT INTO Contacts(ContactName,Country,Region) 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;VALUES(@ContactName,@Country,@Region)" /&gt;</pre><pre xml:space="preserve" xmlns="">
+&#160;&#160;&lt;ControlDataSource Id="dsCountries" 
+&#160;&#160;&#160;&#160;CommandText="SELECT Text, EntryID FROM Lists WHERE ListName='Country' ORDER BY Text" /&gt;</pre><pre xml:space="preserve" xmlns="">
+&#160;&#160;&lt;ControlDataSource id="dsRegions" 
+&#160;&#160;&#160;&#160;CommandText="SELECT Text, Value FROM Lists WHERE ParentID=@ParentID"&gt;
+&#160;&#160;&#160;&#160;&lt;Parameter Name="ParentID" /&gt;
+&#160;&#160;&lt;/ControlDataSource&gt;
+&#160;&#160;...
+&#160;&#160;&lt;Label For="ddlCountries" Text="Country" /&gt;
+&#160;&#160;&lt;DropdownList Id="ddlCountries" DataField="Country" DataType="string" 
+&#160;&#160;&#160;&#160;DataTextField="Text" DataValueField="EntryID" DataSourceId="dsCountries" 
+&#160;&#160;&#160;&#160;TargetDataSourceId="dsRegions" ParameterName="ParentID" TargetControlId="ddlRegions" /&gt;
+
+&#160;&#160;&lt;Label For="ddlRegions" Text="Region" /&gt;</pre><pre xml:space="preserve" xmlns="">  &lt;DropdownList Id="ddlRegions" DataField="Region" DataType="string" 
+&#160;&#160;&#160;&#160;DataTextField="Text" DataValueField="Value" DataSourceId="dsRegions" /&gt;
+&#160;&#160;
+&#160;&#160;&lt;AddButton Text="Add" /&gt; &amp;nbsp; &lt;CancelButton Text="Cancel" /&gt;
+&#160;&#160;
+&lt;/AddForm&gt;</pre>
+        <p xmlns="">In the example above, there are two &lt;ControlDataSource&gt; tags. The first loads the list of Countries from the DNN Lists table and is linked to the "ddlCountries" drop-down list. The second one will be used to lookup the list of Regions in the selected country. </p>
+        <p xmlns="">The DNN&#160;Lists table is setup so that each record can be the "parent" of one or more other records. If a record has a parent, its "ParentID" column will contain the EntryID of its parent. So, for our example, to get a list of regions in a given country, we look for all records that have a ParentID that matches the EntryID of our country. So, we've setup the ControlDataSource to accept a "ParentID" parameter.</p>
+        <p xmlns="">Next, we need to setup the Country drop-down list to send its value to the Regions ControlDataSource. It is set to load its data from the "dsCountries" ControlDataSource using the DataSourceId, DataTextField, and DataValueField attributes. To enable the control to cause the Regions drop-down list to reload its data, we:</p>
+        <ol xmlns="">
+            <li>Specify the TargetControlId. This is the control we want to be dependent on this control's value. For the example, that is "ddlRegions".</li>
+            <li>Specify the TargetDataSourceId. This is the ID of the ControlDataSource used to fill the target control. In this example, it is "dsRegions".</li>
+            <li>Specify the ParameterName. This is the name of the parameter the target ControlDataSource is expecting in order to retrieve its data. In the example, this is "ParentID". </li>
+        </ol>
+        <p xmlns="">So, when a country is selected, a parameter will be created with the name "ParentID". It's value will be set to the <b>value</b> (not the display text) of the currently selected country. That parameter will then be passed to the target ControlDataSource (dsRegions) and the target control (ddlRegions) will be re-bound to the data.</p>
+        <p style="font-weight: normal;" xmlns="">&#160;</p><a href="#top" class="link">Back to top</a><a name="example"></a>
+        <h2>Example 1 - General Usage</h2>
+        <div style="font-family: Courier New, Monospace;" xmlns=""><code xmlns="http://www.w3.org/1999/xhtml">&lt;AddForm&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;...</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&lt;table&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160; &lt;tr&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160; 
+ &lt;td&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+ &lt;Label For="txtFirstName" Text="First Name" /&gt; </code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;TextBox Id="txtFirstName" DataField="FirstName" 
+ DataType="string" /&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160;&#160; 
+ &lt;/td&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160; &lt;/tr&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160; &lt;tr&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160;&#160; 
+ &lt;td&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+ &lt;Label For="ddlColors" Text="Favorite Color" /&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml"> <![CDATA[         ]]></code><span class="CodeHighlight" xmlns="http://www.w3.org/1999/xhtml"><code>&lt;DropDownList Id="ddlColors" Datafield="FavoriteColor" DataType="string"&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+ &lt;ListItem Value="#00FF00"&gt;Green&lt;/ListItem&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;ListItem Value="#FF0000" Selected="true"&gt;Red&lt;/ListItem&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;ListItem Value="#0000FF"&gt;Blue&lt;/ListItem&gt;</code><br style="mc-tag-and-class: code;" /><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/DropDownList&gt;</code></span>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/td&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160; &lt;/tr&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160; &lt;tr&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160;&#160; 
+ &lt;td colspan="2"&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+ &lt;AddButton Text="Add" /&gt; &lt;CancelButton 
+ Text="Cancel" /&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/td&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;&#160;&lt;/tr&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&lt;/table&gt;</code>
+            <br style="mc-tag-and-class: code;" xmlns="http://www.w3.org/1999/xhtml" /><code xmlns="http://www.w3.org/1999/xhtml">&lt;/AddForm&gt;</code>
+        </div>
+        <h2 xmlns="">Example 2 - Binding to a Data Source</h2><pre xml:space="preserve" xmlns="">&lt;AddForm&gt;</pre><pre xml:space="preserve" xmlns="">&#160;&#160;...
+&#160;&#160;&lt;ControlDataSource Id="dsColors" CommandText="SELECT ColorId, ColorName FROM MyColorsTable" /&gt;
+&#160;&#160;...
+&#160;&#160;&lt;DropDownList Id="ddlColors" DataSourceId="dsColors" DataTextField="ColorName" DataValueField="ColorId"
+&#160;&#160;&#160;&#160; DataField="FavoriteColor" DataType="Int32" /&gt;</pre><pre xml:space="preserve" xmlns="">&lt;/AddForm&gt;</pre>
+        <h2 xmlns="">Example 3 - Adding Items to a Data-Bound List</h2>
+        <p xmlns="">This example shows how to use the AppendDataBoundItems property to add a "None Selected" item to a list that is being populated from a table.</p><pre xml:space="preserve" xmlns="">&lt;AddForm&gt;</pre><pre xml:space="preserve" xmlns="">&#160;&#160;...
+&#160;&#160;&lt;ControlDataSource Id="dsColors" CommandText="SELECT ColorId, ColorName FROM MyColorsTable"/&gt;
+&#160;&#160;...
+&#160;&#160;&lt;DropDownList Id="ddlColors" DataSourceId="dsColors" DataTextField="ColorName" DataValueField="ColorId"
+&#160;&#160;&#160;&#160; DataField="FavoriteColor" DataType="Int32" AppendDataBoundItems="True"&gt;
+&#160;&#160;&#160;&#160;&lt;ListItem Value="-1"&gt;(None Selected)&lt;/ListItem&gt;
+&#160;&#160;&lt;/DropDownList&gt;</pre><pre xml:space="preserve" xmlns="">&lt;/AddForm&gt;</pre>
+        <h2 xmlns="">Example 4 - How to Require an Item Be Selected</h2>
+        <p xmlns="">This example shows how you can require that the user choose an item from your data-bound list. Notice the Value for the "None Selected" item is set to an empty string. This will be interpreted by the Required Field Validator as not having a value. Presumably the colors you're retrieving from the MyColorsTable table will have values. This type of approach will work for hard-coded lists as well.</p><pre xml:space="preserve" xmlns="">&lt;AddForm&gt;</pre><pre xml:space="preserve" xmlns="">&#160;&#160;...
+&#160;&#160;&lt;ControlDataSource Id="dsColors" CommandText="SELECT ColorId, ColorName FROM MyColorsTable" /&gt;
+&#160;&#160;...
+&#160;&#160;&lt;DropDownList Id="ddlColors" DataSourceId="dsColors" DataTextField="ColorName" DataValueField="ColorId"
+&#160;&#160;&#160;&#160; DataField="FavoriteColor" DataType="Int32" AppendDataBoundItems="True"&gt;
+&#160;&#160;&#160;&#160;&lt;ListItem Value=""&gt;(None Selected)&lt;/ListItem&gt;
+&#160;&#160;&lt;/DropDownList&gt;
+&#160;&#160;&lt;Validate Type="Required" Target="ddlColors" Text="**" Message="Please select a color" /&gt;
+&#160;&#160;...
+&#160;&#160;&lt;ValidationSummary Id="vsSummary" DisplayMode="BulletList" /&gt;
+&#160;&#160;...</pre><pre xml:space="preserve" xmlns="">&lt;/AddForm&gt;</pre><a href="#top">Back to top</a>
+    </body>
+</html>

@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="8" MadCap:lastHeight="1916" MadCap:lastWidth="1000" class="">
+    <head><title></title>
+        <link rel="stylesheet" href="XModProHelp.css" type="text/css" />
+    </head>
+    <body>
+        <h1 xmlns="">&lt;xmod:Select&gt;</h1><a name="top"></a>
+        <p class="Nav" xmlns=""><a href="#syntax">Syntax</a>&#160;<a href="#remarks">Remarks</a>&#160;<a href="#example">Example</a></p>
+        <p xmlns="">The <code style="font-size: 9pt;" xmlns="http://www.w3.org/1999/xhtml">&lt;xmod:Select&gt;</code> gives you a lot of flexibility 
+ in creating your display template. It's similar in 
+ function to Visual Basic's Select/Case statement and Javascript's switch/case 
+ statement. For non-programmer's you can think of it as a multiple choice tag. The tag can be used both within a template and outside of a template. In fact, it can be used to hide or show templates as well as other text and HTML.</p><a name="syntax" xmlns=""></a>
+        <h2 xmlns="">Syntax</h2>
+        <div xmlns="">
+            <CODE>&lt;xmod:Select
+    </CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160; Mode="Standard|Inclusive"&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160; &lt;Case </CODE>
+            <CODE>CompareType="Numeric|Float|Date|Text|Regex|Boolean|Role"
+    </CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Value="<i xmlns="http://www.w3.org/1999/xhtml">string</i>"
+    </CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Expression="<i>string</i>"
+    </CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Operator="&lt;|&gt;|&lt;&gt;|=|&lt;=|&gt;="
+    </CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; IgnoreCase="true|false"<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Culture="<i>LocaleID</i>" &gt;</CODE>
+        </div>
+        <div xmlns="">
+            <CODE> &#160;&#160;&lt;/Case&gt;<br /> <![CDATA[    ]]></CODE>
+            <CODE>&lt;Case&gt;...&lt;/Case&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160; ...</CODE>
+            <br style="mc-tag-and-class: CODE;" />
+            <CODE>&#160;&#160;&#160; &lt;Else&gt;...&lt;/Else&gt;<br /></CODE>
+            <CODE>&lt;/xmod:Select&gt;</CODE>
+        </div>
+        <h2 xmlns="">Remarks</h2>
+        <ul xmlns="">
+            <li>The <code xmlns="http://www.w3.org/1999/xhtml" style="font-size: 9pt;">&lt;xmod:Select&gt;</code> tag contains one or more
+        <code xmlns="http://www.w3.org/1999/xhtml" style="font-size: 9pt;">&lt;Case&gt;</code> tags and one optional
+        <code xmlns="http://www.w3.org/1999/xhtml" style="font-size: 9pt;">&lt;Else&gt;</code> tag. At run-time, XMod Pro will evaluate 
+ each <code xmlns="http://www.w3.org/1999/xhtml" style="font-size: 9pt;">&lt;Case&gt;</code> tag beginning with the first one in 
+ the list. If the tag doesn't evaluate to True, XMod Pro moves to the next
+        <code xmlns="http://www.w3.org/1999/xhtml" style="font-size: 9pt;">&lt;Case&gt;</code> tag and evaluates it. It continues this 
+ way until it reaches a true <code xmlns="http://www.w3.org/1999/xhtml" style="font-size: 9pt;">&lt;Case&gt;</code>. If none is 
+ found, then nothing will be displayed unless an <code xmlns="http://www.w3.org/1999/xhtml" style="font-size: 9pt;">&lt;Else&gt;</code> 
+        tag has been included. If so, it's contents will be displayed. <br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">Comparison Data Types:</b> Note that when XMod Pro tests to see if the text 
+ "1" is the same as the text "1". XMod isn't comparing the values as numbers. 
+ It's comparing the values as text. However, that can easily be changed by using 
+ the <code xmlns="http://www.w3.org/1999/xhtml" style="font-size: 9pt;">&lt;Case&gt;</code> tag's CompareType 
+ attribute. Using this, you can tell XMod to compare the values as numeric 
+ values, floating point numbers, dates, boolean, text, or to see if the value 
+ matches a regular expression pattern. You can also compare whether the current 
+ user is/isn't in one or more security roles.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li><b xmlns="http://www.w3.org/1999/xhtml">Operators:</b> You're not 
+ limited to just testing for equality. Using the operator 
+ attribute of the <code xmlns="http://www.w3.org/1999/xhtml" style="font-size: 9pt;">&lt;Case&gt;</code> tag, you can test for 
+ equality "=", inequality "&lt;&gt;", less-than "&lt;", greater-than "&gt;", 
+ less-than-or-equal "&lt;=", and greater-than-or-equal "&gt;=". Of course, these 
+ operators don't make sense for all types of comparisons. For instance, if you 
+ are doing a regular expression comparison, the value can either match or 
+ not-match the regular expression pattern. So, the only valid operators in that 
+ case are "=" and "&lt;&gt;".<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li xmlns="http://www.w3.org/1999/xhtml"><b xmlns="http://www.w3.org/1999/xhtml">Case-Sensitive Comparisons:</b> If you're doing 
+ text comparisons, you can set the <code xmlns="http://www.w3.org/1999/xhtml" style="font-size: 9pt;font-family: monospace;">&lt;Case&gt;</code> tag's
+ IgnoreCase attribute to "true" or "false" to tell 
+ the tag to perform a case-insensitive comparison (true) or a case-sensitive 
+ comparison (false).<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li xmlns="http://www.w3.org/1999/xhtml"><b xmlns="http://www.w3.org/1999/xhtml">Culturally-Sensitive Comparisons:</b> The
+        <code xmlns="http://www.w3.org/1999/xhtml" style="font-size: 9pt;">&lt;Case&gt;</code> tag includes a 
+ culture attribute. This can be set to an LCID (a culture ID) that will 
+ instruct the tag that comparisons should be made using the settings of that 
+ culture. If no culture attribute is set, the tag will 
+ attempt to use the current culture. NOTE: Boolean comparisons do not use a 
+ culture setting. Additionally, regular expressions use the system's culture by 
+ default. You cannot specify a culture for them. However, as with all 
+ comparisons, you can specify "invariant" as the culture to perform a culturally 
+ neutral comparison.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+            <li xmlns="http://www.w3.org/1999/xhtml"><b xmlns="http://www.w3.org/1999/xhtml">Evaluation Modes:</b> The <span style="font-family: monospace;" xmlns="http://www.w3.org/1999/xhtml">&lt;xmod:Select&gt;</span> tag provides 
+ one attribute: Mode. Valid values for this attribute are "standard" and 
+ "inclusive". By default, Mode is set to "standard".
+        <ul xmlns="http://www.w3.org/1999/xhtml"><li><b xmlns="http://www.w3.org/1999/xhtml">Standard:</b> the tag will evaluate all <span style="font-family: monospace;">&lt;Case&gt;</span> tags until it finds one that 
+ evaluates to true. It will display that tag's content and stop evaluating. If no 
+ true <span style="font-family: monospace;" xmlns="http://www.w3.org/1999/xhtml">&lt;Case&gt;</span> tag is found and an <span style="font-family: monospace;" xmlns="http://www.w3.org/1999/xhtml">&lt;Else&gt;</span> tag has been supplied, the <span style="font-family: monospace;" xmlns="http://www.w3.org/1999/xhtml">&lt;Else&gt;</span> tag's 
+ content will be displayed.</li><li><b xmlns="http://www.w3.org/1999/xhtml">Inclusive:</b> ALL <span style="font-family: monospace;" xmlns="http://www.w3.org/1999/xhtml">&lt;Case&gt;</span> tags will be 
+ evaluated. Any tags that evaluate to true will have their content displayed. If 
+ an <span style="font-family: monospace;">&lt;Else&gt;</span> tag has been supplied, its content will also be displayed.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li></ul></li>
+            <li xmlns="http://www.w3.org/1999/xhtml"><b xmlns="http://www.w3.org/1999/xhtml">Case Attributes:</b>
+                <ul xmlns="http://www.w3.org/1999/xhtml">
+                    <li><b xmlns="http://www.w3.org/1999/xhtml">CompareType</b>: This allows you to tell the tag what type of data is being compared. 
+ This attribute is REQUIRED. Valid values are:
+                </li>
+                    <li>
+                        <ul xmlns="http://www.w3.org/1999/xhtml">
+                            <li xmlns="http://www.w3.org/1999/xhtml"><b xmlns="http://www.w3.org/1999/xhtml">Numeric</b>: Value and expression are treated as numbers.</li>
+                            <li xmlns="http://www.w3.org/1999/xhtml"><b xmlns="http://www.w3.org/1999/xhtml">Float</b>: Value and expression are treated as floating-point numbers.</li>
+                            <li xmlns="http://www.w3.org/1999/xhtml"><b xmlns="http://www.w3.org/1999/xhtml">Date</b>: Value and expression are treated as date/time values.</li>
+                            <li xmlns="http://www.w3.org/1999/xhtml"><b xmlns="http://www.w3.org/1999/xhtml">Text</b>: Value and expression are treated as text.</li>
+                            <li xmlns="http://www.w3.org/1999/xhtml"><b xmlns="http://www.w3.org/1999/xhtml">Regex</b>: Value is compared against the regular expression pattern 
+ in expression. Valid operators are "=" and "&lt;&gt;".</li>
+                            <li xmlns="http://www.w3.org/1999/xhtml"><b xmlns="http://www.w3.org/1999/xhtml">Boolean</b>: Value and expression are treated as True/False values. 
+ When comparing numbers as booleans, 0 is False and all other numbers 
+ are True. Valid operators are "=" and "&lt;&gt;".</li>
+                            <li xmlns="http://www.w3.org/1999/xhtml"><b xmlns="http://www.w3.org/1999/xhtml">Role</b>: The expression is treated as a comma-delimited list of security role names. 
+ value is ignored. Valid operators are "=" and "&lt;&gt;". Note that if you are logged-in as host, the case statement will evaluate to True, even though the account may not be a member of one of the specified roles. To accurately test the functionality, you should login as a Non-host/superuser account.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+                        </ul>
+                    </li>
+                    <li><b xmlns="http://www.w3.org/1999/xhtml">Value:</b> This is the value the tag will test. This attribute is REQUIRED unless CompareType is set to "Role".<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+                    <li><b xmlns="http://www.w3.org/1999/xhtml">Expression</b>: This is the expression used to test 
+ the value. This can be a hard-coded value or field token. When CompareType is 
+ set to "Regex", expression should be a regular expression pattern. When 
+ CompareType is set to "Role", expression should be set to a comma-delimited list 
+ of security role names.&#160; This attribute is REQUIRED.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+                    <li><b xmlns="http://www.w3.org/1999/xhtml">Operator</b>: 
+ Determines what kind of evaluation will be made. Valid values are:
+                <ul xmlns="http://www.w3.org/1999/xhtml"><li>= (equality)</li><li>&lt; (less-than)</li><li>&gt; (greater-than)</li><li>&lt;&gt; (not equal)</li><li>&lt;= (less-than or equal-to)</li><li>&gt;= (greater-than or equal-to)</li></ul>               Example: value="1" and expression="2" and operator="&lt;". 
+ This would translate to: 1&lt;2. The value property 
+ is always on the left side of the operator while expression is always on the right.
+ NOTE: Not all operators function for all types of comparisons. With regular expression 
+ comparisons, you can specify "=" for "Is A Match" and "&lt;&gt;" for
+ "Is NOT A Match", but the other operators have no relevance. If "&lt;&gt;" is 
+ not specified, then "=" is assumed. <br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+                    <li><b xmlns="http://www.w3.org/1999/xhtml">IgnoreCase</b>: If you're doing 
+ text comparisons, you can set to "true" or "false" to tell 
+ the tag to perform a case-insensitive comparison (true) or a case-sensitive 
+ comparison (false). Default is set to "true".<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+                    <li><b xmlns="http://www.w3.org/1999/xhtml">Culture</b>: This can be set to a LocaleID (a culture ID) that will 
+ instruct the tag that comparisons should be made using the settings of that 
+ culture. If no culture attribute is set, the tag will 
+ attempt to use the current culture. NOTE: Boolean comparisons do not use a 
+ culture setting. Additionally, regular expressions use the system's culture by 
+ default. You cannot specify a culture for them. However, as with all 
+ comparisons, you can specify "invariant" as the culture to perform a culturally 
+ neutral comparison.<br xmlns="http://www.w3.org/1999/xhtml" /><br xmlns="http://www.w3.org/1999/xhtml" /></li>
+                </ul>
+            </li>
+        </ul><a href="#top" class="link" xmlns="">Back to top</a>
+        <br xmlns="" /><a name="example" xmlns=""></a>
+        <h2 xmlns="">Example</h2>
+        <div xmlns="">
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&lt;xmod:Template ...&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160; ...</CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160; &lt;ItemTemplate&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;Your favorite color is: <br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;xmod:Select&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;Case CompareType="text" Operator="=" Value='[[FavColor]]'<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Expression="blue" IgnoreCase="true"&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;span color="#0000FF"&gt;BLUE&lt;/span&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/Case&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;Case CompareType="text" Operator="=" Value='[[FavColor]]'<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Expression="red" IgnoreCase="true"&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;span color="#FF0000"&gt;RED&lt;/span&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/Case&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;Case CompareType="text" Operator="=" Value='[[FavColor]]'<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Expression="green" IgnoreCase="true"&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;span color="#00FF00"&gt;GREEN&lt;/span&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/Case&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;Else&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;We don't know your favorite color<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/Else&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;/xmod:Select&gt;&lt;br /&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;xmod:Select&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;Case CompareType="role" Operator="=" Expression="Administrators"&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(This area reserved for Admins only)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/Case&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;/xmod:Select&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160; &lt;/ItemTemplate&gt;</CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;...</CODE>
+            <br style="mc-tag-and-class: CODE;" xmlns="http://www.w3.org/1999/xhtml" />
+            <CODE xmlns="http://www.w3.org/1999/xhtml">    &lt;/xmod:Template&gt;
+</CODE>
+        </div><a href="#top" class="link" xmlns="">Back to top</a>
+    </body>
+</html>

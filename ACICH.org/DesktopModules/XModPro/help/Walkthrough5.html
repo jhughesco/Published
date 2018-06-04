@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="5603" MadCap:lastWidth="891" class="">
+    <head><title></title>
+        <link rel="stylesheet" href="XModProHelp.css" type="text/css" />
+    </head>
+    <body xmlns="">
+        <h1>Walkthrough Five: <br />Displaying The Feedback Form Data</h1>
+        <p>This walkthrough assumes you have successfully completed <a href="Walkthrough3.html">Walkthrough Four "Saving Data From The Feedback Form"</a>. </p>
+        <p>In the last walkthrough, we modified our feedback form so that it now saves data to the database. Now we'll create a template to display that data. </p>
+        <ol>
+            <li>In Walkthrough 3 and 4, we used the <b>FormView</b> module. This is useful if we just want to display a form. However, since we'll be displaying the data from that form as well, we'll need to use the main XMod Pro module. So, open a page on your site and place an XMod Pro module instance on that page, configuring it to use the "Feedback Form" form.</li>
+            <li>Ensure you're logged-in as Host or SuperUser.</li>
+            <li>We're going to create a new template. So, from the Actions menu, select <b>Manage Templates</b>:<br /><img src="ActionMenu_ManageTemplates.png" /></li>
+            <li>Click the <b>New Template</b> button to create a new template. </li>
+            <li>For the Template Name, type in "CustomerFeedback" (without quotes).  The Content editor will contain some boilerplate code that can help you get a jump-start creating your template. We don't need it for this example, so just delete all the text.</li>
+            <li>Enter the following template definition into the Content editor area and save the template:<br /><pre xml:space="preserve">&lt;xmod:addbutton text="Submit Feedback" /&gt;
+&lt;xmod:template&gt;
+  &lt;ListDataSource 
+    CommandText="SELECT FeedbackId, Name, Email, Question 
+                 FROM&#160;XMP_Feedback"/&gt;
+  &lt;DetailDataSource 
+    CommandText="SELECT Name, Email, Question 
+                 FROM XMP_Feedback 
+                 WHERE FeedbackId = @FeedbackId"&gt;
+    &lt;parameter name="FeedbackId" /&gt;
+  &lt;/DetailDataSource&gt;
+ 
+&lt;HeaderTemplate&gt;<br />  &lt;table style="border: 1px solid black; padding: 5px;"&gt;<br />    &lt;tr&gt;
+      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+      &lt;td&gt;<br />        &lt;strong&gt;Name&lt;/strong&gt;<br />      &lt;/td&gt;<br />      &lt;td&gt;<br />        &lt;strong&gt;Email&lt;/strong&gt;<br />     &lt;/td&gt;<br />    &lt;/tr&gt;
+  &lt;/HeaderTemplate&gt;
+  &lt;ItemTemplate&gt;<br />    &lt;tr&gt;
+      &lt;td&gt;
+        &lt;xmod:detailimage imageurl="~/images/rt.gif"&gt;
+          &lt;parameter name="FeedbackId" value='[[FeedbackId]]'/&gt;
+        &lt;/xmod:detailimage&gt;
+      &lt;/td&gt;
+      &lt;td&gt;[[Name]]&lt;/td&gt;<br />      &lt;td&gt;[[Email]]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;[[Question]]&lt;/td&gt;<br />    &lt;/tr&gt;<br />  &lt;/ItemTemplate&gt;
+  &lt;FooterTemplate&gt;<br />    &lt;/table&gt;<br />  &lt;/FooterTemplate&gt;
+
+  &lt;DetailTemplate&gt;
+    &lt;h1&gt;Feedback Details&lt;/h1&gt;
+    &lt;strong&gt;Name:&lt;/strong&gt; [[Name]]&lt;br /&gt;
+    &lt;strong&gt;Email:&lt;/strong&gt; &lt;a href="mailto:[[Email]]"&gt;[[Email]]&lt;/a&gt;&lt;br /&gt;
+    &lt;strong&gt;Question:&lt;/strong&gt;&lt;br /&gt;
+    [[Question]]&lt;br /&gt;&lt;br /&gt;
+    &lt;xmod:returnbutton text="Back" /&gt;
+  &lt;/DetailTemplate&gt;
+&lt;/xmod:template&gt;
+</pre><p>Most of the template should be familiar from previous walkthrough's. We've highlighted some areas of interest:. </p><p><b>Add Button</b></p><p>We have added an <code>&lt;xmod:addbutton&gt;</code>&#160;tag <i>outside</i> the <code>&lt;xmod:template&gt;</code> tag. At run-time, this will render as an HTML&#160;push-button that will cause the AddForm to be displayed. It's useful to note that the tag is outside the template tag - something we haven't seen before. When used this way, you need to configure the module to tell it which DNN security roles are allowed to add records. This is done via the Configure page for the module which we'll cover later.</p><p><b>Displaying the List of Records</b></p><p>As for the rest of the display, we've used the <code>&lt;xmod:template&gt;</code> tag to define our template; placed a <code>&lt;ListDataSource&gt;</code> tag in the template tag to tell XMod Pro what data to retrieve; used the <code>&lt;HeaderTemplate&gt;</code>, <code>&lt;ItemTemplate&gt;</code> (<code>&lt;AlternatingItemTemplate&gt;</code> is optional and not used here), and <code>&lt;FooterTemplate&gt;</code> to define the non-repeating Header and Footer areas of an HTML table and the repeating area (<code>&lt;ItemTemplate&gt;</code>) where our data is contained. Finally, we have added field tokens for each of the columns in our data source: <code>[[Name]]</code>, <code>[[Email]]</code>, and <code>[[Question]]</code>. </p><p>One of the nice aspects of using your own HTML is that we were able to add a second row to be displayed for each record in the <code>&lt;ItemTemplate&gt;</code> section. The second row spans all the columns in the table, making it easier to display the Question values which will typically much more text than can be contained in a single column. With most ASP.NET controls, having two rows per record often requires special handling, if it's available at all. With XMod Pro, you simply add another row as we've done.</p><p><b>Providing A Detail View</b></p><p>For this example, a detail view really isn't necessary. However, it has been added to show how it's done.</p><p>There are four necessary components for creating the detail view:</p><ol><li><p><b>Detail Data Source</b>: This tag tells XMod Pro what data to retrieve when a detail button (or link or image) is clicked. Its command text should retrieve one record. Typically this is done by passing in one or more parameters. In our case, we're looking for the record WHERE&#160;FeedbackId = @FeedbackId. So, we define a &lt;parameter&gt;&#160;tag that tells XMod Pro about that parameter: &lt;parameter name="FeedbackId"/&gt;</p></li><li><p><b>Detail Button</b>: There are three forms of detail buttons in XMod Pro - &lt;xmod:detailbutton&gt;, which renders as a push-button; &lt;xmod:detaillink&gt;, which renders as a hyperlink; and &lt;xmod:detailimage&gt; which renders as a clickable image. For this example we chose the image. We have specified an ImageUrl property, pointing to an image which *should* be in most default DNN installations Feel free to choose a different image. Notice the "~" - the tilde character. This is a handy shortcut. It stands for "Application Root Directory". So, when developing on localhost/DNN50Test, the rendered URL would be "/DNN50Test/images/rt.gif". When you go live on http://mysite.com the URL&#160;would be "/images/rt.gif". </p><p>More importantly, notice the &lt;parameter&gt; tag in the detail image button:</p><pre xml:space="preserve">&lt;parameter name="FeedbackId" value='[[FeedbackId]]' /&gt;</pre><p>This is the same regardless of which form of button you're using. It defines the parameter we'll be passing to &lt;DetailDataSource&gt; and the name of the parameter must match the one we defined in the data source tag. Additionally, we need to specify a value for the parameter. In this case, we're passing the FeedbackId for the current record. Also remember that since we're using a field token inside a tag's attribute, we must use single-quotes instead of double-quotes to delimit that value.</p></li><li><p><b>Detail Template</b>: Finally, if you're going to show a detail view, you need to define it. That's where the &lt;DetailTemplate&gt; tag comes in. In our example, we're using HTML and field tokens to display the details of the record and we're also using the [[Email]] value to set up a "mailto" link that, when clicked, will pop-up the user's mail client so an email can be sent to the customer.</p></li><li><p><b>Return Button</b>:Once the user has viewed the details of a record he/she needs a way to get back to the list of records. That's where the &lt;xmod:returnbutton&gt; plays its role. As with most XMod Pro buttons, the return button comes in several flavors: &lt;xmod:returnbutton&gt;, &lt;xmod:returnlink&gt; and &lt;xmod:returnimage&gt;. </p><p>&#160;</p></li></ol></li>
+            <li>
+                <p>Open the XMod Pro Configure page <br /></p>
+                <p>
+                    <img src="ActionMenu_Configure.png" />
+                </p>
+            </li>
+            <li>
+                <p>On the configuration page, select "CustomerFeedback" from the Template drop-down list.and configure the module to use the template. The module should already be configured to use the "FeedbackForm" form.</p>
+            </li>
+            <li>
+                <p>Click the <b>Security</b> tab and select the roles that should be allowed to add records. If you are logged-in as Host or an Administrator you will be able to see the AddButton. For other roles, the button will be hidden unless you select those roles on the Security tab.</p>
+                <p>
+                    <img src="Configure_Security.png" />
+                </p>
+            </li>
+            <li>Click the Close button to save your changes.</li>
+            <li>
+                <p>Your module should look something like this:</p>
+                <p>
+                    <img src="Walkthrough5_TemplateInitialDisplay.png" />
+                </p>
+                <p>Notice that the table does not appear, nor does any of the static text we placed in the table. When there are no records to display, the Header and Footer will not be rendered (nor will the Item and AlternatingItem templates). This is the expected behavior for most solutions you'd want to create. If you want something to display when there are no records, you can use the <code>&lt;NoItemsTemplate&gt;</code> tag in your <code>&lt;xmod:template&gt;</code> tag. This works in much the same way as the <code>&lt;HeaderTemplate&gt;</code> and other "template" tags. Simply put the HTML and text in there that you want to render when there are no records and that will be displayed.</p>
+            </li>
+            <li>
+                <p>Clicking the Submit Feedback button displays the form for adding a new record:</p>
+                <p>
+                    <img src="Walkthrough3_FormView.png" />
+                </p>
+            </li>
+            <li>
+                <p>Fill the form in with some sample information like so:</p>
+                <p>
+                    <img src="Walkthrough5_FilledInForm.png" />
+                </p>
+            </li>
+            <li>
+                <p>Click the Send Your Question button and the following results (or something similar) should be displayed:</p>
+                <p>
+                    <img src="Walkthrough5_DisplayResultsAfterAddingRecord.png" />
+                </p>
+            </li>
+            <li>
+                <p>Now, click the detail image button (the right-pointing arrow in this example) and you should see a detail view similar to this:</p>
+                <p>
+                    <img src="Walkthrough5_DetailTemplateDisplay.png" />
+                </p>
+            </li>
+        </ol>
+    </body>
+</html>

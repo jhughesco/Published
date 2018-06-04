@@ -1,0 +1,33 @@
+﻿.xmp-designer
+{
+    width: 400px;
+}
+
+.xmp-designer-row 
+{
+    overflow: hidden;
+    width: 100%;
+}
+
+.xmp-designer label 
+{
+    width: 120px;
+    display: block;
+    float: left;
+    margin-bottom: 10px;
+}
+
+.xmp-designer select
+{
+    margin-bottom: 8px;
+}
+
+.xmp-designer .designer-height, .xmp-designer .designer-width 
+{
+    width: 50px;
+}
+
+.xmp-designer .designer-maxlength 
+{
+    width: 75px;
+}
