@@ -224,7 +224,7 @@
                       </xmod:Redirect>
                     </div>
                 </td>
-                <td>CHANGE ME BACK TO 'LOCATION'</td>
+                <td>THIS? 'LOCATION'</td>
                 <td><%#Eval("Values")("Ad_Title")%></td>
                 <td>
                     <xmod:Format runat="server" Type="Float" Value='<%#Eval("Values")("Ad_Price")%>' Pattern="c" /></td>
