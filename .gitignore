@@ -6,7 +6,9 @@
 *.user
 *.userosscache
 *.sln.docstates
-**/App_Data/**
+
+**/ACICH.org/App_Data/**
+
 
 
 # User-specific files (MonoDevelop/Xamarin Studio)
