@@ -1,6 +1,6 @@
 <%@ Control Language="vb" AutoEventWireup="false" Inherits="KnowBetter.XModPro.FormBase" %>
 <%@ Register Assembly="KnowBetter.XModPro.Web.Controls" Namespace="KnowBetter.XModPro.Web.Controls.Form" TagPrefix="xmod" %>
-<xmod:FormView runat="server"><AddItemTemplate><xmod:AddForm runat="server">
+<xmod:FormView runat="server"><AddItemTemplate><xmod:AddForm runat="server" Clientname="Join">
   
   <ScriptBlock ScriptId="CustomCSS" BlockType="HeadScript" RegisterOnce="true">
     <style type="text/css">
@@ -15,6 +15,11 @@
         font-size: 12px;
       }
       
+      .join-form .progress {
+        margin-top: 5px;
+        margin-bottom: 0px;
+      }
+      
       .validate-error {
         color: red;
         display: block;
@@ -23,7 +28,12 @@
       .required-field {
       	border-left: 1px solid red; 
       }
-    </style>  
+      
+      #username_exists, #displayname_exists, #email_exists { display: none; } 
+    </style>
+    
+    <script type="text/javascript" src="./js/pwstrength/pwstrength-bootstrap.min.js"></script>
+    
   </ScriptBlock>
   
   <SubmitCommand CommandText="" />
@@ -88,9 +98,12 @@
     <AddButton CssClass="btn btn-primary btn-block" Text="Create My Account" />
             
   </div>
-</xmod:AddForm></AddItemTemplate>
+  
+  <jQueryReady>
+		$('#' + Join.Password).pwstrength({
+      ui: { showVerdictsInsideProgressBar: true }
+    });
+  </jQueryReady>
 
 
-
-
-</xmod:FormView>
+</xmod:AddForm></AddItemTemplate></xmod:FormView>
