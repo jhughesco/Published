@@ -8,6 +8,7 @@
 *.sln.docstates
 
 **/App_Data/**
+**/_default/Logs/**
 
 
 

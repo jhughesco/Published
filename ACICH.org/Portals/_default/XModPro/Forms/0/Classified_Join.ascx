@@ -29,7 +29,8 @@
       	border-left: 1px solid red; 
       }
       
-      #username_exists, #displayname_exists, #email_exists { display: none; } 
+      #username_exists, #displayname_exists, #email_exists { display: none; }
+      
     </style>
     
     <script type="text/javascript" src="./js/pwstrength/pwstrength-bootstrap.min.js"></script>
@@ -103,6 +104,77 @@
 		$('#' + Join.Password).pwstrength({
       ui: { showVerdictsInsideProgressBar: true }
     });
+    
+    $('#' + Join.Username).blur(function() {
+     	var $control =  $(this);
+      
+      $.ajax({
+        url: "/DesktopModules/XModPro/Feed.aspx",
+        type: "POST",
+        dataType: "HTML",
+        data: {
+          "pid": 0,
+          "xfd": "Join_Username_Exists",
+          "x": $control.val()
+        },
+        success: function(data) {
+          if (parseInt(data) !== 0 ) {
+          	$('#username_exists').fadeIn('fast');
+          } else {
+            $('#username_exists').fadeOut('fast');
+          }
+        }
+      });
+      
+    });
+    
+    $('#' + Join.EmailAddress).blur(function() {
+     	var $control =  $(this);
+      
+      $.ajax({
+        url: "/DesktopModules/XModPro/Feed.aspx",
+        type: "POST",
+        dataType: "HTML",
+        data: {
+          "pid": 0,
+          "xfd": "Join_Email_Exists",
+          "x": $control.val()
+        },
+        success: function(data) {
+          if (parseInt(data) !== 0 ) {
+          	$('#email_exists').fadeIn('fast');
+          } else {
+            $('#email_exists').fadeOut('fast');
+          }
+        }
+      });
+      
+    });
+    
+    $('#' + Join.Displayname).blur(function() {
+     	var $control =  $(this);
+      
+      $.ajax({
+        url: "/DesktopModules/XModPro/Feed.aspx",
+        type: "POST",
+        dataType: "HTML",
+        data: {
+          "pid": 0,
+          "xfd": "Join_Displayname_Exists",
+          "x": $control.val()
+        },
+        success: function(data) {
+          if (parseInt(data) !== 0 ) {
+          	$('#displayname_exists').fadeIn('fast');
+          } else {
+            $('#displayname_exists').fadeOut('fast');
+          }
+        }
+      });
+      
+    });
+
+    
   </jQueryReady>
 
 
