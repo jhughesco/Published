@@ -8,8 +8,8 @@
 *.sln.docstates
 
 **/App_Data/**
+./App_Data/Search/[_]*.*
 **/_default/Logs/**
-
 
 
 # User-specific files (MonoDevelop/Xamarin Studio)
@@ -264,3 +264,22 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+*.gen
+*.cfs
+ACICH.org/App_Data/Search/segments_2n
+ACICH.org/App_Data/Search/segments.gen
+ACICH.org/App_Data/Search/_2m.cfs
+ACICH.org/App_Data/Search/_2l.cfs
+ACICH.org/App_Data/Search/_2k.cfs
+ACICH.org/App_Data/Search/_2j.cfs
+ACICH.org/App_Data/Search/_2i.tvx
+ACICH.org/App_Data/Search/_2i.tvf
+ACICH.org/App_Data/Search/_2i.tvd
+ACICH.org/App_Data/Search/_2i.tis
+ACICH.org/App_Data/Search/_2i.tii
+ACICH.org/App_Data/Search/_2i.prx
+ACICH.org/App_Data/Search/_2i.nrm
+ACICH.org/App_Data/Search/_2i.frq
+ACICH.org/App_Data/Search/_2i.fnm
+ACICH.org/App_Data/Search/_2i.fdx
+ACICH.org/App_Data/Search/_2i.fdt

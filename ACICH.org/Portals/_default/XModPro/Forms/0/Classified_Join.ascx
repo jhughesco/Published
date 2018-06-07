@@ -37,7 +37,13 @@
     
   </ScriptBlock>
   
-  <SubmitCommand CommandText="" />
+  <SelectCommand CommandText="SELECT getdate() AS Start" />
+  
+  <SubmitCommand CommandText="XMP_Form_Timestamp" CommandType="StoredProcedure">
+    <Parameter Name="Start" />
+    <Parameter Name="ERROR" DataType="String" Size="250" Direction="Output" />
+  </SubmitCommand>
+  
 
   <div class="join-form">
     
@@ -88,94 +94,83 @@
       </div>
     </div>
     
+    
+    <div class="form-group">
+      <label for="Firstname">Firstname - This is to stop false registrations - Do not fill in</label> 
+      <Textbox ID="Firstname" DataField="Firstname" DataType="String" Nullable="True" autocomplete="off"  />
+      <Validate Type="regex" Target="Firstname" Text="Invalid" ValidationExpression="^\s*$" Message="BOT ALERT!!" />      
+    </div>
+    
+       
+    
     <div class="form-group">
       <CheckBox Id="Agree" DataField="Agree" DataType="Boolean"></CheckBox> <span><strong>I agree to the <a href="/terms" target="_blank">Terms and Conditions</a></strong></span>
       <Validate Type="checkbox" CssClass="validate-error" Target="Agree" Text="Required" Message="You must agree to the terms and conditions." />
     </div>
     
-    
+     
     <ValidationSummary CssClass="alert alert-warning" Id="JoinValidate" DisplayMode="BulletList" HeaderText="Please correct the following errors:" />
     
-    <AddButton CssClass="btn btn-primary btn-block" Text="Create My Account" />
+    <AddButton CssClass="btn btn-primary btn-block" Text="Create My Account" Redirect="/Join/Verify" RedirectMethod="Get" />
+    
+    <Validate Type="Database" />
+    
+    <Validate Type="Action" />
             
   </div>
   
   <jQueryReady>
-		$('#' + Join.Password).pwstrength({
-      ui: { showVerdictsInsideProgressBar: true }
-    });
+		
+    $('#' + Join.Firstname).closest('.form-group').hide();
     
-    $('#' + Join.Username).blur(function() {
-     	var $control =  $(this);
-      
-      $.ajax({
-        url: "/DesktopModules/XModPro/Feed.aspx",
-        type: "POST",
-        dataType: "HTML",
-        data: {
-          "pid": 0,
-          "xfd": "Join_Username_Exists",
-          "x": $control.val()
-        },
-        success: function(data) {
-          if (parseInt(data) !== 0 ) {
-          	$('#username_exists').fadeIn('fast');
-          } else {
-            $('#username_exists').fadeOut('fast');
-          }
-        }
-      });
-      
-    });
-    
-    $('#' + Join.EmailAddress).blur(function() {
-     	var $control =  $(this);
-      
-      $.ajax({
-        url: "/DesktopModules/XModPro/Feed.aspx",
-        type: "POST",
-        dataType: "HTML",
-        data: {
-          "pid": 0,
-          "xfd": "Join_Email_Exists",
-          "x": $control.val()
-        },
-        success: function(data) {
-          if (parseInt(data) !== 0 ) {
-          	$('#email_exists').fadeIn('fast');
-          } else {
-            $('#email_exists').fadeOut('fast');
-          }
-        }
-      });
-      
-    });
-    
-    $('#' + Join.Displayname).blur(function() {
-     	var $control =  $(this);
-      
-      $.ajax({
-        url: "/DesktopModules/XModPro/Feed.aspx",
-        type: "POST",
-        dataType: "HTML",
-        data: {
-          "pid": 0,
-          "xfd": "Join_Displayname_Exists",
-          "x": $control.val()
-        },
-        success: function(data) {
-          if (parseInt(data) !== 0 ) {
-          	$('#displayname_exists').fadeIn('fast');
-          } else {
-            $('#displayname_exists').fadeOut('fast');
-          }
-        }
-      });
-      
+    $('#' + Join.Password).pwstrength({
+        ui: { showVerdictsInsideProgressBar: true }
     });
 
+    $('#' + Join.Username).blur(function () {
+        var $control = $(this);
+        var $warning = $('#username_exists');
+        CallFeed("Join_Username_Exists", $control, $warning);
+    });
+
+    $('#' + Join.EmailAddress).blur(function () {
+        var $control = $(this);
+        var $warning = $('#email_exists');
+        CallFeed("Join_Email_Exists", $control, $warning);
+    });
+
+    $('#' + Join.Displayname).blur(function () {
+        var $control = $(this);
+        var $warning = $('#displayname_exists');
+        CallFeed("Join_Displayname_Exists", $control, $warning);
+    });
+
+    var CallFeed = function (feedname, $control, $warning) {
+        $.ajax({
+            url: "/DesktopModules/XModPro/Feed.aspx",
+            type: "POST",
+            dataType: "HTML",
+            data: {
+                "pid": 0,
+                "xfd": feedname,
+                "x": $control.val()
+            },
+            success: function (data) {
+                if (parseInt(data) !== 0) {
+                    $warning.fadeIn('fast');
+                } else {
+                    $warning.fadeOut('fast');
+                }
+            }
+        });
+    };
     
   </jQueryReady>
-
-
+  
+	<AddUser Email='[[EmailAddress]]' Username='[[Username]]' Password='[[Password]]' DisplayName='[[Displayname]]'></AddUser>
+  
+  <Login Username='[[Username]]' Password='[[Password]]' RememberMe="True"></Login>
+  
+  <DateInput Id="Start" DataField="Start" DataType="datetime" Visible="False" Readonly="True" />
+  
 </xmod:AddForm></AddItemTemplate></xmod:FormView>

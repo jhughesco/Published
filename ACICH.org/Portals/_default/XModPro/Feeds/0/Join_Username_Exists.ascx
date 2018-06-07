@@ -4,7 +4,7 @@
 <xmod:Feed runat="server" ContentType="text/html">
 
 <ListDataSource CommandText="SELECT COUNT(*) AS TotalCount FROM Users WHERE Username = @Username" >
-  <Parameter Name="Username" Value='<%#UrlData("x")%>' Datatype="String" />
+  <Parameter Name="Username" Value='<%#FormData("x")%>' Datatype="String" />
 </ListDataSource>
 
 <ItemTemplate><%#Eval("Values")("TotalCount")%></ItemTemplate>
